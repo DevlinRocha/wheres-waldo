@@ -1,5 +1,9 @@
 # Where's Waldo?
 
+A full-stack web application using React with styled-components, TypeScript, and Firebase for the back-end.
+
+[Try a live demo here!](https://devlinrocha.github.io/wheres-waldo/)
+
 This is an assignment from [The Odin Project](https://www.theodinproject.com/).
 
 ## Getting Started
@@ -15,5 +19,5 @@ npm start
 
 * [React](https://reactjs.org/)
 * [TypeScript](https://www.typescriptlang.org/)
-* [FireBase](https://firebase.google.com/)
+* [Firebase](https://firebase.google.com/)
 * [Styled-Components](https://styled-components.com/)
