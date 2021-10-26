@@ -21,11 +21,11 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App db={db} />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
