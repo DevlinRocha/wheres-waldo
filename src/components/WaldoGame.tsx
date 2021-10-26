@@ -18,6 +18,9 @@ export default function WaldoGame(props: GameProps) {
   const [mouseCoords, setMouseCoords] = useState({x:0,y:0});
   const [menuCoords, setMenuCoords] = useState({x:0,y:0});
   const [isContextOpen, setIsContextOpen] = useState(false);
+  const [isOdlawFound, setIsOdlawFound] = useState(false);
+  const [isWaldoFound, setIsWaldoFound] = useState(false);
+  const [isWizardFound, setIsWizardFound] = useState(false);
 
   function getMouseCoords(e: any) {
     const { width, height }: { width: number; height: number; } = e.target.getBoundingClientRect();
@@ -48,7 +51,13 @@ export default function WaldoGame(props: GameProps) {
 
   return (
     <GameContainer menuCoords={menuCoords}>
-      {isContextOpen ? <ContextMenu isContextMenuOpen={isContextOpen} setIsContextMenuOpen={setIsContextOpen} mouseCoords={mouseCoords} db={props.db}  /> : null}
+      {isContextOpen
+        ? <ContextMenu isContextMenuOpen={isContextOpen} setIsContextMenuOpen={setIsContextOpen}
+            mouseCoords={mouseCoords} db={props.db}
+            isOdlawFound={isOdlawFound} setIsOdlawFound={setIsOdlawFound}
+            isWaldoFound={isWaldoFound} setIsWaldoFound={setIsWaldoFound}
+            isWizardFound={isWizardFound} setIsWizardFound={setIsWizardFound} />
+        : null}
       <img onClick={handleClick} src={waldo} draggable="false" alt="Where's Waldo?" />
     </GameContainer>
   );

@@ -2,10 +2,12 @@ import { Firestore, doc, getDoc } from 'firebase/firestore';
 import { Coords } from './WaldoGame';
 
 interface MenuProps {
-    db: Firestore,
-    isContextMenuOpen: boolean,
-    setIsContextMenuOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    isContextMenuOpen: boolean, setIsContextMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
     mouseCoords: Coords;
+    db: Firestore;
+    isOdlawFound: boolean, setIsOdlawFound: React.Dispatch<React.SetStateAction<boolean>>;
+    isWaldoFound: boolean, setIsWaldoFound: React.Dispatch<React.SetStateAction<boolean>>;
+    isWizardFound: boolean, setIsWizardFound: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function ContextMenu(props: MenuProps) {
@@ -31,7 +33,18 @@ export default function ContextMenu(props: MenuProps) {
 
         if (waldoCoords) {
             if (JSON.stringify(waldoCoords) === JSON.stringify(props.mouseCoords)) {
-              console.log(`You found ${selection}!`);
+                console.log(`You found ${selection}!`);
+                switch (selection) {
+                    case 'Odlaw':
+                        props.setIsOdlawFound(true);
+                        break;
+                    case 'Waldo':
+                        props.setIsWaldoFound(true);
+                        break;
+                    case 'Wizard':
+                        props.setIsWizardFound(true);
+                        break;
+                };
             } else {
               console.log(`${selection} not found, try again!`);
             };
@@ -40,8 +53,9 @@ export default function ContextMenu(props: MenuProps) {
 
     return (
         <ul>
-            <li onClick={handleClick} >Waldo</li>
-            <li onClick={handleClick} >Wizard</li>
+            <li onClick={handleClick} >{props.isOdlawFound ? <s>Odlaw</s> : 'Odlaw'}</li>
+            <li onClick={handleClick} >{props.isWaldoFound ? <s>Waldo</s> : 'Waldo'}</li>
+            <li onClick={handleClick} >{props.isWizardFound ? <s>Wizard</s> : 'Wizard'}</li>
         </ul>
     );
 };
