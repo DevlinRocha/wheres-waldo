@@ -1,13 +1,11 @@
 import { Firestore, doc, getDoc } from 'firebase/firestore';
+import { Coords } from './WaldoGame';
 
 interface MenuProps {
     db: Firestore,
     isContextMenuOpen: boolean,
     setIsContextMenuOpen: React.Dispatch<React.SetStateAction<boolean>>,
-    mouseCoords: {
-        x: number;
-        y: number;
-    },
+    mouseCoords: Coords;
 };
 
 export default function ContextMenu(props: MenuProps) {

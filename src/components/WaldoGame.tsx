@@ -4,7 +4,7 @@ import ContextMenu from './ContextMenu';
 import waldo from '../assets/Where\'s Waldo Gobbling Gluttons.jpg';
 import { GameContainer } from './styles/GameContainer.styled';
 
-interface Coords {
+export interface Coords {
   x: number,
   y: number,
 };
@@ -49,7 +49,7 @@ export default function WaldoGame(props: GameProps) {
   return (
     <GameContainer menuCoords={menuCoords}>
       {isContextOpen ? <ContextMenu isContextMenuOpen={isContextOpen} setIsContextMenuOpen={setIsContextOpen} mouseCoords={mouseCoords} db={props.db}  /> : null}
-      <img onClick={handleClick} src={waldo} alt="Where's Waldo?" />
+      <img onClick={handleClick} src={waldo} draggable="false" alt="Where's Waldo?" />
     </GameContainer>
   );
 };
