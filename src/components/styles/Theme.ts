@@ -1,12 +1,13 @@
 export const Theme = {
-    colors: {
-        body: '#fff',
-        contextMenu: {
-            background: 'black',
-            text: 'pink',
-            hover: 'coral',
-        }
-    }
-}
+    contextMenu: {
+        background: 'black',
+        text: 'pink',
+        hover: {
+            text: 'coral',
+            background: 'white',
+        },
+    },
+    body: '#fff',
+};
 
 export type ThemeType = typeof Theme;

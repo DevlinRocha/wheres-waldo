@@ -23,17 +23,21 @@ export const GameContainer = styled.section<GameProps>`
     ul {
         left: ${props=>props.menuCoords.x+1}px;
         top: ${props=>props.menuCoords.y}px;
-        color: ${props=>props.theme.colors.contextMenu.text};
+        color: ${props=>props.theme.contextMenu.text};
         display: flex;
         flex-direction: column;
         position: absolute;
         list-style: none;
-        background-color: ${props=>props.theme.colors.contextMenu.background};
+        background-color: ${props=>props.theme.contextMenu.background};
         padding: 3px;
+        border-radius: 7px;
+        gap: 3px;
     }
 
     li:hover {
-        color: ${props=>props.theme.colors.contextMenu.hover};
+        color: ${props=>props.theme.contextMenu.hover.text};
         cursor: pointer;
+        background-color: ${props=>props.theme.contextMenu.hover.background};
+        border-radius: 3px;
     }
 `;
