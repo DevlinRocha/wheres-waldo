@@ -6,10 +6,4 @@ export const Container = styled.div`
     align-items: center;
     width: 100%;
     height: auto;
-
-    img {
-        width: 100%;
-        height: auto;
-        object-fit: scale-down;
-    }
 `
