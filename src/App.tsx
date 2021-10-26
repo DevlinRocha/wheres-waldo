@@ -14,11 +14,9 @@ export default function App(props: AppProps) {
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
-      <main>
         <Container>
           <WaldoGame db={props.db} />
         </Container>
-      </main>
     </ThemeProvider>
   );
 };
