@@ -8,13 +8,16 @@ interface GameProps {
 };
 
 export const GameContainer = styled.section<GameProps>`
+    display: flex;
     user-select: none;
+    width: 100%;
+    height: auto;
 
     img {
         --webkit-user-drag: none;
+        object-fit: contain;
         width: 100%;
         height: auto;
-        object-fit: none;
     }
 
     ul {
