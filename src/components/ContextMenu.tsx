@@ -33,7 +33,8 @@ export default function ContextMenu(props: MenuProps) {
         const waldoCoords = await getCoords(selection);
 
         if (waldoCoords) {
-            if (JSON.stringify(waldoCoords) === JSON.stringify(props.mouseCoords)) {
+            // Test for a deviance of 7 pixels
+            if ((Math.abs(props.mouseCoords.x - waldoCoords.x) < 7) && (Math.abs(props.mouseCoords.y - waldoCoords.y) < 7)) {
                 console.log(`You found ${selection}!`);
                 switch (selection) {
                     case 'Odlaw':
