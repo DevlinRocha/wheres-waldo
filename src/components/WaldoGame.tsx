@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Firestore } from 'firebase/firestore';
 import ContextMenu from './ContextMenu';
 import waldo from '../assets/Where\'s Waldo Gobbling Gluttons.jpg';
 import { GameContainer } from './styles/GameContainer.styled';
@@ -9,17 +8,14 @@ export interface Coords {
   y: number,
 };
 
-interface GameProps {
-  db: Firestore,
-};
-
-export default function WaldoGame(props: GameProps) {
+export default function WaldoGame() {
 
   const [mouseCoords, setMouseCoords] = useState({x:0,y:0});
   const [menuCoords, setMenuCoords] = useState({x:0,y:0});
   const [isContextOpen, setIsContextOpen] = useState(false);
   const [isOdlawFound, setIsOdlawFound] = useState(false);
   const [isWaldoFound, setIsWaldoFound] = useState(false);
+  const [isWendaFound, setIsWendaFound] = useState(false);
   const [isWizardFound, setIsWizardFound] = useState(false);
 
   function getMouseCoords(e: any) {
@@ -40,6 +36,8 @@ export default function WaldoGame(props: GameProps) {
       y: mouseY,
     };
 
+    console.log(mouseCoords);
+
     setMouseCoords(mouseCoords);
     setMenuCoords(menuCoords);
   };
@@ -53,9 +51,10 @@ export default function WaldoGame(props: GameProps) {
     <GameContainer menuCoords={menuCoords}>
       {isContextOpen
         ? <ContextMenu isContextMenuOpen={isContextOpen} setIsContextMenuOpen={setIsContextOpen}
-            mouseCoords={mouseCoords} db={props.db}
+            mouseCoords={mouseCoords}
             isOdlawFound={isOdlawFound} setIsOdlawFound={setIsOdlawFound}
             isWaldoFound={isWaldoFound} setIsWaldoFound={setIsWaldoFound}
+            isWendaFound={isWendaFound} setIsWendaFound={setIsWendaFound}
             isWizardFound={isWizardFound} setIsWizardFound={setIsWizardFound} />
         : null}
       <img onClick={handleClick} src={waldo} draggable="false" alt="Where's Waldo?" />

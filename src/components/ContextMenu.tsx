@@ -1,12 +1,13 @@
-import { Firestore, doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { Coords } from './WaldoGame';
+import { db } from '../index';
 
 interface MenuProps {
     isContextMenuOpen: boolean, setIsContextMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
     mouseCoords: Coords;
-    db: Firestore;
     isOdlawFound: boolean, setIsOdlawFound: React.Dispatch<React.SetStateAction<boolean>>;
     isWaldoFound: boolean, setIsWaldoFound: React.Dispatch<React.SetStateAction<boolean>>;
+    isWendaFound: boolean, setIsWendaFound: React.Dispatch<React.SetStateAction<boolean>>;
     isWizardFound: boolean, setIsWizardFound: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -15,7 +16,7 @@ export default function ContextMenu(props: MenuProps) {
     async function getCoords(selection: string) {
         const docID = selection.toLowerCase();
 
-        const docRef = doc(props.db, 'coords', docID);
+        const docRef = doc(db, 'coords', docID);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const waldoCoords = docSnap.data();
@@ -41,6 +42,9 @@ export default function ContextMenu(props: MenuProps) {
                     case 'Waldo':
                         props.setIsWaldoFound(true);
                         break;
+                    case 'Wenda':
+                        props.setIsWendaFound(true);
+                        break;
                     case 'Wizard':
                         props.setIsWizardFound(true);
                         break;
@@ -55,6 +59,7 @@ export default function ContextMenu(props: MenuProps) {
         <ul>
             <li onClick={handleClick} >{props.isOdlawFound ? <s>Odlaw</s> : 'Odlaw'}</li>
             <li onClick={handleClick} >{props.isWaldoFound ? <s>Waldo</s> : 'Waldo'}</li>
+            <li onClick={handleClick} >{props.isWendaFound ? <s>Wenda</s> : 'Wenda'}</li>
             <li onClick={handleClick} >{props.isWizardFound ? <s>Wizard</s> : 'Wizard'}</li>
         </ul>
     );
