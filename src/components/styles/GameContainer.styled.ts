@@ -1,28 +1,36 @@
 import styled from "styled-components";
+import { Coords } from '../WaldoGame';
+import { ThemeType } from './Theme';
 
-interface StyleProps {
-    menuCoords: {
-        x: number;
-        y: number;
-    };
+interface GameProps {
+    theme?: ThemeType;
+    menuCoords: Coords;
 };
 
-export const GameContainer = styled.section<StyleProps>`
+export const GameContainer = styled.section<GameProps>`
+    user-select: none;
+
+    img {
+        --webkit-user-drag: none;
+        width: 100%;
+        height: auto;
+        object-fit: none;
+    }
+
     ul {
         left: ${props=>props.menuCoords.x+1}px;
         top: ${props=>props.menuCoords.y}px;
-        color: cyan;
+        color: ${props=>props.theme.colors.contextMenu.text};
         display: flex;
         flex-direction: column;
         position: absolute;
         list-style: none;
-        background-color: black;
+        background-color: ${props=>props.theme.colors.contextMenu.background};
         padding: 3px;
-        border: 1px solid black;
     }
 
     li:hover {
-        color: #39ff14;
+        color: ${props=>props.theme.colors.contextMenu.hover};
         cursor: pointer;
     }
 `;
