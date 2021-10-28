@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/wheres-waldo/static/js/main.589c92b5.chunk.js",
+    "main.js.map": "/wheres-waldo/static/js/main.589c92b5.chunk.js.map",
+    "runtime-main.js": "/wheres-waldo/static/js/runtime-main.6322256e.js",
+    "runtime-main.js.map": "/wheres-waldo/static/js/runtime-main.6322256e.js.map",
+    "static/js/2.62643c1c.chunk.js": "/wheres-waldo/static/js/2.62643c1c.chunk.js",
+    "static/js/2.62643c1c.chunk.js.map": "/wheres-waldo/static/js/2.62643c1c.chunk.js.map",
+    "index.html": "/wheres-waldo/index.html",
+    "static/js/2.62643c1c.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.62643c1c.chunk.js.LICENSE.txt",
+    "static/media/Where's Waldo Gobbling Gluttons.3e56f8b3.jpg": "/wheres-waldo/static/media/Where's Waldo Gobbling Gluttons.3e56f8b3.jpg",
+    "static/media/Where's Waldo Ski Resort.e623c363.png": "/wheres-waldo/static/media/Where's Waldo Ski Resort.e623c363.png",
+    "static/media/Where's Waldo.08992c55.png": "/wheres-waldo/static/media/Where's Waldo.08992c55.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6322256e.js",
+    "static/js/2.62643c1c.chunk.js",
+    "static/js/main.589c92b5.chunk.js"
+  ]
+}
