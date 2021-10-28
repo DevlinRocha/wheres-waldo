@@ -1,12 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
-import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 
 import ContextMenu from './ContextMenu';
-
-import Odlaw from '../assets/Odlaw.webp';
-import Waldo from '../assets/Waldo.jpg';
-import Wenda from '../assets/Wenda.webp';
 
 import { GameContainer } from './styles/GameContainer.styled';
 import { db } from '../index';
