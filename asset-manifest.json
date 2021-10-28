@@ -1,20 +1,25 @@
 {
   "files": {
-    "main.js": "/wheres-waldo/static/js/main.589c92b5.chunk.js",
-    "main.js.map": "/wheres-waldo/static/js/main.589c92b5.chunk.js.map",
+    "main.js": "/wheres-waldo/static/js/main.bf865ebb.chunk.js",
+    "main.js.map": "/wheres-waldo/static/js/main.bf865ebb.chunk.js.map",
     "runtime-main.js": "/wheres-waldo/static/js/runtime-main.6322256e.js",
     "runtime-main.js.map": "/wheres-waldo/static/js/runtime-main.6322256e.js.map",
     "static/js/2.62643c1c.chunk.js": "/wheres-waldo/static/js/2.62643c1c.chunk.js",
     "static/js/2.62643c1c.chunk.js.map": "/wheres-waldo/static/js/2.62643c1c.chunk.js.map",
     "index.html": "/wheres-waldo/index.html",
     "static/js/2.62643c1c.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.62643c1c.chunk.js.LICENSE.txt",
+    "static/media/Odlaw.7f2337c8.png": "/wheres-waldo/static/media/Odlaw.7f2337c8.png",
+    "static/media/Waldo Found.80f74ad0.png": "/wheres-waldo/static/media/Waldo Found.80f74ad0.png",
+    "static/media/Waldo.2a7963c3.png": "/wheres-waldo/static/media/Waldo.2a7963c3.png",
+    "static/media/Wenda.c2c5c953.png": "/wheres-waldo/static/media/Wenda.c2c5c953.png",
     "static/media/Where's Waldo Gobbling Gluttons.3e56f8b3.jpg": "/wheres-waldo/static/media/Where's Waldo Gobbling Gluttons.3e56f8b3.jpg",
     "static/media/Where's Waldo Ski Resort.e623c363.png": "/wheres-waldo/static/media/Where's Waldo Ski Resort.e623c363.png",
-    "static/media/Where's Waldo.08992c55.png": "/wheres-waldo/static/media/Where's Waldo.08992c55.png"
+    "static/media/Where's Waldo.08992c55.png": "/wheres-waldo/static/media/Where's Waldo.08992c55.png",
+    "static/media/WizardWhitebeard.77d677dc.png": "/wheres-waldo/static/media/WizardWhitebeard.77d677dc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.6322256e.js",
     "static/js/2.62643c1c.chunk.js",
-    "static/js/main.589c92b5.chunk.js"
+    "static/js/main.bf865ebb.chunk.js"
   ]
 }
