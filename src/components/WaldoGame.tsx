@@ -1,14 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
+import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
+
 import ContextMenu from './ContextMenu';
-import waldo from '../assets/Where\'s Waldo Gobbling Gluttons.jpg';
+
+import Odlaw from '../assets/Odlaw.webp';
+import Waldo from '../assets/Waldo.jpg';
+import Wenda from '../assets/Wenda.webp';
+
 import { GameContainer } from './styles/GameContainer.styled';
+import { db } from '../index';
 
 export interface Coords {
   x: number,
   y: number,
 };
 
-export default function WaldoGame() {
+interface GameProps {
+  isGameOver: boolean;
+  setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  img: string, level: string;
+};
+
+export default function WaldoGame(props: GameProps) {
 
   const [mouseCoords, setMouseCoords] = useState({x:0,y:0});
   const [menuCoords, setMenuCoords] = useState({x:0,y:0});
@@ -17,6 +31,67 @@ export default function WaldoGame() {
   const [isWaldoFound, setIsWaldoFound] = useState(false);
   const [isWendaFound, setIsWendaFound] = useState(false);
   const [isWizardFound, setIsWizardFound] = useState(false);
+  const [characters, setCharacters] = useState<string[]>([]);
+
+  const history = useHistory();
+
+  useEffect(() => {
+
+    let gameOver: boolean[] = [];
+
+    for (let character in characters) {
+
+      switch (characters[character]) {
+
+        case 'Odlaw':
+            gameOver.push(isOdlawFound);
+            break;
+            
+        case 'Waldo':
+            gameOver.push(isWaldoFound);
+            break;
+
+        case 'Wenda':
+            gameOver.push(isWendaFound);
+            break;
+
+        case 'Wizard':
+            gameOver.push(isWizardFound);
+            break;
+      };
+
+      if (gameOver.includes(false)) {
+
+        return;
+
+      } else {
+
+        props.setIsGameOver(true);
+
+      };
+    };
+  }, [isOdlawFound, isWaldoFound, isWendaFound, isWizardFound]);
+
+  useEffect(() => {
+    resetCharacters();
+    getCharacters();
+  }, [history.location]);
+
+  function resetCharacters() {
+    setIsOdlawFound(false);
+    setIsWaldoFound(false);
+    setIsWendaFound(false);
+    setIsWizardFound(false);
+  };
+
+  async function getCharacters() {
+    const characterList = await getDocs(collection(db, props.level));
+    const characters: string[] = [];
+    characterList.forEach(character=>{
+      characters.push(character.id);
+    });
+    setCharacters(characters);
+};
 
   function getMouseCoords(e: any) {
     const { width, height }: { width: number; height: number; } = e.target.getBoundingClientRect();
@@ -51,13 +126,13 @@ export default function WaldoGame() {
     <GameContainer menuCoords={menuCoords}>
       {isContextOpen
         ? <ContextMenu isContextMenuOpen={isContextOpen} setIsContextMenuOpen={setIsContextOpen}
-            mouseCoords={mouseCoords}
+            img={props.img} level={props.level} characters={characters} mouseCoords={mouseCoords}
             isOdlawFound={isOdlawFound} setIsOdlawFound={setIsOdlawFound}
             isWaldoFound={isWaldoFound} setIsWaldoFound={setIsWaldoFound}
             isWendaFound={isWendaFound} setIsWendaFound={setIsWendaFound}
             isWizardFound={isWizardFound} setIsWizardFound={setIsWizardFound} />
         : null}
-      <img onClick={handleClick} src={waldo} draggable="false" alt="Where's Waldo?" />
+      <img onClick={handleClick} src={props.img} draggable="false" alt="Where's Waldo?" />
     </GameContainer>
   );
 };
