@@ -32,6 +32,7 @@ export const GameContainer = styled.section<GameProps>`
         padding: 3px;
         border-radius: 7px;
         gap: 3px;
+        z-index: 1;
     }
 
     li:hover {
