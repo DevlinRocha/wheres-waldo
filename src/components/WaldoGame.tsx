@@ -31,7 +31,7 @@ export default function WaldoGame(props: GameProps) {
 
   const history = useHistory();
 
-  useEffect(() => {
+  useEffect((): void => {
 
     let gameOver: boolean[] = [];
 
@@ -54,17 +54,18 @@ export default function WaldoGame(props: GameProps) {
         case 'Wizard':
             gameOver.push(isWizardFound);
             break;
-      };
-
-      if (gameOver.includes(false)) {
-
-        return;
-
-      } else {
-
-        props.setIsGameOver(true);
 
       };
+    };
+
+    if (gameOver.includes(false)) {
+
+      return;
+
+    } else {
+
+      return props.setIsGameOver(true);
+
     };
   }, [isOdlawFound, isWaldoFound, isWendaFound, isWizardFound]);
 
