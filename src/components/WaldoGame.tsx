@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -30,48 +30,58 @@ export default function WaldoGame(props: GameProps) {
   const [characters, setCharacters] = useState<string[]>([]);
 
   const history = useHistory();
-
-  useEffect((): void => {
-
-    let gameOver: boolean[] = [];
-
-    for (let character in characters) {
-
-      switch (characters[character]) {
-
-        case 'Odlaw':
-            gameOver.push(isOdlawFound);
-            break;
-            
-        case 'Waldo':
-            gameOver.push(isWaldoFound);
-            break;
-
-        case 'Wenda':
-            gameOver.push(isWendaFound);
-            break;
-
-        case 'Wizard':
-            gameOver.push(isWizardFound);
-            break;
-
-      };
-    };
-
-    if (gameOver.includes(false)) {
-
-      return;
-
-    } else {
-
-      return props.setIsGameOver(true);
-
-    };
-  }, [isOdlawFound, isWaldoFound, isWendaFound, isWizardFound]);
+  const firstRender = useRef(true);
 
   useEffect(() => {
+
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    };
+
+    let gameOver: boolean[] = [];
+  
+    for (let character in characters) {
+  
+      switch (characters[character]) {
+  
+        case 'Odlaw':
+          gameOver.push(isOdlawFound);
+          break;
+              
+        case 'Waldo':
+          gameOver.push(isWaldoFound);
+          break;
+  
+        case 'Wenda':
+          gameOver.push(isWendaFound);
+          break;
+  
+        case 'Wizard':
+          gameOver.push(isWizardFound);
+          break;
+  
+      };
+  
+    };
+  
+    if (gameOver.includes(false)) {
+  
+      return;
+  
+    } else {
+  
+      return props.setIsGameOver(true);
+  
+    };
+    
+  }, [isOdlawFound, isWaldoFound, isWendaFound, isWizardFound]);
+
+  useEffect((): void => {
+    
     resetCharacters();
     getCharacters();
+
   }, [history.location]);
 
   function resetCharacters() {
