@@ -1,6 +1,6 @@
 import { Container, ContainerRow } from './styles/Container.styled';
 
-import WheresWaldo from '../assets/Where\'s Waldo.png';
+import WheresWaldo from '../assets/Where\'sWaldo.png';
 import Odlaw from '../assets/Odlaw.png';
 import Waldo from '../assets/Waldo.png';
 import Wenda from '../assets/Wenda.png';

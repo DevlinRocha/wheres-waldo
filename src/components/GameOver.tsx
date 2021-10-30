@@ -1,6 +1,6 @@
 import { Container } from './styles/Container.styled';
 
-import WaldoFound from '../assets/Waldo Found.png';
+import WaldoFound from '../assets/WaldoFound.png';
 
 interface GameOverProps {
     isGameOver: boolean, setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
