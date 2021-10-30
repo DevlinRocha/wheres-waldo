@@ -12,8 +12,8 @@ import { GlobalStyles } from './components/styles/Global';
 import { Theme } from './components/styles/Theme';
 import { Container } from './components/styles/Container.styled';
 
-import GobblingGluttons from './assets/Where\'s Waldo Gobbling Gluttons.jpg';
-import SkiResort from './assets/Where\'s Waldo Ski Resort.png';
+import GobblingGluttons from './assets/GobblingGluttons.jpg';
+import SkiResort from './assets/SkiResort.png';
 
 export default function App() {
   const [isGameOver, setIsGameOver] = useState(false);
