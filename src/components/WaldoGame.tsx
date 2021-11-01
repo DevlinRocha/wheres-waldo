@@ -14,8 +14,9 @@ export interface Coords {
 };
 
 interface GameProps {
-  isGameOver: boolean;
-  setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  isGameOver: boolean, setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  isGameOn: boolean, setIsGameOn: React.Dispatch<React.SetStateAction<boolean>>;
+  setTime: React.Dispatch<React.SetStateAction<number>>, setIsTimerOn: React.Dispatch<React.SetStateAction<boolean>>;
   img: string, level: string;
 };
 
@@ -37,6 +38,7 @@ export default function WaldoGame(props: GameProps) {
 
     if (firstRender.current) {
       firstRender.current = false;
+      props.setIsGameOn(true);
       return;
     };
 
@@ -72,16 +74,18 @@ export default function WaldoGame(props: GameProps) {
   
     } else {
   
+      props.setIsTimerOn(false);
       return props.setIsGameOver(true);
   
     };
-    
+
   }, [isOdlawFound, isWaldoFound, isWendaFound, isWizardFound]);
 
   useEffect((): void => {
-    
+
     resetCharacters();
     getCharacters();
+    props.setTime(0);
 
   }, [history.location]);
 

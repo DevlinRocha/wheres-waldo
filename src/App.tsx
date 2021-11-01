@@ -15,7 +15,10 @@ import GobblingGluttons from './assets/GobblingGluttons.jpg';
 import SkiResort from './assets/SkiResort.png';
 
 export default function App() {
+  const [isGameOn, setIsGameOn] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [time, setTime] = useState(0);
+  const [isTimerOn, setIsTimerOn] = useState(false);
 
   return (
 
@@ -24,7 +27,7 @@ export default function App() {
       <ThemeProvider theme={Theme}>
       <GlobalStyles />
 
-        <NavBar setIsGameOver={setIsGameOver} />
+        <NavBar setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} time={time} setTime={setTime} isTimerOn={isTimerOn} setIsTimerOn={setIsTimerOn} isGameOver={isGameOver} />
 
         <Switch>
 
@@ -33,14 +36,14 @@ export default function App() {
           <Route exact path='/gobbling-gluttons'>
             {isGameOver
               ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} />
-              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} img={GobblingGluttons} level='Gobbling Gluttons' />
+              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={GobblingGluttons} level='Gobbling Gluttons' />
             }
           </Route>
 
           <Route exact path='/ski-resort'>
             {isGameOver
               ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} />
-              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} img={SkiResort} level='Ski Resort' />
+              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={SkiResort} level='Ski Resort' />
             }
           </Route>
 
