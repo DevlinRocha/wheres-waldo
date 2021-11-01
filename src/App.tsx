@@ -10,7 +10,6 @@ import PageNotFound from './components/PageNotFound';
 
 import { GlobalStyles } from './components/styles/Global';
 import { Theme } from './components/styles/Theme';
-import { Container } from './components/styles/Container.styled';
 
 import GobblingGluttons from './assets/GobblingGluttons.jpg';
 import SkiResort from './assets/SkiResort.png';
