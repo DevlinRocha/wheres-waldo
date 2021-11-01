@@ -1,18 +1,17 @@
 import { Container, ContainerRow } from './styles/Container.styled';
 
 import WheresWaldo from '../assets/Where\'sWaldo.png';
-import Odlaw from '../assets/Odlaw.png';
-import Waldo from '../assets/Waldo.png';
-import Wenda from '../assets/Wenda.png';
-import Wizard from '../assets/WizardWhitebeard.png';
+import Odlaw from '../assets/characters/Odlaw.png';
+import Waldo from '../assets/characters/Waldo.png';
+import Wenda from '../assets/characters/Wenda.png';
+import Wizard from '../assets/characters/WizardWhitebeard.png';
 
 export default function HomePage() {
-    return(
+    return (
         <Container>
 
             <figure>
                 <img src={WheresWaldo} alt="Where's Waldo?" />
-                <figcaption>Welcome to Where's Waldo!</figcaption>
             </figure>
 
             <Container>
@@ -22,22 +21,22 @@ export default function HomePage() {
                 <ContainerRow>
 
                     <figure>
-                        <figcaption>Waldo</figcaption>
+                        <figcaption><b>Waldo</b></figcaption>
                         <img src={Waldo} alt='Waldo' />
                     </figure>
 
                     <figure>
-                        <figcaption>Wenda</figcaption>
+                        <figcaption><b>Wenda</b></figcaption>
                         <img src={Wenda} alt='Wenda' />
                     </figure>
 
                     <figure>
-                        <figcaption>Wizard</figcaption>
+                        <figcaption><b>Wizard Whitebeard</b></figcaption>
                         <img src={Wizard} alt='Wizard' />
                     </figure>
 
                     <figure>
-                        <figcaption>Odlaw</figcaption>
+                        <figcaption><b>Odlaw</b></figcaption>
                         <img src={Odlaw} alt='Odlaw' />
                     </figure>
 
