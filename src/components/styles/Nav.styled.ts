@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     align-items: center;
     padding: 16px;
     background-color: white;
@@ -19,6 +19,10 @@ export const Nav = styled.nav`
 
     a {
         text-decoration: none;
+    }
+
+    time {
+        text-align: center;
     }
 
     ul {

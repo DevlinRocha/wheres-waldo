@@ -5,6 +5,7 @@ interface DropDownProps {
 };
 
 export const DropDown = styled.aside<DropDownProps>`
+    justify-self: end;
     transition: all 3s;
 
     p {
@@ -23,8 +24,8 @@ export const DropDown = styled.aside<DropDownProps>`
         position: absolute;
         background: white;
         width: auto;
-        height: ${props=>props.isDropDownOpen ? '100px' : '0px'};
-        margin-right: 16px;
+        height: ${props=>props.isDropDownOpen ? '125px' : '0px'};
+        margin: 3px 16px 0 0;
         padding: ${props=>props.theme.sizing.ul.padding};
         border: 1px solid ${props=>props.theme.colors.secondary};
         border-radius: ${props=>props.theme.sizing.ul.borderRadius};
@@ -34,6 +35,7 @@ export const DropDown = styled.aside<DropDownProps>`
     }
 
     li {
+        padding: 8px;
         opacity: ${props=>props.isDropDownOpen ? 1 : 0};
         display: ${props=>props.isDropDownOpen ? 'inline-block' : 'none'}; // 'inline-block' or 'flex'
         transition: all 0.75s;
