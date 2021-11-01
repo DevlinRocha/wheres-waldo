@@ -1,4 +1,4 @@
-import { Container } from './styles/Container.styled';
+import { MainContainer } from './styles/HomeContainer.styled';
 
 import WaldoFound from '../assets/WaldoFound.png';
 
@@ -13,7 +13,7 @@ export default function GameOver(props: GameOverProps) {
     };
 
     return(
-        <Container>
+        <MainContainer>
             <section>
 
                 <figure>
@@ -24,6 +24,6 @@ export default function GameOver(props: GameOverProps) {
                 <button onClick={handleClick}>Play Again</button>
 
             </section>
-        </Container>
+        </MainContainer>
     );
 };

@@ -8,14 +8,6 @@ export const DropDown = styled.aside<DropDownProps>`
     justify-self: end;
     transition: all 3s;
 
-    p {
-        cursor: pointer;
-        color: white;
-        background-color: ${props=>props.theme.colors.primary};
-        padding: 5px;
-        border-radius: 7px;
-    }
-
     ul {
         display: ${props=>props.isDropDownOpen ? 'flex' : 'none'}; // 'none' or 'flex'
         flex-direction: column;
@@ -39,6 +31,7 @@ export const DropDown = styled.aside<DropDownProps>`
         opacity: ${props=>props.isDropDownOpen ? 1 : 0};
         display: ${props=>props.isDropDownOpen ? 'inline-block' : 'none'}; // 'inline-block' or 'flex'
         transition: all 0.75s;
+        width: auto;
     }
 
     li > a {

@@ -4,10 +4,11 @@ export const Nav = styled.nav`
 
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    grid-auto-columns: 1fr auto 1fr;
     align-items: center;
     padding: 16px;
     background-color: white;
+    gap: 8px;
 
     #first {
         color: ${props=>props.theme.colors.primary};
@@ -17,12 +18,36 @@ export const Nav = styled.nav`
         color: ${props=>props.theme.colors.secondary};
     }
 
-    a {
-        text-decoration: none;
+    time {
+        padding: 8px;
+        background-color: ${props=>props.theme.colors.secondary};
+        color: white;
+        border-radius: 7px;
     }
 
-    time {
-        text-align: center;
+    section {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    button {
+        cursor: pointer;
+        color: white;
+        background-color: ${props=>props.theme.colors.primary};
+        padding: 5px;
+        border-radius: 7px;
+        border: inherit;
+        font: inherit;
+
+        a {
+            color: white;
+        }
+    }
+
+    a {
+        text-decoration: none;
     }
 
     ul {

@@ -1,4 +1,4 @@
-import { Container, ContainerRow } from './styles/Container.styled';
+import { MainContainer, HomeContainer, HomeContainerRow } from './styles/HomeContainer.styled';
 
 import WheresWaldo from '../assets/Where\'sWaldo.png';
 import Odlaw from '../assets/characters/Odlaw.png';
@@ -8,17 +8,17 @@ import Wizard from '../assets/characters/WizardWhitebeard.png';
 
 export default function HomePage() {
     return (
-        <Container>
+        <MainContainer>
 
             <figure>
                 <img src={WheresWaldo} alt="Where's Waldo?" />
             </figure>
 
-            <Container>
+            <HomeContainer>
 
-                <p>Look for these characters!</p>
+                <h3><u>Look for these characters!</u></h3>
 
-                <ContainerRow>
+                <HomeContainerRow>
 
                     <figure>
                         <figcaption><b>Waldo</b></figcaption>
@@ -40,8 +40,8 @@ export default function HomePage() {
                         <img src={Odlaw} alt='Odlaw' />
                     </figure>
 
-                </ContainerRow>
-            </Container>
-        </Container>
+                </HomeContainerRow>
+            </HomeContainer>
+        </MainContainer>
     );
 };
