@@ -11,7 +11,7 @@ interface MenuProps {
     isWizardFound?: boolean, setIsWizardFound: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function ContextMenu(props: MenuProps) {
+export default function SelectionMenu(props: MenuProps) {
 
     async function getCoords(selection: string) {
         const docRef = doc(db, props.level, selection);
@@ -37,7 +37,7 @@ export default function ContextMenu(props: MenuProps) {
 
         if (waldoCoords) {
 
-            // Test for a deviance of 25 pixels
+            // Test if the selection is within the area
             if ((Math.abs(props.mouseCoords.x - waldoCoords.x) < 25) && (Math.abs(props.mouseCoords.y - waldoCoords.y) < 42)) {
 
                 console.log(`You found ${selection}!`);
@@ -91,6 +91,7 @@ export default function ContextMenu(props: MenuProps) {
     };
 
     return (
+        // <TargetingBox />
         <ul>
             {props.characters.map(character=>{
                 return (

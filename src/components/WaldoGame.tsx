@@ -2,9 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router';
 import { collection, getDocs } from 'firebase/firestore';
 
-import ContextMenu from './ContextMenu';
+import SelectionMenu from './SelectionMenu';
 
 import { GameContainer } from './styles/GameContainer.styled';
+import { ContextMenu, TargetingBox } from './styles/ContextMenu.styled';
 import { db } from '../index';
 
 export interface Coords {
@@ -118,8 +119,6 @@ export default function WaldoGame(props: GameProps) {
       y: mouseY,
     };
 
-    console.log(mouseCoords);
-
     setMouseCoords(mouseCoords);
     setMenuCoords(menuCoords);
   };
@@ -130,14 +129,17 @@ export default function WaldoGame(props: GameProps) {
   };
 
   return (
-    <GameContainer menuCoords={menuCoords}>
+    <GameContainer>
       {isContextOpen
-        ? <ContextMenu isContextMenuOpen={isContextOpen} setIsContextMenuOpen={setIsContextOpen}
-            img={props.img} level={props.level} characters={characters} mouseCoords={mouseCoords}
-            isOdlawFound={isOdlawFound} setIsOdlawFound={setIsOdlawFound}
-            isWaldoFound={isWaldoFound} setIsWaldoFound={setIsWaldoFound}
-            isWendaFound={isWendaFound} setIsWendaFound={setIsWendaFound}
-            isWizardFound={isWizardFound} setIsWizardFound={setIsWizardFound} />
+        ? <ContextMenu menuCoords={menuCoords} >
+            <TargetingBox onClick={handleClick} menuCoords={menuCoords} />
+            <SelectionMenu isContextMenuOpen={isContextOpen} setIsContextMenuOpen={setIsContextOpen}
+              img={props.img} level={props.level} characters={characters} mouseCoords={mouseCoords}
+              isOdlawFound={isOdlawFound} setIsOdlawFound={setIsOdlawFound}
+              isWaldoFound={isWaldoFound} setIsWaldoFound={setIsWaldoFound}
+              isWendaFound={isWendaFound} setIsWendaFound={setIsWendaFound}
+              isWizardFound={isWizardFound} setIsWizardFound={setIsWizardFound} />
+            </ContextMenu>
         : null}
       <img onClick={handleClick} src={props.img} draggable="false" alt="Where's Waldo?" />
     </GameContainer>

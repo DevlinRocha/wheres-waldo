@@ -1,10 +1,15 @@
 export const Theme = {
     contextMenu: {
-        background: 'black',
-        text: 'pink',
-        hover: {
-            text: 'coral',
-            background: 'white',
+        selectionMenu: {
+            background: 'black',
+            text: 'pink',
+            hover: {
+                text: 'coral',
+                background: 'white',
+            },
+        },
+        targetingBox: {
+            borderColor: '#39ff14', // Neon green
         },
     },
     body: '#fff',
