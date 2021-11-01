@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { Coords } from '../WaldoGame';
-import { ThemeType } from './Theme';
 
 interface MenuProps {
-    theme?: ThemeType;
     menuCoords: Coords;
 };
 
@@ -11,24 +9,28 @@ const targetSize = 75;
 
 export const ContextMenu = styled.div<MenuProps>`
     ul {
-        left: ${props=>props.menuCoords.x+(targetSize/2)+3}px;
-        top: ${props=>props.menuCoords.y-(targetSize/4)}px;
-        color: ${props=>props.theme.contextMenu.selectionMenu.text};
         display: flex;
         flex-direction: column;
         position: absolute;
-        list-style: none;
-        background-color: ${props=>props.theme.contextMenu.selectionMenu.background};
-        padding: 3px;
-        border-radius: 7px;
+        left: ${props=>props.menuCoords.x+(targetSize/2)+3}px;
+        top: ${props=>props.menuCoords.y-(targetSize/4)}px;
+        color: ${props=>props.theme.colors.primary};
+        background-color: white;
+        padding: ${props=>props.theme.sizing.ul.padding};
+        border-radius: ${props=>props.theme.sizing.ul.borderRadius};
         gap: 3px;
+        list-style: none;
         z-index: 1;
     }
 
+    li {
+        padding: 3px;
+    }
+
     li:hover {
-        color: ${props=>props.theme.contextMenu.selectionMenu.hover.text};
+        color: white;
         cursor: pointer;
-        background-color: ${props=>props.theme.contextMenu.selectionMenu.hover.background};
+        background-color: ${props=>props.theme.colors.primary};
         border-radius: 3px;
     }
 `
@@ -40,7 +42,7 @@ export const TargetingBox = styled.div<MenuProps>`
     position: absolute;
     height: ${targetSize}px;
     width: ${targetSize}px;
-    border: 5px dashed ${props=>props.theme.contextMenu.targetingBox.borderColor};
+    border: 5px dashed ${props=>props.theme.colors.targetingBox};
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 30px;
     z-index: 1;

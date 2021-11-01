@@ -7,9 +7,14 @@ export const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: 16px;
+    background-color: white;
 
-    h1 > a {
-        color: black;
+    #first {
+        color: ${props=>props.theme.colors.primary};
+    }
+
+    #second {
+        color: ${props=>props.theme.colors.secondary};
     }
 
     a {

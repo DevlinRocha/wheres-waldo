@@ -9,7 +9,6 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
     }
 
     body {
-        background: ${({theme}) => theme.body};
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
             'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
             sans-serif;

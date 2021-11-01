@@ -1,18 +1,15 @@
 export const Theme = {
-    contextMenu: {
-        selectionMenu: {
-            background: 'black',
-            text: 'pink',
-            hover: {
-                text: 'coral',
-                background: 'white',
-            },
-        },
-        targetingBox: {
-            borderColor: '#39ff14', // Neon green
+    colors: {
+        primary: '#2d9edf', // Waldo blue
+        secondary: '#ee2223', // Waldo red
+        targetingBox: '#39ff14', // Neon green
+    },
+    sizing: {
+        ul: {
+            padding: '3px 5px',
+            borderRadius: '7px',
         },
     },
-    body: '#fff',
 };
 
 export type ThemeType = typeof Theme;
