@@ -1,19 +1,26 @@
 import styled from 'styled-components';
 
 export const MainContainer = styled.main`
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: white;
+    gap: 64px;
     width: 100%;
     height: auto;
     text-align: center;
 
+    #homeLogo {
+        img {
+            height: clamp(15vh, 35vh, 35vh);
+            width: auto;
+        }
+    }
+
     img {
-        height: clamp(25vh, 35vh, 35vh);
-        width: auto;
-        padding: 16px 0;
         object-fit: contain;
     }
 
@@ -27,15 +34,18 @@ export const MainContainer = styled.main`
 `
 
 export const HomeContainer = styled.section`
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
     align-items: center;
     width: 100%;
     height: auto;
 
     figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 16px;
     }
 
@@ -45,11 +55,25 @@ export const HomeContainer = styled.section`
         padding: 8px;
         background-color: ${props=>props.theme.colors.secondary};
         border-radius: 7px;
+        width: clamp(auto, 50%, auto);
     }
 `
 
 export const HomeContainerRow = styled(HomeContainer)`
+
     flex-direction: row;
-    padding: 32px 16px 0;
     justify-content: space-around;
+    background-color: white;
+    gap: 8px;
+    padding: 32px 0 0;
+
+    figure {
+        width: clamp(15vw, 100%, 25vw);
+        height: clamp(10vh, 25vh, 35vh);
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
 `
