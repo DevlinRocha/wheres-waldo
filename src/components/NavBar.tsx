@@ -9,7 +9,7 @@ interface NavProps {
     isGameOn: boolean, setIsGameOn: React.Dispatch<React.SetStateAction<boolean>>;
     time: number, setTime: React.Dispatch<React.SetStateAction<number>>;
     isTimerOn: boolean, setIsTimerOn: React.Dispatch<React.SetStateAction<boolean>>;
-    isGameOver: boolean
+    isGameOver: boolean;
 };
 
 export default function NavBar(props: NavProps) {
@@ -25,8 +25,10 @@ export default function NavBar(props: NavProps) {
 
             {props.isGameOn ? <Timer time={props.time} setTime={props.setTime} isTimerOn={props.isTimerOn} setIsTimerOn={props.setIsTimerOn} isGameOver={props.isGameOver} /> : null}
 
-            <LevelSelect setIsGameOver={props.setIsGameOver} />
-            
+            <section>
+                <LevelSelect setIsGameOver={props.setIsGameOver} />
+                <button onClick={handleClick} ><Link to='/high-scores'>High Scores</Link></button>
+            </section>
         </Nav>
     );
 };

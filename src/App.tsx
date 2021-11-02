@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import WaldoGame from './components/WaldoGame';
 import GameOver from './components/GameOver';
+import HighScores from './components/HighScores';
 import PageNotFound from './components/PageNotFound';
 
 import { GlobalStyles } from './components/styles/Global';
@@ -46,6 +47,8 @@ export default function App() {
               : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={SkiResort} level='Ski Resort' />
             }
           </Route>
+
+          <Route exact path='/high-scores' component={HighScores} />
 
           <Route component={PageNotFound} />
 
