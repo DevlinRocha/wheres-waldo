@@ -25,10 +25,9 @@ export const MainContainer = styled.main`
     }
 
     h3 {
-        color: ${props=>props.theme.colors.secondary};
         color: white;
+        color: ${props=>props.theme.colors.primary};
         padding: 8px;
-        background-color: ${props=>props.theme.colors.primary};
         border-radius: 7px;
     }
 `
@@ -51,10 +50,9 @@ export const HomeContainer = styled.section`
 
     figcaption {
         color: ${props=>props.theme.colors.secondary};
-        color: white;
         padding: 8px;
-        background-color: ${props=>props.theme.colors.secondary};
-        border-radius: 7px;
+        /* background-color: ${props=>props.theme.colors.secondary}; */
+        /* border-radius: 7px; */
         width: clamp(auto, 50%, auto);
     }
 `

@@ -23,7 +23,7 @@ export default function HomePage() {
 
             <HomeContainer>
 
-                <h3><u>Look for these characters!</u></h3>
+                <h3>Look for these characters!</h3>
 
                 <HomeContainerRow>
 
@@ -57,7 +57,7 @@ export default function HomePage() {
 
             <HomeContainer>
 
-                <h3><u>Find these items!</u></h3>
+                <h3>Find these items!</h3>
 
                 <HomeContainerRow>
 

@@ -17,6 +17,7 @@ export const ContextMenu = styled.div<MenuProps>`
         color: ${props=>props.theme.colors.primary};
         background-color: white;
         padding: ${props=>props.theme.sizing.ul.padding};
+        border: 1px solid ${props=>props.theme.colors.secondary};
         border-radius: ${props=>props.theme.sizing.ul.borderRadius};
         gap: 3px;
         list-style: none;
@@ -31,6 +32,7 @@ export const ContextMenu = styled.div<MenuProps>`
         color: white;
         cursor: pointer;
         background-color: ${props=>props.theme.colors.primary};
+        transition: opacity, background-color, color, 0.25s;
         border-radius: 3px;
     }
 `
