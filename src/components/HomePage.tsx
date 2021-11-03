@@ -1,6 +1,12 @@
+import { Link } from 'react-router-dom';
+
 import { MainContainer, HomeContainer, HomeContainerRow } from './styles/HomeContainer.styled';
 
 import WheresWaldo from '../assets/Where\'sWaldo.png';
+
+import GobblingGluttons from '../assets/GobblingGluttons.jpg';
+import SkiResort from '../assets/SkiResort.png';
+
 import Odlaw from '../assets/characters/Odlaw.png';
 import Waldo from '../assets/characters/Waldo.png';
 import Wenda from '../assets/characters/Wenda.png';
@@ -20,6 +26,29 @@ export default function HomePage() {
             <figure id='homeLogo'>
                 <img src={WheresWaldo} alt="Where's Waldo?" />
             </figure>
+
+            <HomeContainer>
+
+                <h3>Choose a level!</h3>
+
+                <HomeContainerRow>
+
+                    <figure>
+                        <Link to='/gobbling-gluttons'>
+                        <figcaption><b>Gobbling Gluttons</b></figcaption>
+                        <img src={GobblingGluttons} alt='Gobbling Gluttons' />
+                        </Link>
+                    </figure>
+
+                    <figure>
+                        <Link to='/ski-resort'>
+                        <figcaption><b>Ski Resort</b></figcaption>
+                        <img src={SkiResort} alt='Ski Resort' />
+                        </Link>
+                    </figure>
+
+                </HomeContainerRow>
+                </HomeContainer>
 
             <HomeContainer>
 

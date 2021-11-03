@@ -51,8 +51,6 @@ export const HomeContainer = styled.section`
     figcaption {
         color: ${props=>props.theme.colors.secondary};
         padding: 8px;
-        /* background-color: ${props=>props.theme.colors.secondary}; */
-        /* border-radius: 7px; */
         width: clamp(auto, 50%, auto);
     }
 `
@@ -68,6 +66,12 @@ export const HomeContainerRow = styled(HomeContainer)`
     figure {
         width: clamp(15vw, 100%, 25vw);
         height: clamp(10vh, 25vh, 35vh);
+
+        a {
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+        }
     }
 
     img {
