@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.js": "/wheres-waldo/static/js/main.a8b71416.chunk.js",
-    "main.js.map": "/wheres-waldo/static/js/main.a8b71416.chunk.js.map",
+    "main.js": "/wheres-waldo/static/js/main.6be58c99.chunk.js",
+    "main.js.map": "/wheres-waldo/static/js/main.6be58c99.chunk.js.map",
     "runtime-main.js": "/wheres-waldo/static/js/runtime-main.6322256e.js",
     "runtime-main.js.map": "/wheres-waldo/static/js/runtime-main.6322256e.js.map",
-    "static/js/2.b74285de.chunk.js": "/wheres-waldo/static/js/2.b74285de.chunk.js",
-    "static/js/2.b74285de.chunk.js.map": "/wheres-waldo/static/js/2.b74285de.chunk.js.map",
+    "static/js/2.012fdfb0.chunk.js": "/wheres-waldo/static/js/2.012fdfb0.chunk.js",
+    "static/js/2.012fdfb0.chunk.js.map": "/wheres-waldo/static/js/2.012fdfb0.chunk.js.map",
     "index.html": "/wheres-waldo/index.html",
-    "static/js/2.b74285de.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.b74285de.chunk.js.LICENSE.txt",
+    "static/js/2.012fdfb0.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.012fdfb0.chunk.js.LICENSE.txt",
     "static/media/Binoculars.dcc41ad0.png": "/wheres-waldo/static/media/Binoculars.dcc41ad0.png",
     "static/media/Bone.6d651ea5.png": "/wheres-waldo/static/media/Bone.6d651ea5.png",
     "static/media/Camera.e9500640.png": "/wheres-waldo/static/media/Camera.e9500640.png",
+    "static/media/CharacterBanner.25ed0c72.png": "/wheres-waldo/static/media/CharacterBanner.25ed0c72.png",
     "static/media/GobblingGluttons.3e56f8b3.jpg": "/wheres-waldo/static/media/GobblingGluttons.3e56f8b3.jpg",
     "static/media/Key.dfbc9908.png": "/wheres-waldo/static/media/Key.dfbc9908.png",
     "static/media/Odlaw.7f2337c8.png": "/wheres-waldo/static/media/Odlaw.7f2337c8.png",
@@ -25,7 +26,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.6322256e.js",
-    "static/js/2.b74285de.chunk.js",
-    "static/js/main.a8b71416.chunk.js"
+    "static/js/2.012fdfb0.chunk.js",
+    "static/js/main.6be58c99.chunk.js"
   ]
 }
