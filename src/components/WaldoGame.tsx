@@ -97,7 +97,7 @@ export default function WaldoGame(props: GameProps) {
   };
 
   async function getCharacters() {
-    const characterList = await getDocs(collection(db, props.level));
+    const characterList = await getDocs(collection(db, "Levels", props.level, "Coordinates"));
     const characters: string[] = [];
     characterList.forEach(character=>{
       characters.push(character.id);

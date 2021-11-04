@@ -14,7 +14,7 @@ interface MenuProps {
 export default function SelectionMenu(props: MenuProps) {
 
     async function getCoords(selection: string) {
-        const docRef = doc(db, props.level, selection);
+        const docRef = doc(db, "Levels", props.level, "Coordinates", selection);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
@@ -91,7 +91,6 @@ export default function SelectionMenu(props: MenuProps) {
     };
 
     return (
-        // <TargetingBox />
         <ul>
             {props.characters.map(character=>{
                 return (
