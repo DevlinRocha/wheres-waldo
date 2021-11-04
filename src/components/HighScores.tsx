@@ -18,7 +18,7 @@ export default function HighScores() {
 
     useEffect(() => {
         getLevelScores();
-    }, []);
+    }, [level]);
 
     function handleClick(level: string): void {
         setLevel(level);
