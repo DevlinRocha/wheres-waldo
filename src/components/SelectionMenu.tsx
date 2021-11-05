@@ -16,6 +16,14 @@ interface MenuProps {
 
 export default function SelectionMenu(props: MenuProps) {
 
+    function notificationTimer() {
+        setTimeout(() => {
+            props.setNotificationData({...props.notificationData,
+                isNotificationOpen: false,
+            });
+        }, 3000);
+    };
+
     async function getCoords(selection: string) {
         const docRef = doc(db, "Levels", props.level, "Coordinates", selection);
         const docSnap = await getDoc(docRef);
@@ -49,13 +57,7 @@ export default function SelectionMenu(props: MenuProps) {
                     isCharacterFound: true,
                 });
 
-                setTimeout(() => {
-                    props.setNotificationData({
-                        isNotificationOpen: false,
-                        character: '',
-                        isCharacterFound: false,
-                    });
-                }, 3000);
+                notificationTimer();
 
                 switch (selection) {
 
@@ -78,19 +80,13 @@ export default function SelectionMenu(props: MenuProps) {
 
             } else {
 
-              props.setNotificationData({
-                isNotificationOpen: true,
-                character: selection,
-                isCharacterFound: false,
-            });
-
-            setTimeout(() => {
                 props.setNotificationData({
-                    isNotificationOpen: false,
-                    character: '',
+                    isNotificationOpen: true,
+                    character: selection,
                     isCharacterFound: false,
                 });
-            }, 3000);
+        
+                notificationTimer();
 
             };
         };
