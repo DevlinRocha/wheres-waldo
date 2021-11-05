@@ -8,10 +8,10 @@ interface NotificationProps {
 
 export default function Notification(props: NotificationProps) {
     return (
-        <Banner>
+        <Banner notificationData={props.notificationData} >
             {props.notificationData.isCharacterFound
-                ? <span>You found {props.notificationData.character}!</span>
-                : <span>{props.notificationData.character} not found, try again!</span>
+                ? <span>You found <b>{props.notificationData.character}</b>!</span>
+                : <span><b>{props.notificationData.character}</b> not found, try again!</span>
             }
         </Banner>
     );
