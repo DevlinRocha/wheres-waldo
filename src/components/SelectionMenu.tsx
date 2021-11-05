@@ -1,9 +1,12 @@
 import { doc, getDoc } from 'firebase/firestore';
-import { Coords } from './WaldoGame';
+import { Coords, NotificationState } from './WaldoGame';
 import { db } from '../index';
+import React from 'react';
+
 
 interface MenuProps {
     isContextMenuOpen: boolean, setIsContextMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    notificationData: NotificationState, setNotificationData: React.Dispatch<React.SetStateAction<NotificationState>>;
     img: string, level: string, characters: string[], mouseCoords: Coords;
     isOdlawFound?: boolean, setIsOdlawFound: React.Dispatch<React.SetStateAction<boolean>>;
     isWaldoFound?: boolean, setIsWaldoFound: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,7 +43,19 @@ export default function SelectionMenu(props: MenuProps) {
             // Test if the selection is within the area
             if ((Math.abs(props.mouseCoords.x - waldoCoords.x) < 25) && (Math.abs(props.mouseCoords.y - waldoCoords.y) < 42)) {
 
-                console.log(`You found ${selection}!`);
+                props.setNotificationData({
+                    isNotificationOpen: true,
+                    character: selection,
+                    isCharacterFound: true,
+                });
+
+                setTimeout(() => {
+                    props.setNotificationData({
+                        isNotificationOpen: false,
+                        character: '',
+                        isCharacterFound: false,
+                    });
+                }, 3000);
 
                 switch (selection) {
 
@@ -63,7 +78,19 @@ export default function SelectionMenu(props: MenuProps) {
 
             } else {
 
-              console.log(`${selection} not found, try again!`);
+              props.setNotificationData({
+                isNotificationOpen: true,
+                character: selection,
+                isCharacterFound: false,
+            });
+
+            setTimeout(() => {
+                props.setNotificationData({
+                    isNotificationOpen: false,
+                    character: '',
+                    isCharacterFound: false,
+                });
+            }, 3000);
 
             };
         };

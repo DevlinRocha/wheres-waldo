@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router';
 import { collection, getDocs } from 'firebase/firestore';
 
+import Notification from './Notification';
 import SelectionMenu from './SelectionMenu';
 
 import { GameContainer } from './styles/GameContainer.styled';
@@ -11,6 +12,12 @@ import { db } from '../index';
 export interface Coords {
   x: number,
   y: number,
+};
+
+export interface NotificationState {
+  isNotificationOpen: boolean;
+  character: string;
+  isCharacterFound: boolean;
 };
 
 interface GameProps {
@@ -30,6 +37,11 @@ export default function WaldoGame(props: GameProps) {
   const [isWendaFound, setIsWendaFound] = useState(false);
   const [isWizardFound, setIsWizardFound] = useState(false);
   const [characters, setCharacters] = useState<string[]>([]);
+  const [notificationData, setNotificationData] = useState<NotificationState>({
+    isNotificationOpen: false,
+    character: '',
+    isCharacterFound: false,
+  });
 
   const history = useHistory();
   const firstRender = useRef(true);
@@ -134,10 +146,14 @@ export default function WaldoGame(props: GameProps) {
 
   return (
     <GameContainer>
+      {notificationData.isNotificationOpen
+        ? <Notification notificationData={notificationData} />
+        : null}
       {isContextOpen
         ? <ContextMenu menuCoords={menuCoords} >
             <TargetingBox onClick={handleClick} menuCoords={menuCoords} />
             <SelectionMenu isContextMenuOpen={isContextOpen} setIsContextMenuOpen={setIsContextOpen}
+              notificationData={notificationData} setNotificationData={setNotificationData}
               img={props.img} level={props.level} characters={characters} mouseCoords={mouseCoords}
               isOdlawFound={isOdlawFound} setIsOdlawFound={setIsOdlawFound}
               isWaldoFound={isWaldoFound} setIsWaldoFound={setIsWaldoFound}
