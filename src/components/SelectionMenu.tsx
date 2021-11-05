@@ -16,14 +16,6 @@ interface MenuProps {
 
 export default function SelectionMenu(props: MenuProps) {
 
-    function notificationTimer() {
-        setTimeout(() => {
-            props.setNotificationData({...props.notificationData,
-                isNotificationOpen: false,
-            });
-        }, 3000);
-    };
-
     async function getCoords(selection: string) {
         const docRef = doc(db, "Levels", props.level, "Coordinates", selection);
         const docSnap = await getDoc(docRef);
@@ -51,13 +43,18 @@ export default function SelectionMenu(props: MenuProps) {
             // Test if the selection is within the area
             if ((Math.abs(props.mouseCoords.x - waldoCoords.x) < 25) && (Math.abs(props.mouseCoords.y - waldoCoords.y) < 42)) {
 
+                clearTimeout(props.notificationData.timer);
+
                 props.setNotificationData({
                     isNotificationOpen: true,
                     character: selection,
                     isCharacterFound: true,
+                    timer: setTimeout(() => {
+                        props.setNotificationData({...props.notificationData,
+                            isNotificationOpen: false,
+                        });
+                    }, 3000),
                 });
-
-                notificationTimer();
 
                 switch (selection) {
 
@@ -80,13 +77,18 @@ export default function SelectionMenu(props: MenuProps) {
 
             } else {
 
+                clearTimeout(props.notificationData.timer);
+
                 props.setNotificationData({
                     isNotificationOpen: true,
                     character: selection,
                     isCharacterFound: false,
+                    timer: setTimeout(() => {
+                        props.setNotificationData({...props.notificationData,
+                            isNotificationOpen: false,
+                        });
+                    }, 3000),
                 });
-        
-                notificationTimer();
 
             };
         };

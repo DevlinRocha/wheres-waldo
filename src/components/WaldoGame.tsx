@@ -18,6 +18,7 @@ export interface NotificationState {
   isNotificationOpen: boolean;
   character: string;
   isCharacterFound: boolean;
+  timer: NodeJS.Timeout;
 };
 
 interface GameProps {
@@ -41,6 +42,7 @@ export default function WaldoGame(props: GameProps) {
     isNotificationOpen: false,
     character: '',
     isCharacterFound: false,
+    timer: setTimeout(()=>{},0),
   });
 
   const history = useHistory();
