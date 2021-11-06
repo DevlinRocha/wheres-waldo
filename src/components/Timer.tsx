@@ -25,9 +25,9 @@ export default function Timer(props: TimerProps) {
 
             interval = setInterval(() => {
 
-                props.setTime(prevTime => prevTime + 1000);
+                props.setTime(prevTime => prevTime + 10);
 
-            }, 1000);
+            }, 10);
 
         };
 
