@@ -33,19 +33,19 @@ export default function HomePage() {
 
                 <HomeContainerRow>
 
-                    <figure>
-                        <Link to='/gobbling-gluttons'>
-                        <figcaption><b>Gobbling Gluttons</b></figcaption>
-                        <img src={GobblingGluttons} alt='Gobbling Gluttons' />
-                        </Link>
-                    </figure>
+                    <Link to='/gobbling-gluttons'>
+                        <figure>
+                            <figcaption><b>Gobbling Gluttons</b></figcaption>
+                            <img src={GobblingGluttons} alt='Gobbling Gluttons' />
+                        </figure>
+                    </Link>
 
-                    <figure>
-                        <Link to='/ski-resort'>
-                        <figcaption><b>Ski Resort</b></figcaption>
-                        <img src={SkiResort} alt='Ski Resort' />
-                        </Link>
-                    </figure>
+                    <Link to='/ski-resort'>
+                        <figure>
+                            <figcaption><b>Ski Resort</b></figcaption>
+                            <img src={SkiResort} alt='Ski Resort' />
+                        </figure>
+                    </Link>
 
                 </HomeContainerRow>
                 </HomeContainer>

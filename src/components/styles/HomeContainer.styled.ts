@@ -41,11 +41,12 @@ export const HomeContainer = styled.section`
     width: 100%;
     height: auto;
 
-    figure {
+    a {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 16px;
+        text-decoration: none;
     }
 
     figcaption {

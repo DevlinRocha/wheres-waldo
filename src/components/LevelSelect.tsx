@@ -24,8 +24,8 @@ export default function LevelSelect(props: LevelSelectProps) {
         <DropDown isDropDownOpen={isDropDownOpen} >
         <button onClick={handleClick} >Level Select</button>
         <ul>
-            <li onClick={switchLevel} ><NavLink exact to='/gobbling-gluttons'>Gobbling Gluttons</NavLink></li>
-            <li onClick={switchLevel} ><NavLink exact to='/ski-resort'>Ski Resort</NavLink></li>
+            <NavLink onClick={switchLevel} exact to='/gobbling-gluttons'><li>Gobbling Gluttons</li></NavLink>
+            <NavLink onClick={switchLevel} exact to='/ski-resort'><li>Ski Resort</li></NavLink>
         </ul>
         </DropDown>
     );

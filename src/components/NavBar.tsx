@@ -27,7 +27,7 @@ export default function NavBar(props: NavProps) {
 
             <section>
                 <LevelSelect setIsGameOver={props.setIsGameOver} />
-                <button onClick={handleClick} ><Link to='/high-scores'>High Scores</Link></button>
+                <Link onClick={handleClick} to='/high-scores'><button>High Scores</button></Link>
             </section>
         </Nav>
     );

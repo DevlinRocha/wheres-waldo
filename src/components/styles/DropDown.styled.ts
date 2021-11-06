@@ -27,7 +27,7 @@ export const DropDown = styled.aside<DropDownProps>`
         list-style-type: none;
     }
 
-    li {
+    a {
         padding: 8px;
         margin: 0;
         opacity: ${props=>props.isDropDownOpen ? 1 : 0};
@@ -36,20 +36,14 @@ export const DropDown = styled.aside<DropDownProps>`
         width: 100%;
         height: 100%;
         display: inline;
-    }
-
-    li > a {
         color: ${props=>props.theme.colors.primary};
     }
 
-    li:hover {
+    a:hover {
 
         background-color: ${props=>props.theme.colors.primary};
         border-radius: ${props=>props.theme.sizing.ul.borderRadius};
-
-        a {
-            color: white;
-        }
+        color: white;
     }
 
     .active {
