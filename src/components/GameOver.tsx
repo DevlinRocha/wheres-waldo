@@ -1,6 +1,12 @@
+import { useRef } from 'react';
+import { useHistory } from 'react-router-dom';
+import { collection, addDoc } from 'firebase/firestore';
+
 import { MainContainer } from './styles/GameOverContainer.styled';
 
 import WaldoFound from '../assets/WaldoFound.png';
+
+import { db } from '../index';
 
 interface GameOverProps {
     isGameOver: boolean, setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,12 +16,31 @@ interface GameOverProps {
 
 export default function GameOver(props: GameOverProps) {
 
+    const history = useHistory();
+
+    const usernameRef = useRef<HTMLInputElement>(null);
+
     function handleClick() {
         props.setIsGameOver(false);
     };
 
-    function handleSubmit() {
-        console.log('Success');
+    async function handleSubmit(e: any) {
+        e.preventDefault();
+        history.push({
+            pathname: '/high-scores',
+            state: {
+                level: props.level,
+            },
+        });
+        const username = usernameRef.current!.value;
+        try {
+            await addDoc(collection(db, 'Levels', props.level, 'High Scores'), {
+                username: username,
+                time: props.time,
+            });
+        } catch(e) {
+            console.error('Error adding document: ', e);
+        };
     };
 
     return(
@@ -27,22 +52,22 @@ export default function GameOver(props: GameOverProps) {
 
             <form onSubmit={handleSubmit} >
 
-                    <h3>You completed <b>{props.level}</b> in <b>{props.time / 1000} seconds!</b></h3>
+                <h3>You completed <b>{props.level}</b> in <b>{props.time / 1000} seconds!</b></h3>
 
-                    <fieldset>
+                <fieldset>
 
-                        <legend>Enter your name to save your score!</legend>
+                    <legend>Enter your name to save your score!</legend>
 
-                        <label htmlFor='firstName'>Username</label>
-                        <input type='text' id='firstName' name='firstName'></input>
+                    <label htmlFor='username'>Username</label>
+                    <input ref={usernameRef} type='text' id='username'></input>
 
-                    </fieldset>
+                </fieldset>
 
-                    <input id='submitButton' type='submit' value='Submit' ></input>
+                <input id='submitButton' type='submit' value='Submit' ></input>
 
-                </form>
+            </form>
 
-                <button onClick={handleClick}>Play Again</button>
+            <button onClick={handleClick} >Play Again</button>
         </MainContainer>
     );
 };
