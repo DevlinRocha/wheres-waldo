@@ -25,9 +25,9 @@ export default function Timer(props: TimerProps) {
 
             interval = setInterval(() => {
 
-                props.setTime(prevTime => prevTime + 10);
+                props.setTime(prevTime => prevTime + 1000);
 
-            }, 10);
+            }, 1000);
 
         };
 
@@ -39,9 +39,8 @@ export default function Timer(props: TimerProps) {
 
     return (
         <time>
-            <span>{("0"+Math.floor((props.time/60000)%60)).slice(-2)}:</span>
-            <span>{("0"+Math.floor((props.time/1000)%60)).slice(-2)}:</span>
-            <span>{("0"+((props.time/10)%100)).slice(-2)}</span>
+            <span>{(Math.floor((props.time/60000)%60)).toString().slice(-2)}:</span>
+            <span>{("0"+Math.floor((props.time/1000)%60)).slice(-2)}</span>
         </time>
     );
 };
