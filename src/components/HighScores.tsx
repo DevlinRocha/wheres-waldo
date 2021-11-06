@@ -10,23 +10,41 @@ import CharacterBanner from '../assets/CharacterBanner.png';
 import GobblingGluttons from '../assets/GobblingGluttons.jpg';
 import SkiResort from '../assets/SkiResort.png';
 
+import { useLocation } from 'react-router';
+
+interface LocationState {
+    state: {
+        level: string;
+    };
+};
+
 export default function HighScores() {
 
-    const [level, setLevel] = useState('Ski Resort');
+    const [level, setLevel] = useState<string>();
 
     const [levelScores, setLevelScores] = useState<DocumentData[]>([]);
 
-    useEffect(() => {
-        getLevelScores();
-    }, [level]);
+    const location: LocationState = useLocation();
 
-    function handleClick(level: string): void {
-        setLevel(level);
-        getLevelScores();
+    useEffect(() => {
+        try {
+            const newLevel = location.state.level;
+            setLevel(newLevel);
+        } catch {
+            void(0);
+        };
+    }, []);
+
+    useEffect(() => {
+        level ? getLevelScores(level) : void(0);
+    }, [level])
+
+    function handleClick(newLevel: string): void {
+        setLevel(newLevel);
     };
 
-    async function getLevelScores() {
-        const querySnapshot = await getDocs(collection(db, 'Levels', level, 'High Scores'));
+    async function getLevelScores(newLevel: string) {
+        const querySnapshot = await getDocs(collection(db, 'Levels', newLevel, 'High Scores'));
         const levelScores: any[] = [];
         querySnapshot.forEach(score => {
             levelScores.push(score);
@@ -60,6 +78,8 @@ export default function HighScores() {
                     </HighScoresContainerRow>
                 </HighScoresContainer>
 
+            {level
+            ?
             <table>
                 <caption>{level}</caption>
                 <thead>
@@ -70,17 +90,18 @@ export default function HighScores() {
                 </thead>
 
                 <tbody>
-                    {levelScores.map(score => {
+                    {levelScores.map((score, index) => {
                         const data = score.data();
                         return (
-                            <tr key={data.username} >
+                            <tr key={index} >
                                 <td>{data.username}</td>
-                                <td>{data.time}</td>
+                                <td><span>{(Math.floor((data.time/60000)%60)).toString().slice(-2)}:</span><span>{("0"+Math.floor((data.time/1000)%60)).slice(-2)}</span></td>
                             </tr>
                         )
                     })}
                 </tbody>
             </table>
+            : null}
         </MainContainer>
     );
 };
