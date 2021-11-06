@@ -36,7 +36,7 @@ export default function App() {
 
           <Route exact path='/gobbling-gluttons'>
             {isGameOver
-              ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} time={time} level='Ski Resort' />
+              ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} time={time} level='Gobbling Gluttons' />
               : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={GobblingGluttons} level='Gobbling Gluttons' />
             }
           </Route>
