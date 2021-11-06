@@ -8,7 +8,7 @@ export const DropDown = styled.aside<DropDownProps>`
     justify-self: end;
     transition: all 3s;
 
-    ul {
+    #levelList {
         display: ${props=>props.isDropDownOpen ? 'flex' : 'none'}; // 'flex' or 'none'
         flex-direction: column;
         justify-content: center;

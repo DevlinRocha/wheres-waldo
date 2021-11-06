@@ -20,10 +20,10 @@ export default function LevelSelect(props: LevelSelectProps) {
         setIsDropDownOpen(false);
     };
 
-    return(
+    return (
         <DropDown isDropDownOpen={isDropDownOpen} >
         <button onClick={handleClick} >Level Select</button>
-        <ul>
+        <ul id='levelList'>
             <NavLink onClick={switchLevel} exact to='/gobbling-gluttons'><li>Gobbling Gluttons</li></NavLink>
             <NavLink onClick={switchLevel} exact to='/ski-resort'><li>Ski Resort</li></NavLink>
         </ul>
