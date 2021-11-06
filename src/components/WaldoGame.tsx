@@ -89,6 +89,7 @@ export default function WaldoGame(props: GameProps) {
     } else {
   
       props.setIsTimerOn(false);
+      props.setIsGameOn(false);
       return props.setIsGameOver(true);
   
     };
