@@ -18,9 +18,12 @@ interface LocationState {
     };
 };
 
-export default function HighScores() {
+interface HighScoreProps {
+    level: string | undefined;
+    setLevel: React.Dispatch<React.SetStateAction<string | undefined>>;
+};
 
-    const [level, setLevel] = useState<string>();
+export default function HighScores(props: HighScoreProps) {
 
     const [levelScores, setLevelScores] = useState<DocumentData[]>([]);
 
@@ -29,18 +32,18 @@ export default function HighScores() {
     useEffect(() => {
         try {
             const newLevel = location.state.level;
-            setLevel(newLevel);
+            props.setLevel(newLevel);
         } catch {
             void(0);
         };
     }, []);
 
     useEffect(() => {
-        level ? getLevelScores(level) : void(0);
-    }, [level])
+        props.level ? getLevelScores(props.level) : void(0);
+    }, [props.level])
 
     function handleClick(newLevel: string): void {
-        setLevel(newLevel);
+        props.setLevel(newLevel);
     };
 
     async function getLevelScores(newLevel: string) {
@@ -78,10 +81,10 @@ export default function HighScores() {
                     </HighScoresContainerRow>
                 </HighScoresContainer>
 
-            {level
+            {props.level
             ?
             <table>
-                <caption>{level}</caption>
+                <caption>{props.level}</caption>
                 <thead>
                     <tr>
                         <th>Username</th>

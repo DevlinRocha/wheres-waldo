@@ -20,6 +20,7 @@ export default function App() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [time, setTime] = useState(0);
   const [isTimerOn, setIsTimerOn] = useState(false);
+  const [level, setLevel] = useState<string | undefined>();
 
   return (
 
@@ -48,7 +49,9 @@ export default function App() {
             }
           </Route>
 
-          <Route exact path='/high-scores' component={HighScores} />
+          <Route exact path='/high-scores' >
+            <HighScores level={level} setLevel={setLevel} />
+          </Route>
 
           <Route component={PageNotFound} />
 
