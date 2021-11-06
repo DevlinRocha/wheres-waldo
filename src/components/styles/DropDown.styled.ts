@@ -9,7 +9,7 @@ export const DropDown = styled.aside<DropDownProps>`
     transition: all 3s;
 
     ul {
-        display: ${props=>props.isDropDownOpen ? 'flex' : 'none'}; // 'none' or 'flex'
+        display: ${props=>props.isDropDownOpen ? 'flex' : 'none'}; // 'flex' or 'none'
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -31,11 +31,10 @@ export const DropDown = styled.aside<DropDownProps>`
         padding: 8px;
         margin: 0;
         opacity: ${props=>props.isDropDownOpen ? 1 : 0};
-        display: ${props=>props.isDropDownOpen ? 'inline-block' : 'none'}; // 'inline-block' or 'flex'
+        display: ${props=>props.isDropDownOpen ? 'inline-block' : 'none'}; // 'inline-block' or 'none'
         transition: opacity, background-color, color, 0.25s;
         width: 100%;
         height: 100%;
-        display: inline;
         color: ${props=>props.theme.colors.primary};
     }
 
