@@ -34,7 +34,34 @@ export const MainContainer = styled.main`
         background-color: ${props=>props.theme.colors.primary};
         padding: 5px;
         border-radius: 7px;
-        border: inherit;
+        border: none;
         font: inherit;
+    }
+
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        gap: 8px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #submitButton {
+        cursor: pointer;
+        color: white;
+        background-color: ${props=>props.theme.colors.primary};
+        padding: 5px;
+        border-radius: 7px;
+        border: none;
+        font: inherit;
+    }
+
+    label {
+        text-align: left;
     }
 `
