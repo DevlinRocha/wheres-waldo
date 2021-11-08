@@ -12,8 +12,9 @@ import PageNotFound from './components/PageNotFound';
 import { GlobalStyles } from './components/styles/Global';
 import { Theme } from './components/styles/Theme';
 
-import GobblingGluttons from './assets/GobblingGluttons.jpg';
-import SkiResort from './assets/SkiResort.png';
+import GobblingGluttons from './assets/levels/GobblingGluttons.jpg';
+import SkiResort from './assets/levels/SkiResort.png';
+import ToysToysToys from './assets/levels/ToysToysToys.jpg';
 
 export default function App() {
   const [isGameOn, setIsGameOn] = useState(false);
@@ -46,6 +47,13 @@ export default function App() {
             {isGameOver
               ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} time={time} level='Ski Resort' />
               : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={SkiResort} level='Ski Resort' />
+            }
+          </Route>
+
+          <Route exact path='/toys-toys-toys'>
+            {isGameOver
+              ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} time={time} level='Toys! Toys! Toys!' />
+              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={ToysToysToys} level='Toys! Toys! Toys!' />
             }
           </Route>
 

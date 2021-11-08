@@ -4,8 +4,9 @@ import { MainContainer, HomeContainer, HomeContainerRow } from './styles/HomeCon
 
 import WheresWaldo from '../assets/Where\'sWaldo.png';
 
-import GobblingGluttons from '../assets/GobblingGluttons.jpg';
-import SkiResort from '../assets/SkiResort.png';
+import GobblingGluttons from '../assets/levels/GobblingGluttons.jpg';
+import SkiResort from '../assets/levels/SkiResort.png';
+import ToysToysToys from '../assets/levels/ToysToysToys.jpg';
 
 import Odlaw from '../assets/characters/Odlaw.png';
 import Waldo from '../assets/characters/Waldo.png';
@@ -44,6 +45,13 @@ export default function HomePage() {
                         <figure>
                             <figcaption><b>Ski Resort</b></figcaption>
                             <img src={SkiResort} alt='Ski Resort' />
+                        </figure>
+                    </Link>
+
+                    <Link to='/toys-toys-toys'>
+                        <figure>
+                            <figcaption><b>Toys! Toys! Toys!</b></figcaption>
+                            <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
                         </figure>
                     </Link>
 

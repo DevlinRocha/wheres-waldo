@@ -26,6 +26,7 @@ export default function LevelSelect(props: LevelSelectProps) {
         <ul id='levelList'>
             <NavLink onClick={switchLevel} exact to='/gobbling-gluttons'><li>Gobbling Gluttons</li></NavLink>
             <NavLink onClick={switchLevel} exact to='/ski-resort'><li>Ski Resort</li></NavLink>
+            <NavLink onClick={switchLevel} exact to='/toys-toys-toys'><li>Toys! Toys! Toys!</li></NavLink>
         </ul>
         </DropDown>
     );

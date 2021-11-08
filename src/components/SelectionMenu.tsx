@@ -3,7 +3,6 @@ import { Coords, NotificationState } from './WaldoGame';
 import { db } from '../index';
 import React from 'react';
 
-
 interface MenuProps {
     isContextMenuOpen: boolean, setIsContextMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
     notificationData: NotificationState, setNotificationData: React.Dispatch<React.SetStateAction<NotificationState>>;

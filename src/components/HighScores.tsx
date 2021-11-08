@@ -7,8 +7,9 @@ import { MainContainer, HighScoresContainer, HighScoresContainerRow } from './st
 
 import CharacterBanner from '../assets/CharacterBanner.png';
 
-import GobblingGluttons from '../assets/GobblingGluttons.jpg';
-import SkiResort from '../assets/SkiResort.png';
+import GobblingGluttons from '../assets/levels/GobblingGluttons.jpg';
+import SkiResort from '../assets//levels/SkiResort.png';
+import ToysToysToys from '../assets/levels/ToysToysToys.jpg';
 
 import { useLocation } from 'react-router';
 
@@ -76,6 +77,11 @@ export default function HighScores(props: HighScoreProps) {
                         <figure onClick={()=>handleClick('Ski Resort')}>
                             <figcaption><b>Ski Resort</b></figcaption>
                             <img src={SkiResort} alt='Ski Resort' />
+                        </figure>
+
+                        <figure onClick={()=>handleClick('Toys! Toys! Toys!')}>
+                            <figcaption><b>Toys! Toys! Toys!</b></figcaption>
+                            <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
                         </figure>
 
                     </HighScoresContainerRow>

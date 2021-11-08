@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Nav } from "./styles/Nav.styled"
 
 import Timer from './Timer';
 import LevelSelect from './LevelSelect';
+
+import { Nav } from "./styles/Nav.styled"
 
 interface NavProps {
     setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,7 +20,7 @@ export default function NavBar(props: NavProps) {
         props.setIsGameOn(false);
     };
 
-    return(
+    return (
         <Nav>
             <h1 onClick={handleClick} ><Link to='/'><span id='first'>Where's</span> <span id='second'>Waldo?</span></Link></h1>
 
