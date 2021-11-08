@@ -37,6 +37,7 @@ export default function WaldoGame(props: GameProps) {
   const [isWaldoFound, setIsWaldoFound] = useState(false);
   const [isWendaFound, setIsWendaFound] = useState(false);
   const [isWizardFound, setIsWizardFound] = useState(false);
+  const [isWoofFound, setIsWoofFound] = useState(false);
   const [characters, setCharacters] = useState<string[]>([]);
   const [notificationData, setNotificationData] = useState<NotificationState>({
     isNotificationOpen: false,
@@ -161,7 +162,9 @@ export default function WaldoGame(props: GameProps) {
               isOdlawFound={isOdlawFound} setIsOdlawFound={setIsOdlawFound}
               isWaldoFound={isWaldoFound} setIsWaldoFound={setIsWaldoFound}
               isWendaFound={isWendaFound} setIsWendaFound={setIsWendaFound}
-              isWizardFound={isWizardFound} setIsWizardFound={setIsWizardFound} />
+              isWizardFound={isWizardFound} setIsWizardFound={setIsWizardFound}
+              isWoofFound={isWoofFound} setIsWoofFound={setIsWoofFound}
+            />
             </ContextMenu>
         : null}
       <img onClick={handleClick} src={props.img} draggable="false" alt="Where's Waldo?" />

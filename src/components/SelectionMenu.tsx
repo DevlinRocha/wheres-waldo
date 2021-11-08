@@ -11,6 +11,7 @@ interface MenuProps {
     isWaldoFound?: boolean, setIsWaldoFound: React.Dispatch<React.SetStateAction<boolean>>;
     isWendaFound?: boolean, setIsWendaFound: React.Dispatch<React.SetStateAction<boolean>>;
     isWizardFound?: boolean, setIsWizardFound: React.Dispatch<React.SetStateAction<boolean>>;
+    isWoofFound?: boolean, setIsWoofFound: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function SelectionMenu(props: MenuProps) {
@@ -34,6 +35,8 @@ export default function SelectionMenu(props: MenuProps) {
     async function handleClick(e: any) {
         const selection: string = e.target.textContent;
         props.setIsContextMenuOpen(!props.isContextMenuOpen);
+
+        console.log(props.mouseCoords)
 
         const waldoCoords = await getCoords(selection);
 
@@ -72,6 +75,10 @@ export default function SelectionMenu(props: MenuProps) {
                     case 'Wizard':
                         props.setIsWizardFound(true);
                         break;
+
+                    case 'Woof':
+                        props.setIsWoofFound(true);
+                        break;
                 };
 
             } else {
@@ -108,6 +115,9 @@ export default function SelectionMenu(props: MenuProps) {
 
             case 'Wizard':
                 return props.isWizardFound ? true : false;
+
+            case 'Woof':
+                return props.isWoofFound ? true : false;
 
             default:
                 return false;
