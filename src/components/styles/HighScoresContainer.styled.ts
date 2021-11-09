@@ -29,7 +29,7 @@ export const MainContainer = styled.main`
     }
 
     table, th, td {
-        border: 1px solid black;
+        border: 2px solid black;
         border-collapse: collapse;
     }
 
@@ -38,6 +38,14 @@ export const MainContainer = styled.main`
 
         caption, th, td {
             padding: 16px;
+        }
+
+        .username {
+            width: 80%;
+        }
+
+        .time {
+            width: 20%;
         }
     }
 `
@@ -71,10 +79,6 @@ export const HighScoresContainerRow = styled(HighScoresContainer)`
     justify-content: space-around;
     background-color: white;
     padding: 32px 0 0;
-
-    a {
-        text-decoration: none;
-    }
 
     figure {
         width: clamp(15vw, 100%, 25vw);
