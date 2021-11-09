@@ -11,6 +11,7 @@ interface NavProps {
     time: number, setTime: React.Dispatch<React.SetStateAction<number>>;
     isTimerOn: boolean, setIsTimerOn: React.Dispatch<React.SetStateAction<boolean>>;
     isGameOver: boolean;
+    setLevel: React.Dispatch<React.SetStateAction<string | undefined>>;
 };
 
 export default function NavBar(props: NavProps) {
@@ -18,6 +19,7 @@ export default function NavBar(props: NavProps) {
     function handleClick() {
         props.setIsGameOver(false);
         props.setIsGameOn(false);
+        props.setLevel(undefined);
     };
 
     return (

@@ -21,7 +21,7 @@ export default function App() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [time, setTime] = useState(0);
   const [isTimerOn, setIsTimerOn] = useState(false);
-  const [level, setLevel] = useState<string | undefined>();
+  const [level, setLevel] = useState<string | undefined>(undefined);
 
   return (
 
@@ -30,7 +30,7 @@ export default function App() {
       <ThemeProvider theme={Theme}>
       <GlobalStyles />
 
-        <NavBar setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} time={time} setTime={setTime} isTimerOn={isTimerOn} setIsTimerOn={setIsTimerOn} isGameOver={isGameOver} />
+        <NavBar setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} time={time} setTime={setTime} isTimerOn={isTimerOn} setIsTimerOn={setIsTimerOn} isGameOver={isGameOver} setLevel={setLevel} />
 
         <Switch>
 
