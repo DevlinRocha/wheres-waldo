@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/wheres-waldo/static/js/main.dc336847.chunk.js",
-    "main.js.map": "/wheres-waldo/static/js/main.dc336847.chunk.js.map",
+    "main.js": "/wheres-waldo/static/js/main.dc90664d.chunk.js",
+    "main.js.map": "/wheres-waldo/static/js/main.dc90664d.chunk.js.map",
     "runtime-main.js": "/wheres-waldo/static/js/runtime-main.6322256e.js",
     "runtime-main.js.map": "/wheres-waldo/static/js/runtime-main.6322256e.js.map",
-    "static/js/2.5a5376cb.chunk.js": "/wheres-waldo/static/js/2.5a5376cb.chunk.js",
-    "static/js/2.5a5376cb.chunk.js.map": "/wheres-waldo/static/js/2.5a5376cb.chunk.js.map",
+    "static/js/2.ca81ffa8.chunk.js": "/wheres-waldo/static/js/2.ca81ffa8.chunk.js",
+    "static/js/2.ca81ffa8.chunk.js.map": "/wheres-waldo/static/js/2.ca81ffa8.chunk.js.map",
     "index.html": "/wheres-waldo/index.html",
-    "static/js/2.5a5376cb.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.5a5376cb.chunk.js.LICENSE.txt",
+    "static/js/2.ca81ffa8.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.ca81ffa8.chunk.js.LICENSE.txt",
     "static/media/Binoculars.dcc41ad0.png": "/wheres-waldo/static/media/Binoculars.dcc41ad0.png",
     "static/media/Bone.6d651ea5.png": "/wheres-waldo/static/media/Bone.6d651ea5.png",
     "static/media/Camera.e9500640.png": "/wheres-waldo/static/media/Camera.e9500640.png",
@@ -27,7 +27,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.6322256e.js",
-    "static/js/2.5a5376cb.chunk.js",
-    "static/js/main.dc336847.chunk.js"
+    "static/js/2.ca81ffa8.chunk.js",
+    "static/js/main.dc90664d.chunk.js"
   ]
 }
