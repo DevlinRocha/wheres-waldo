@@ -36,8 +36,6 @@ export default function SelectionMenu(props: MenuProps) {
         const selection: string = e.target.textContent;
         props.setIsContextMenuOpen(!props.isContextMenuOpen);
 
-        console.log(props.mouseCoords)
-
         const waldoCoords = await getCoords(selection);
 
         if (waldoCoords) {
