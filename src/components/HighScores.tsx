@@ -32,8 +32,15 @@ export default function HighScores(props: HighScoreProps) {
 
     const leaderboard: any = useRef(null);
 
+    const firstRender = useRef(true);
+
     useEffect(() => {
-        leaderboard.current ? leaderboard.current.scrollIntoView() : void(0);
+        if (firstRender.current) {
+            firstRender.current = false;
+            return;
+        } else {
+            leaderboard.current ? leaderboard.current.scrollIntoView() : void(0);
+        };
     }, [levelScores]);
 
     useEffect(() => {
