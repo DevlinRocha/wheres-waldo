@@ -6,6 +6,14 @@ export const GameContainer = styled.main`
     width: 100%;
     height: auto;
 
+    figure {
+        text-align: center;
+    }
+
+    figcaption {
+        padding: 8px;
+    }
+
     img {
         --webkit-user-drag: none;
         object-fit: contain;

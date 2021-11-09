@@ -167,7 +167,10 @@ export default function WaldoGame(props: GameProps) {
             />
             </ContextMenu>
         : null}
-      <img onClick={handleClick} src={props.img} draggable="false" alt="Where's Waldo?" />
+      <figure>
+        <figcaption><h3>{props.level}</h3></figcaption>
+        <img onClick={handleClick} src={props.img} draggable="false" alt="Where's Waldo?" />
+      </figure>
     </GameContainer>
   );
 };
