@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../index';
 import { DocumentData } from '@firebase/firestore-types';
@@ -12,8 +12,6 @@ import SkiResort from '../assets//levels/SkiResort.png';
 import ToysToysToys from '../assets/levels/ToysToysToys.jpg';
 
 import { useLocation } from 'react-router';
-
-import { HashLink } from 'react-router-hash-link';
 
 interface LocationState {
     state: {
@@ -31,6 +29,12 @@ export default function HighScores(props: HighScoreProps) {
     const [levelScores, setLevelScores] = useState<DocumentData[]>([]);
 
     const location: LocationState = useLocation();
+
+    const leaderboard: any = useRef(null);
+
+    useEffect(() => {
+        leaderboard.current ? leaderboard.current.scrollIntoView() : void(0);
+    }, [levelScores]);
 
     useEffect(() => {
         try {
@@ -55,7 +59,11 @@ export default function HighScores(props: HighScoreProps) {
         querySnapshot.forEach(score => {
             levelScores.push(score);
         });
-        setLevelScores(levelScores);
+        const leaderboard = levelScores.map(score => score.data());
+        const newLevelScores = leaderboard.sort((a, b) => {
+            return a.time - b.time;
+        });
+        setLevelScores(newLevelScores);
     };
 
     return (
@@ -71,46 +79,41 @@ export default function HighScores(props: HighScoreProps) {
 
                     <HighScoresContainerRow>
 
-                        <HashLink to='/high-scores#leaderboard' >
-                            <figure onClick={()=>handleClick('Gobbling Gluttons')} >
-                                <figcaption><b>Gobbling Gluttons</b></figcaption>
-                                <img src={GobblingGluttons} alt='Gobbling Gluttons' />
-                            </figure>
-                        </HashLink>
+                        <figure onClick={()=>handleClick('Gobbling Gluttons')} >
+                            <figcaption><b>Gobbling Gluttons</b></figcaption>
+                            <img src={GobblingGluttons} alt='Gobbling Gluttons' />
+                        </figure>
                         
-                        <HashLink to='/high-scores#leaderboard' >
-                            <figure onClick={()=>handleClick('Ski Resort')}>
-                                <figcaption><b>Ski Resort</b></figcaption>
-                                <img src={SkiResort} alt='Ski Resort' />
-                            </figure>
-                        </HashLink>
+                        <figure onClick={()=>handleClick('Ski Resort')}>
+                            <figcaption><b>Ski Resort</b></figcaption>
+                            <img src={SkiResort} alt='Ski Resort' />
+                        </figure>
                         
-                        <HashLink to='/high-scores#leaderboard' >
-                            <figure onClick={()=>handleClick('Toys! Toys! Toys!')}>
-                                <figcaption><b>Toys! Toys! Toys!</b></figcaption>
-                                <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
-                            </figure>
-                        </HashLink>
+                        <figure onClick={()=>handleClick('Toys! Toys! Toys!')}>
+                            <figcaption><b>Toys! Toys! Toys!</b></figcaption>
+                            <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
+                        </figure>
 
                     </HighScoresContainerRow>
                 </HighScoresContainer>
 
-            <table id='leaderboard'>
-                <caption><h4>{props.level ? props.level : 'Choose a level first!'}</h4></caption>
+            <table ref={leaderboard} id='leaderboard'>
+                <caption><h3>{props.level ? props.level : 'Choose a level first!'}</h3></caption>
                 <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>Time</th>
+                        <th className='rank' >Rank</th>
+                        <th className='username' >Username</th>
+                        <th className='time' >Time</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {levelScores.map((score, index) => {
-                        const data = score.data();
                         return (
                             <tr key={index} >
-                                <td>{data.username}</td>
-                                <td><span>{(Math.floor((data.time/60000)%60)).toString().slice(-2)}:</span><span>{("0"+Math.floor((data.time/1000)%60)).slice(-2)}</span></td>
+                                <td>{index+1}.</td>
+                                <td>{score.username}</td>
+                                <td><span>{(Math.floor((score.time/60000)%60)).toString().slice(-2)}:</span><span>{("0"+Math.floor((score.time/1000)%60)).slice(-2)}</span></td>
                             </tr>
                         )
                     })}
