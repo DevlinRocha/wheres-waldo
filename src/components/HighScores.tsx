@@ -13,6 +13,8 @@ import ToysToysToys from '../assets/levels/ToysToysToys.jpg';
 
 import { useLocation } from 'react-router';
 
+import { HashLink } from 'react-router-hash-link';
+
 interface LocationState {
     state: {
         level: string;
@@ -69,28 +71,32 @@ export default function HighScores(props: HighScoreProps) {
 
                     <HighScoresContainerRow>
 
-                        <figure onClick={()=>handleClick('Gobbling Gluttons')} >
-                            <figcaption><b>Gobbling Gluttons</b></figcaption>
-                            <img src={GobblingGluttons} alt='Gobbling Gluttons' />
-                        </figure>
-
-                        <figure onClick={()=>handleClick('Ski Resort')}>
-                            <figcaption><b>Ski Resort</b></figcaption>
-                            <img src={SkiResort} alt='Ski Resort' />
-                        </figure>
-
-                        <figure onClick={()=>handleClick('Toys! Toys! Toys!')}>
-                            <figcaption><b>Toys! Toys! Toys!</b></figcaption>
-                            <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
-                        </figure>
+                        <HashLink to='/high-scores#leaderboard' >
+                            <figure onClick={()=>handleClick('Gobbling Gluttons')} >
+                                <figcaption><b>Gobbling Gluttons</b></figcaption>
+                                <img src={GobblingGluttons} alt='Gobbling Gluttons' />
+                            </figure>
+                        </HashLink>
+                        
+                        <HashLink to='/high-scores#leaderboard' >
+                            <figure onClick={()=>handleClick('Ski Resort')}>
+                                <figcaption><b>Ski Resort</b></figcaption>
+                                <img src={SkiResort} alt='Ski Resort' />
+                            </figure>
+                        </HashLink>
+                        
+                        <HashLink to='/high-scores#leaderboard' >
+                            <figure onClick={()=>handleClick('Toys! Toys! Toys!')}>
+                                <figcaption><b>Toys! Toys! Toys!</b></figcaption>
+                                <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
+                            </figure>
+                        </HashLink>
 
                     </HighScoresContainerRow>
                 </HighScoresContainer>
 
-            {props.level
-            ?
-            <table>
-                <caption><h4>{props.level}</h4></caption>
+            <table id='leaderboard'>
+                <caption><h4>{props.level ? props.level : 'Choose a level first!'}</h4></caption>
                 <thead>
                     <tr>
                         <th>Username</th>
@@ -110,7 +116,6 @@ export default function HighScores(props: HighScoreProps) {
                     })}
                 </tbody>
             </table>
-            : null}
         </MainContainer>
     );
 };

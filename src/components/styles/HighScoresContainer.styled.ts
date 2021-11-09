@@ -7,6 +7,7 @@ export const MainContainer = styled.main`
     align-items: center;
     justify-content: center;
     padding: 16px;
+    gap: 32px;
     background-color: white;
     width: 100%;
     height: auto;
@@ -71,18 +72,16 @@ export const HighScoresContainerRow = styled(HighScoresContainer)`
     background-color: white;
     padding: 32px 0 0;
 
+    a {
+        text-decoration: none;
+    }
+
     figure {
         width: clamp(15vw, 100%, 25vw);
         height: clamp(10vh, 25vh, 35vh);
         border: 3px solid ${props=>props.theme.colors.primary};
         border-radius: 8px;
         padding: 8px;
-
-        a {
-            text-decoration: none;
-            width: 100%;
-            height: 100%;
-        }
     }
 
     img {
