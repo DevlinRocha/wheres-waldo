@@ -2,6 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 import { ThemeType } from './Theme';
 
 export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
+
+    html {
+        scroll-behavior: smooth;
+    }
+
     * {
         margin: 0;
         padding: 0;
