@@ -90,7 +90,7 @@ export default function HighScores(props: HighScoreProps) {
             {props.level
             ?
             <table>
-                <caption>{props.level}</caption>
+                <caption><h4>{props.level}</h4></caption>
                 <thead>
                     <tr>
                         <th>Username</th>
