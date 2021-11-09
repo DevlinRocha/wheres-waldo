@@ -86,6 +86,7 @@ export const HighScoresContainerRow = styled(HighScoresContainer)`
         border: 3px solid ${props=>props.theme.colors.primary};
         border-radius: 8px;
         padding: 8px;
+        cursor: pointer;
     }
 
     img {
