@@ -8,16 +8,32 @@ export const MainContainer = styled.main`
     justify-content: center;
     padding: 16px;
     background-color: white;
-    gap: 64px;
+    gap: 32px;
     width: 100%;
     height: auto;
     text-align: center;
 
     #homeLogo {
+        border: none;
         img {
             height: clamp(15vh, 35vh, 35vh);
             width: auto;
         }
+    }
+
+    a {
+        border: 3px solid ${props=>props.theme.colors.primary};
+        border-radius: 8px;
+        padding: 8px;
+    }
+
+    figure {
+        padding: px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-x: none;
     }
 
     img {
@@ -45,7 +61,6 @@ export const HomeContainer = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
         text-decoration: none;
     }
 
