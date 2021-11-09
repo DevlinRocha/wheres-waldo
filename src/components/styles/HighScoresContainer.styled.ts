@@ -8,7 +8,6 @@ export const MainContainer = styled.main`
     justify-content: center;
     padding: 16px;
     background-color: white;
-    gap: 64px;
     width: 100%;
     height: auto;
     text-align: center;
@@ -40,20 +39,11 @@ export const MainContainer = styled.main`
             padding: 16px;
         }
     }
-
-    /* button {
-        cursor: pointer;
-        color: white;
-        background-color: ${props=>props.theme.colors.primary};
-        padding: 5px;
-        border-radius: 7px;
-        border: inherit;
-        font: inherit;
-    } */
 `
 
 export const HighScoresContainer = styled.section`
 
+    margin: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +55,6 @@ export const HighScoresContainer = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
     }
 
     figcaption {
@@ -80,12 +69,14 @@ export const HighScoresContainerRow = styled(HighScoresContainer)`
     flex-direction: row;
     justify-content: space-around;
     background-color: white;
-    gap: 8px;
     padding: 32px 0 0;
 
     figure {
         width: clamp(15vw, 100%, 25vw);
         height: clamp(10vh, 25vh, 35vh);
+        border: 3px solid ${props=>props.theme.colors.primary};
+        border-radius: 8px;
+        padding: 8px;
 
         a {
             text-decoration: none;
