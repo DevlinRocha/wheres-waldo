@@ -42,7 +42,7 @@ export const MainContainer = styled.main`
 
     h3 {
         color: white;
-        color: ${props=>props.theme.colors.primary};
+        color: black;
         padding: 8px;
         border-radius: 7px;
     }
