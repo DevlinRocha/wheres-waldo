@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, QueryDocumentSnapshot } from 'firebase/firestore';
 import { db } from '../index';
 import { DocumentData } from '@firebase/firestore-types';
 
@@ -62,7 +62,7 @@ export default function HighScores(props: HighScoreProps) {
 
     async function getLevelScores(newLevel: string) {
         const querySnapshot = await getDocs(collection(db, 'Levels', newLevel, 'High Scores'));
-        const levelScores: any[] = [];
+        const levelScores: QueryDocumentSnapshot<DocumentData>[] = [];
         querySnapshot.forEach(score => {
             levelScores.push(score);
         });

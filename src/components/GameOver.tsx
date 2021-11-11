@@ -24,7 +24,7 @@ export default function GameOver(props: GameOverProps) {
         props.setIsGameOver(false);
     };
 
-    async function handleSubmit(e: any) {
+    async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         history.push({
             pathname: '/high-scores',
