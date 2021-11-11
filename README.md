@@ -15,6 +15,13 @@ npm install
 npm start
 ```
 
+## Instructions
+
+1. Select a level from either the home page or drop down in the navigation bar at the top
+2. Find all of the hidden characters on the selected level
+3. Click on the timer to pause the game and click anywhere in the game area to unpause
+4. If you find everyone, submit a username to save your score
+
 ## Development
 
 * [React](https://reactjs.org/)
