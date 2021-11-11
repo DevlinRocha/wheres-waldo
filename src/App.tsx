@@ -39,21 +39,21 @@ export default function App() {
           <Route exact path='/gobbling-gluttons'>
             {isGameOver
               ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} time={time} level='Gobbling Gluttons' />
-              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={GobblingGluttons} level='Gobbling Gluttons' />
+              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} isTimerOn={isTimerOn} setIsTimerOn={setIsTimerOn} img={GobblingGluttons} level='Gobbling Gluttons' />
             }
           </Route>
 
           <Route exact path='/ski-resort'>
             {isGameOver
               ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} time={time} level='Ski Resort' />
-              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={SkiResort} level='Ski Resort' />
+              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} isTimerOn={isTimerOn} setIsTimerOn={setIsTimerOn} img={SkiResort} level='Ski Resort' />
             }
           </Route>
 
           <Route exact path='/toys-toys-toys'>
             {isGameOver
               ? <GameOver isGameOver={isGameOver} setIsGameOver={setIsGameOver} time={time} level='Toys! Toys! Toys!' />
-              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} setIsTimerOn={setIsTimerOn} img={ToysToysToys} level='Toys! Toys! Toys!' />
+              : <WaldoGame isGameOver={isGameOver} setIsGameOver={setIsGameOver} isGameOn={isGameOn} setIsGameOn={setIsGameOn} setTime={setTime} isTimerOn={isTimerOn} setIsTimerOn={setIsTimerOn} img={ToysToysToys} level='Toys! Toys! Toys!' />
             }
           </Route>
 

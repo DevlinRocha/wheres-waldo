@@ -23,6 +23,7 @@ export const Nav = styled.nav`
         background-color: ${props=>props.theme.colors.secondary};
         color: white;
         border-radius: 7px;
+        cursor: pointer;
     }
 
     section {

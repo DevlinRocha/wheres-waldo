@@ -9,7 +9,7 @@ interface BannerProps {
 export const Banner = styled.aside<BannerProps>`
     position: fixed;
     color: white;
-    top: 5rem;
+    top: 10rem;
     left: 50%;
     transform: translateX(-50%);
     padding: 8px;
