@@ -5,7 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import Notification from './Notification';
 import SelectionMenu from './SelectionMenu';
 
-import { GameContainer } from './styles/GameContainer.styled';
+import { GameContainer, PauseScreen } from './styles/GameContainer.styled';
 import { ContextMenu, TargetingBox } from './styles/ContextMenu.styled';
 import { db } from '../index';
 
@@ -24,7 +24,8 @@ export interface NotificationState {
 interface GameProps {
   isGameOver: boolean, setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
   isGameOn: boolean, setIsGameOn: React.Dispatch<React.SetStateAction<boolean>>;
-  setTime: React.Dispatch<React.SetStateAction<number>>, setIsTimerOn: React.Dispatch<React.SetStateAction<boolean>>;
+  setTime: React.Dispatch<React.SetStateAction<number>>;
+  isTimerOn: boolean, setIsTimerOn: React.Dispatch<React.SetStateAction<boolean>>;
   img: string, level: string;
 };
 
@@ -145,14 +146,17 @@ export default function WaldoGame(props: GameProps) {
 
   async function handleClick(e: any) {
     getMouseCoords(e);
-    setIsContextOpen(!isContextOpen);
+    props.isTimerOn ? setIsContextOpen(!isContextOpen) : props.setIsTimerOn(!props.isTimerOn);
   };
 
   return (
-    <GameContainer>
+    <GameContainer isTimerOn={props.isTimerOn} >
       {notificationData.isNotificationOpen
         ? <Notification notificationData={notificationData} />
         : null}
+      {props.isTimerOn
+        ? null
+        : <PauseScreen onClick={()=>props.setIsTimerOn(!props.isTimerOn)} isNotificationOpen={notificationData.isNotificationOpen} >Game is paused</PauseScreen>}
       {isContextOpen
         ? <ContextMenu menuCoords={menuCoords} >
             <TargetingBox onClick={handleClick} menuCoords={menuCoords} />

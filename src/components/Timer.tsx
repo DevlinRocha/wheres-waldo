@@ -37,8 +37,12 @@ export default function Timer(props: TimerProps) {
 
     }, [props.isTimerOn]);
 
+    function handleClick() {
+        props.setIsTimerOn(!props.isTimerOn);
+    };
+
     return (
-        <time>
+        <time onClick={handleClick} >
             <span>{(Math.floor((props.time/60000)%60)).toString().slice(-2)}:</span>
             <span>{("0"+Math.floor((props.time/1000)%60)).slice(-2)}</span>
         </time>
