@@ -7,6 +7,8 @@ import {
   MainContainer,
   HighScoresContainer,
   HighScoresContainerRow,
+  DifficultyGrid,
+  SwitchContainer,
 } from './styles/HighScoresContainer.styled';
 
 import CharacterBanner from '../assets/CharacterBanner.png';
@@ -26,6 +28,8 @@ interface LocationState {
 interface HighScoreProps {
   level: string | undefined;
   setLevel: React.Dispatch<React.SetStateAction<string | undefined>>;
+  waldoMode: boolean;
+  setWaldoMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function HighScores(props: HighScoreProps) {
@@ -57,13 +61,41 @@ export default function HighScores(props: HighScoreProps) {
 
   useEffect(() => {
     props.level ? getLevelScores(props.level) : void 0;
-  }, [props.level]);
+  }, [props.level, props.waldoMode]);
 
   function handleClick(newLevel: string): void {
     props.setLevel(newLevel);
   }
 
   async function getLevelScores(newLevel: string) {
+    const querySnapshot = await getDocs(
+      collection(db, 'Levels', newLevel, 'High Scores')
+    );
+    const levelScores: QueryDocumentSnapshot<DocumentData>[] = [];
+    querySnapshot.forEach(score => {
+      const scoreData = score.data();
+      if (props.waldoMode) {
+        if ('waldoMode' in scoreData) {
+          console.log('Waldo mode!');
+          levelScores.push(score);
+        }
+      } else {
+        if (!('waldoMode' in scoreData)) {
+          console.log('Challenge mode!');
+          levelScores.push(score);
+        }
+      }
+    });
+    const leaderboard = levelScores.map(score => score.data());
+    console.log(leaderboard);
+    const newLevelScores = leaderboard.sort((a, b) => {
+      return a.time - b.time;
+    });
+
+    setLevelScores(newLevelScores);
+  }
+
+  async function getWaldoModeScores(newLevel: string) {
     const querySnapshot = await getDocs(
       collection(db, 'Levels', newLevel, 'High Scores')
     );
@@ -78,6 +110,10 @@ export default function HighScores(props: HighScoreProps) {
     setLevelScores(newLevelScores);
   }
 
+  function difficultyToggle() {
+    props.setWaldoMode(!props.waldoMode);
+  }
+
   return (
     <MainContainer>
       <figure>
@@ -86,7 +122,19 @@ export default function HighScores(props: HighScoreProps) {
       <h2>High Scores</h2>
 
       <HighScoresContainer>
-        <h3>Choose a level!</h3>
+        <DifficultyGrid>
+          <h3>Choose a level!</h3>
+
+          <SwitchContainer waldoMode={props.waldoMode}>
+            <label htmlFor='checkbox'>
+              {props.waldoMode ? 'Waldo' : 'Challenge'} Mode
+            </label>
+            <label className='switch'>
+              <input onClick={difficultyToggle} type='checkbox' id='checkbox' />
+              <span></span>
+            </label>
+          </SwitchContainer>
+        </DifficultyGrid>
 
         <HighScoresContainerRow>
           <figure onClick={() => handleClick('Gobbling Gluttons')}>

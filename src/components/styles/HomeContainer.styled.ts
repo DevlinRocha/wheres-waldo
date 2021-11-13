@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface SwitchProps {
+  waldoMode: boolean;
+}
+
 export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
@@ -37,29 +41,30 @@ export const MainContainer = styled.main`
     width: 100%;
     height: auto;
     text-align: center;
+  }
 
-    #homeLogo {
-        border: none;
-        img {
-            height: clamp(15vh, 35vh, 35vh);
-            width: auto;
-        }
+  #homeLogo {
+    border: none;
+    img {
+      height: clamp(15vh, 35vh, 35vh);
+      width: auto;
     }
+  }
 
-    a {
-        border: 3px solid ${props => props.theme.colors.primary};
-        border-radius: 8px;
-        padding: 8px;
-    }
+  a {
+    border: 3px solid ${props => props.theme.colors.primary};
+    border-radius: 8px;
+    padding: 8px;
+  }
 
-    figure {
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow-x: none;
-    }
+  figure {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: none;
+  }
 
   img {
     object-fit: contain;
@@ -119,7 +124,7 @@ export const HomeContainerRow = styled(HomeContainer)`
   }
 `;
 
-export const HomeGrid = styled.section`
+export const DifficultyGrid = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -127,7 +132,7 @@ export const HomeGrid = styled.section`
   height: auto;
 `;
 
-export const SwitchContainer = styled.div`
+export const SwitchContainer = styled.div<SwitchProps>`
   position: relative;
   align-self: flex-end;
   display: flex;
@@ -165,7 +170,10 @@ export const SwitchContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${props =>
+      props.waldoMode
+        ? props.theme.colors.primary
+        : props.theme.colors.secondary};
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 34px;
@@ -182,10 +190,6 @@ export const SwitchContainer = styled.div`
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 50%;
-  }
-
-  input:checked + span {
-    background-color: ${props => props.theme.colors.secondary};
   }
 
   input:focus + span {

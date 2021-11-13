@@ -10,6 +10,7 @@ interface MenuProps {
   setNotificationData: React.Dispatch<React.SetStateAction<NotificationState>>;
   img: string;
   level: string;
+  character: string;
   characters: string[];
   mouseCoords: Coords;
   isOdlawFound?: boolean;
@@ -22,6 +23,7 @@ interface MenuProps {
   setIsWizardFound: React.Dispatch<React.SetStateAction<boolean>>;
   isWoofFound?: boolean;
   setIsWoofFound: React.Dispatch<React.SetStateAction<boolean>>;
+  waldoMode: boolean;
 }
 
 export default function SelectionMenu(props: MenuProps) {
@@ -126,13 +128,23 @@ export default function SelectionMenu(props: MenuProps) {
 
   return (
     <ul>
-      {props.characters.map(character => {
-        return (
-          <li onClick={handleClick} key={character}>
-            {isFound(character) ? <s>{character}</s> : character}
-          </li>
-        );
-      })}
+      {props.waldoMode ? (
+        <li onClick={handleClick} key={props.character}>
+          {isFound(props.character) ? (
+            <s>{props.character}</s>
+          ) : (
+            props.character
+          )}
+        </li>
+      ) : (
+        props.characters.map(character => {
+          return (
+            <li onClick={handleClick} key={character}>
+              {isFound(character) ? <s>{character}</s> : character}
+            </li>
+          );
+        })
+      )}
     </ul>
   );
 }

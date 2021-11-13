@@ -31,6 +31,7 @@ interface GameProps {
   setIsTimerOn: React.Dispatch<React.SetStateAction<boolean>>;
   img: string;
   level: string;
+  waldoMode: boolean;
 }
 
 export default function WaldoGame(props: GameProps) {
@@ -42,6 +43,7 @@ export default function WaldoGame(props: GameProps) {
   const [isWendaFound, setIsWendaFound] = useState(false);
   const [isWizardFound, setIsWizardFound] = useState(false);
   const [isWoofFound, setIsWoofFound] = useState(false);
+  const [character, setCharacter] = useState('');
   const [characters, setCharacters] = useState<string[]>([]);
   const [notificationData, setNotificationData] = useState<NotificationState>({
     isNotificationOpen: false,
@@ -82,12 +84,20 @@ export default function WaldoGame(props: GameProps) {
       }
     }
 
-    if (gameOver.includes(false)) {
-      return;
+    if (props.waldoMode) {
+      if (isWaldoFound) {
+        props.setIsTimerOn(false);
+        props.setIsGameOn(false);
+        return props.setIsGameOver(true);
+      }
     } else {
-      props.setIsTimerOn(false);
-      props.setIsGameOn(false);
-      return props.setIsGameOver(true);
+      if (gameOver.includes(false)) {
+        return;
+      } else {
+        props.setIsTimerOn(false);
+        props.setIsGameOn(false);
+        return props.setIsGameOver(true);
+      }
     }
   }, [isOdlawFound, isWaldoFound, isWendaFound, isWizardFound]);
 
@@ -112,7 +122,8 @@ export default function WaldoGame(props: GameProps) {
     characterList.forEach(character => {
       characters.push(character.id);
     });
-    setCharacters(characters);
+
+    props.waldoMode ? setCharacter('Waldo') : setCharacters(characters);
   }
 
   function getMouseCoords(e: any) {
@@ -147,7 +158,7 @@ export default function WaldoGame(props: GameProps) {
   }
 
   return (
-    <GameContainer isTimerOn={props.isTimerOn}>
+    <GameContainer isTimerOn={props.isTimerOn} waldoMode={props.waldoMode}>
       {notificationData.isNotificationOpen ? (
         <Notification notificationData={notificationData} />
       ) : null}
@@ -169,6 +180,7 @@ export default function WaldoGame(props: GameProps) {
             setNotificationData={setNotificationData}
             img={props.img}
             level={props.level}
+            character={character}
             characters={characters}
             mouseCoords={mouseCoords}
             isOdlawFound={isOdlawFound}
@@ -181,6 +193,7 @@ export default function WaldoGame(props: GameProps) {
             setIsWizardFound={setIsWizardFound}
             isWoofFound={isWoofFound}
             setIsWoofFound={setIsWoofFound}
+            waldoMode={props.waldoMode}
           />
         </ContextMenu>
       ) : null}

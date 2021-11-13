@@ -4,7 +4,7 @@ import {
   MainContainer,
   HomeContainer,
   HomeContainerRow,
-  HomeGrid,
+  DifficultyGrid,
   SwitchContainer,
 } from './styles/HomeContainer.styled';
 
@@ -43,10 +43,10 @@ export default function HomePage(props: HomePageProps) {
       </figure>
 
       <HomeContainer>
-        <HomeGrid>
+        <DifficultyGrid>
           <h3>Choose a level!</h3>
 
-          <SwitchContainer>
+          <SwitchContainer waldoMode={props.waldoMode}>
             <label htmlFor='checkbox'>
               {props.waldoMode ? 'Waldo' : 'Challenge'} Mode
             </label>
@@ -55,7 +55,7 @@ export default function HomePage(props: HomePageProps) {
               <span></span>
             </label>
           </SwitchContainer>
-        </HomeGrid>
+        </DifficultyGrid>
 
         <HomeContainerRow>
           <Link to='/gobbling-gluttons'>

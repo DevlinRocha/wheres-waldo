@@ -53,6 +53,7 @@ export default function App() {
                 setIsGameOver={setIsGameOver}
                 time={time}
                 level='Gobbling Gluttons'
+                waldoMode={waldoMode}
               />
             ) : (
               <WaldoGame
@@ -65,6 +66,7 @@ export default function App() {
                 setIsTimerOn={setIsTimerOn}
                 img={GobblingGluttons}
                 level='Gobbling Gluttons'
+                waldoMode={waldoMode}
               />
             )}
           </Route>
@@ -76,6 +78,7 @@ export default function App() {
                 setIsGameOver={setIsGameOver}
                 time={time}
                 level='Ski Resort'
+                waldoMode={waldoMode}
               />
             ) : (
               <WaldoGame
@@ -88,6 +91,7 @@ export default function App() {
                 setIsTimerOn={setIsTimerOn}
                 img={SkiResort}
                 level='Ski Resort'
+                waldoMode={waldoMode}
               />
             )}
           </Route>
@@ -99,6 +103,7 @@ export default function App() {
                 setIsGameOver={setIsGameOver}
                 time={time}
                 level='Toys! Toys! Toys!'
+                waldoMode={waldoMode}
               />
             ) : (
               <WaldoGame
@@ -111,12 +116,18 @@ export default function App() {
                 setIsTimerOn={setIsTimerOn}
                 img={ToysToysToys}
                 level='Toys! Toys! Toys!'
+                waldoMode={waldoMode}
               />
             )}
           </Route>
 
           <Route exact path='/high-scores'>
-            <HighScores level={level} setLevel={setLevel} />
+            <HighScores
+              level={level}
+              setLevel={setLevel}
+              waldoMode={waldoMode}
+              setWaldoMode={setWaldoMode}
+            />
           </Route>
 
           <Route component={PageNotFound} />
