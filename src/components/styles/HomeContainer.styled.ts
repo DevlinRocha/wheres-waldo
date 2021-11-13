@@ -4,7 +4,7 @@ interface SwitchProps {
   waldoMode: boolean;
 }
 
-export const MainContainer = styled.main`
+export const MainContainer = styled.main<SwitchProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,11 @@ export const MainContainer = styled.main`
   }
 
   a {
-    border: 3px solid ${props => props.theme.colors.primary};
+    border: 3px solid
+      ${props =>
+        props.waldoMode
+          ? props.theme.colors.primary
+          : props.theme.colors.secondary};
     border-radius: 8px;
     padding: 8px;
   }

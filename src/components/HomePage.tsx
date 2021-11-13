@@ -37,7 +37,7 @@ export default function HomePage(props: HomePageProps) {
   }
 
   return (
-    <MainContainer>
+    <MainContainer waldoMode={props.waldoMode}>
       <figure id='homeLogo'>
         <img src={WheresWaldo} alt="Where's Waldo?" />
       </figure>

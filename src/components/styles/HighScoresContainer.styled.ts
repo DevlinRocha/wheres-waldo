@@ -79,7 +79,7 @@ export const HighScoresContainer = styled.section`
   }
 `;
 
-export const HighScoresContainerRow = styled(HighScoresContainer)`
+export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   flex-direction: row;
   justify-content: space-around;
   background-color: white;
@@ -88,7 +88,11 @@ export const HighScoresContainerRow = styled(HighScoresContainer)`
   figure {
     width: clamp(15vw, 100%, 25vw);
     height: clamp(10vh, 25vh, 35vh);
-    border: 3px solid ${props => props.theme.colors.primary};
+    border: 3px solid
+      ${props =>
+        props.waldoMode
+          ? props.theme.colors.primary
+          : props.theme.colors.secondary};
     border-radius: 8px;
     padding: 8px;
     cursor: pointer;

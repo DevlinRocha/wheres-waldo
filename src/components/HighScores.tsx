@@ -133,7 +133,7 @@ export default function HighScores(props: HighScoreProps) {
           </SwitchContainer>
         </DifficultyGrid>
 
-        <HighScoresContainerRow>
+        <HighScoresContainerRow waldoMode={props.waldoMode}>
           <figure onClick={() => handleClick('Gobbling Gluttons')}>
             <figcaption>
               <b>Gobbling Gluttons</b>
