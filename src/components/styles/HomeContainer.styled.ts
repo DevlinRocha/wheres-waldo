@@ -112,8 +112,8 @@ export const HomeContainerRow = styled(HomeContainer)`
   padding: 32px 0 0;
 
   figure {
-    width: clamp(15vw, 100%, 25vw);
-    height: clamp(10vh, 25vh, 35vh);
+    width: 100%;
+    height: 35vh;
 
     a {
       text-decoration: none;
