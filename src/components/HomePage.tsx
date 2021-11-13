@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { MainContainer, HomeContainer, HomeContainerRow } from './styles/HomeContainer.styled';
+import { MainContainer, HomeContainer, HomeContainerRow, HomeGrid, SwitchContainer } from './styles/HomeContainer.styled';
 
 import WheresWaldo from '../assets/Where\'sWaldo.png';
 
@@ -20,7 +20,11 @@ import Camera from '../assets/items/Camera.png';
 import Key from '../assets/items/Key.png';
 import Scroll from '../assets/items/Scroll.png';
 
-export default function HomePage() {
+interface HomePageProps {
+    waldoMode: boolean;
+};
+
+export default function HomePage(props: HomePageProps) {
     return (
         <MainContainer>
 
@@ -30,7 +34,19 @@ export default function HomePage() {
 
             <HomeContainer>
 
+                <HomeGrid>
+
                 <h3>Choose a level!</h3>
+
+                <SwitchContainer>
+                    <label htmlFor="checkbox">Waldo Mode</label>
+                    <label className="switch">
+                        <input type="checkbox" id="checkbox" />
+                        <span></span>
+                    </label>
+                </SwitchContainer>
+
+                </HomeGrid>
 
                 <HomeContainerRow>
 

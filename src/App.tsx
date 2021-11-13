@@ -22,6 +22,7 @@ export default function App() {
   const [time, setTime] = useState(0);
   const [isTimerOn, setIsTimerOn] = useState(false);
   const [level, setLevel] = useState<string | undefined>(undefined);
+  const [waldoMode, setWaldoMode] = useState(true);
 
   return (
 
@@ -34,7 +35,9 @@ export default function App() {
 
         <Switch>
 
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/'>
+            <HomePage waldoMode={waldoMode} />
+          </Route>
 
           <Route exact path='/gobbling-gluttons'>
             {isGameOver
