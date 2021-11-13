@@ -17,10 +17,13 @@ npm start
 
 ## Instructions
 
-1. Select a level from either the home page or drop down in the navigation bar at the top
-2. Find all of the hidden characters on the selected level
-3. Click on the timer to pause the game and click anywhere in the game area to unpause
-4. If you find everyone, submit a username to save your score
+1. Choose between "Waldo Mode" or "Challenge Mode" difficulties
+    - When "Waldo Mode" is selected only Waldo must be found to complete a level
+    - When "Challenge Mode" is selected every character hidden on the level must be found to complete it
+3. Select a level from either the home page or drop down in the navigation bar at the top
+4. Find all of the hidden characters on the selected level
+5. Click on the timer to pause the game and click anywhere in the game area to unpause
+6. If you find everyone, submit a username to save your score
 
 ## Development
 
