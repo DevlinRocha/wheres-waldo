@@ -184,7 +184,6 @@ export default function HighScores(props: HighScoreProps) {
               </SwitchContainer>
             </DifficultyGrid>
           )}
-          {/* <h3>{props.level ? props.level : 'Choose a level first!'}</h3> */}
         </caption>
         <thead>
           <tr>
