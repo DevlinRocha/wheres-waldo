@@ -22,6 +22,7 @@ export default function App() {
   const [time, setTime] = useState(0);
   const [isTimerOn, setIsTimerOn] = useState(false);
   const [level, setLevel] = useState<string | undefined>(undefined);
+  const [waldoMode, setWaldoMode] = useState(true);
 
   return (
     <HashRouter>
@@ -41,7 +42,9 @@ export default function App() {
         />
 
         <Switch>
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/'>
+            <HomePage waldoMode={waldoMode} setWaldoMode={setWaldoMode} />
+          </Route>
 
           <Route exact path='/gobbling-gluttons'>
             {isGameOver ? (
@@ -50,6 +53,7 @@ export default function App() {
                 setIsGameOver={setIsGameOver}
                 time={time}
                 level='Gobbling Gluttons'
+                waldoMode={waldoMode}
               />
             ) : (
               <WaldoGame
@@ -62,6 +66,7 @@ export default function App() {
                 setIsTimerOn={setIsTimerOn}
                 img={GobblingGluttons}
                 level='Gobbling Gluttons'
+                waldoMode={waldoMode}
               />
             )}
           </Route>
@@ -73,6 +78,7 @@ export default function App() {
                 setIsGameOver={setIsGameOver}
                 time={time}
                 level='Ski Resort'
+                waldoMode={waldoMode}
               />
             ) : (
               <WaldoGame
@@ -85,6 +91,7 @@ export default function App() {
                 setIsTimerOn={setIsTimerOn}
                 img={SkiResort}
                 level='Ski Resort'
+                waldoMode={waldoMode}
               />
             )}
           </Route>
@@ -96,6 +103,7 @@ export default function App() {
                 setIsGameOver={setIsGameOver}
                 time={time}
                 level='Toys! Toys! Toys!'
+                waldoMode={waldoMode}
               />
             ) : (
               <WaldoGame
@@ -108,12 +116,18 @@ export default function App() {
                 setIsTimerOn={setIsTimerOn}
                 img={ToysToysToys}
                 level='Toys! Toys! Toys!'
+                waldoMode={waldoMode}
               />
             )}
           </Route>
 
           <Route exact path='/high-scores'>
-            <HighScores level={level} setLevel={setLevel} />
+            <HighScores
+              level={level}
+              setLevel={setLevel}
+              waldoMode={waldoMode}
+              setWaldoMode={setWaldoMode}
+            />
           </Route>
 
           <Route component={PageNotFound} />

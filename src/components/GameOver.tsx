@@ -13,6 +13,7 @@ interface GameOverProps {
   setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
   time: number;
   level: string;
+  waldoMode: boolean;
 }
 
 export default function GameOver(props: GameOverProps) {
@@ -33,13 +34,26 @@ export default function GameOver(props: GameOverProps) {
       },
     });
     const username = usernameRef.current!.value;
-    try {
-      await addDoc(collection(db, 'Levels', props.level, 'High Scores'), {
-        username: username,
-        time: props.time,
-      });
-    } catch (e) {
-      console.error('Error adding document: ', e);
+
+    if (props.waldoMode) {
+      try {
+        await addDoc(collection(db, 'Levels', props.level, 'High Scores'), {
+          username: username,
+          time: props.time,
+          waldoMode: true,
+        });
+      } catch (e) {
+        console.error('Error adding document: ', e);
+      }
+    } else {
+      try {
+        await addDoc(collection(db, 'Levels', props.level, 'High Scores'), {
+          username: username,
+          time: props.time,
+        });
+      } catch (e) {
+        console.error('Error adding document: ', e);
+      }
     }
   }
 

@@ -4,6 +4,8 @@ import {
   MainContainer,
   HomeContainer,
   HomeContainerRow,
+  DifficultyGrid,
+  SwitchContainer,
 } from './styles/HomeContainer.styled';
 
 import WheresWaldo from "../assets/Where'sWaldo.png";
@@ -24,7 +26,16 @@ import Camera from '../assets/items/Camera.png';
 import Key from '../assets/items/Key.png';
 import Scroll from '../assets/items/Scroll.png';
 
-export default function HomePage() {
+interface HomePageProps {
+  waldoMode: boolean;
+  setWaldoMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function HomePage(props: HomePageProps) {
+  function handleClick() {
+    props.setWaldoMode(!props.waldoMode);
+  }
+
   return (
     <MainContainer>
       <figure id='homeLogo'>
@@ -32,7 +43,19 @@ export default function HomePage() {
       </figure>
 
       <HomeContainer>
-        <h3>Choose a level!</h3>
+        <DifficultyGrid>
+          <h3>Choose a level!</h3>
+
+          <SwitchContainer waldoMode={props.waldoMode}>
+            <label htmlFor='checkbox'>
+              {props.waldoMode ? 'Waldo' : 'Challenge'} Mode
+            </label>
+            <label className='switch'>
+              <input onClick={handleClick} type='checkbox' id='checkbox' />
+              <span></span>
+            </label>
+          </SwitchContainer>
+        </DifficultyGrid>
 
         <HomeContainerRow>
           <Link to='/gobbling-gluttons'>

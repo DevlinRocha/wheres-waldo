@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface GameContainerProps {
   isTimerOn: boolean;
+  waldoMode: boolean;
 }
 
 interface PauseScreenProps {
@@ -27,7 +28,11 @@ export const GameContainer = styled.main<GameContainerProps>`
     object-fit: contain;
     width: 100%;
     height: auto;
-    border: 7px solid ${props => props.theme.colors.secondary};
+    border: 7px solid
+      ${props =>
+        props.waldoMode
+          ? props.theme.colors.primary
+          : props.theme.colors.secondary};
     border-radius: 7px;
     ${props => (props.isTimerOn ? null : 'filter: blur(16px)')};
     ${props => (props.isTimerOn ? null : '-webkit-filter: blur(16px)')};
