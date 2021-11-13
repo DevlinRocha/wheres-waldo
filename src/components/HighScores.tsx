@@ -119,19 +119,7 @@ export default function HighScores(props: HighScoreProps) {
       <h2>High Scores</h2>
 
       <HighScoresContainer>
-        <DifficultyGrid>
-          <h3>Choose a level!</h3>
-
-          <SwitchContainer waldoMode={props.waldoMode}>
-            <label htmlFor='checkbox'>
-              {props.waldoMode ? 'Waldo' : 'Challenge'} Mode
-            </label>
-            <label className='switch'>
-              <input onClick={difficultyToggle} type='checkbox' id='checkbox' />
-              <span></span>
-            </label>
-          </SwitchContainer>
-        </DifficultyGrid>
+        <h3>Choose a level!</h3>
 
         <HighScoresContainerRow waldoMode={props.waldoMode}>
           <figure onClick={() => handleClick('Gobbling Gluttons')}>
@@ -159,7 +147,44 @@ export default function HighScores(props: HighScoreProps) {
 
       <table ref={leaderboard} id='leaderboard'>
         <caption>
-          <h3>{props.level ? props.level : 'Choose a level first!'}</h3>
+          {props.level ? (
+            <DifficultyGrid>
+              <h3>{props.level}</h3>
+
+              <SwitchContainer waldoMode={props.waldoMode}>
+                <label htmlFor='checkbox'>
+                  {props.waldoMode ? 'Waldo' : 'Challenge'} Mode
+                </label>
+                <label className='switch'>
+                  <input
+                    onClick={difficultyToggle}
+                    type='checkbox'
+                    id='checkbox'
+                  />
+                  <span></span>
+                </label>
+              </SwitchContainer>
+            </DifficultyGrid>
+          ) : (
+            <DifficultyGrid>
+              <h3>Choose a level first!</h3>
+
+              <SwitchContainer waldoMode={props.waldoMode}>
+                <label htmlFor='checkbox'>
+                  {props.waldoMode ? 'Waldo' : 'Challenge'} Mode
+                </label>
+                <label className='switch'>
+                  <input
+                    onClick={difficultyToggle}
+                    type='checkbox'
+                    id='checkbox'
+                  />
+                  <span></span>
+                </label>
+              </SwitchContainer>
+            </DifficultyGrid>
+          )}
+          {/* <h3>{props.level ? props.level : 'Choose a level first!'}</h3> */}
         </caption>
         <thead>
           <tr>
