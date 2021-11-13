@@ -142,7 +142,7 @@ export const SwitchContainer = styled.div<SwitchProps>`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-right: 32px;
+  margin-right: 16px;
 
   label {
     width: fit-content;
