@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 
-import { MainContainer, HomeContainer, HomeContainerRow } from './styles/HomeContainer.styled';
+import {
+  MainContainer,
+  HomeContainer,
+  HomeContainerRow,
+} from './styles/HomeContainer.styled';
 
-import WheresWaldo from '../assets/Where\'sWaldo.png';
+import WheresWaldo from "../assets/Where'sWaldo.png";
 
 import GobblingGluttons from '../assets/levels/GobblingGluttons.jpg';
 import SkiResort from '../assets/levels/SkiResort.png';
@@ -21,110 +25,126 @@ import Key from '../assets/items/Key.png';
 import Scroll from '../assets/items/Scroll.png';
 
 export default function HomePage() {
-    return (
-        <MainContainer>
+  return (
+    <MainContainer>
+      <figure id='homeLogo'>
+        <img src={WheresWaldo} alt="Where's Waldo?" />
+      </figure>
 
-            <figure id='homeLogo'>
-                <img src={WheresWaldo} alt="Where's Waldo?" />
+      <HomeContainer>
+        <h3>Choose a level!</h3>
+
+        <HomeContainerRow>
+          <Link to='/gobbling-gluttons'>
+            <figure>
+              <figcaption>
+                <b>Gobbling Gluttons</b>
+              </figcaption>
+              <img src={GobblingGluttons} alt='Gobbling Gluttons' />
             </figure>
+          </Link>
 
-            <HomeContainer>
+          <Link to='/ski-resort'>
+            <figure>
+              <figcaption>
+                <b>Ski Resort</b>
+              </figcaption>
+              <img src={SkiResort} alt='Ski Resort' />
+            </figure>
+          </Link>
 
-                <h3>Choose a level!</h3>
+          <Link to='/toys-toys-toys'>
+            <figure>
+              <figcaption>
+                <b>Toys! Toys! Toys!</b>
+              </figcaption>
+              <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
+            </figure>
+          </Link>
+        </HomeContainerRow>
+      </HomeContainer>
 
-                <HomeContainerRow>
+      <HomeContainer>
+        <h3>Look for these characters!</h3>
 
-                    <Link to='/gobbling-gluttons'>
-                        <figure>
-                            <figcaption><b>Gobbling Gluttons</b></figcaption>
-                            <img src={GobblingGluttons} alt='Gobbling Gluttons' />
-                        </figure>
-                    </Link>
+        <HomeContainerRow>
+          <figure>
+            <figcaption>
+              <b>Waldo</b>
+            </figcaption>
+            <img src={Waldo} alt='Waldo' />
+          </figure>
 
-                    <Link to='/ski-resort'>
-                        <figure>
-                            <figcaption><b>Ski Resort</b></figcaption>
-                            <img src={SkiResort} alt='Ski Resort' />
-                        </figure>
-                    </Link>
+          <figure>
+            <figcaption>
+              <b>Wenda</b>
+            </figcaption>
+            <img src={Wenda} alt='Wenda' />
+          </figure>
 
-                    <Link to='/toys-toys-toys'>
-                        <figure>
-                            <figcaption><b>Toys! Toys! Toys!</b></figcaption>
-                            <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
-                        </figure>
-                    </Link>
+          <figure>
+            <figcaption>
+              <b>Wizard</b>
+            </figcaption>
+            <img src={Wizard} alt='Wizard' />
+          </figure>
 
-                </HomeContainerRow>
-                </HomeContainer>
+          <figure>
+            <figcaption>
+              <b>Odlaw</b>
+            </figcaption>
+            <img src={Odlaw} alt='Odlaw' />
+          </figure>
 
-            <HomeContainer>
+          <figure>
+            <figcaption>
+              <b>Woof</b>
+            </figcaption>
+            <img src={Woof} alt='Woof' />
+          </figure>
+        </HomeContainerRow>
+      </HomeContainer>
 
-                <h3>Look for these characters!</h3>
+      <HomeContainer>
+        <h3>Find these items!</h3>
 
-                <HomeContainerRow>
+        <HomeContainerRow>
+          <figure>
+            <figcaption>
+              <b>Binoculars</b>
+            </figcaption>
+            <img src={Binoculars} alt='Binoculars' />
+          </figure>
 
-                    <figure>
-                        <figcaption><b>Waldo</b></figcaption>
-                        <img src={Waldo} alt='Waldo' />
-                    </figure>
+          <figure>
+            <figcaption>
+              <b>Bone</b>
+            </figcaption>
+            <img src={Bone} alt='Bone' />
+          </figure>
 
-                    <figure>
-                        <figcaption><b>Wenda</b></figcaption>
-                        <img src={Wenda} alt='Wenda' />
-                    </figure>
+          <figure>
+            <figcaption>
+              <b>Camera</b>
+            </figcaption>
+            <img src={Camera} alt='Camera' />
+          </figure>
 
-                    <figure>
-                        <figcaption><b>Wizard</b></figcaption>
-                        <img src={Wizard} alt='Wizard' />
-                    </figure>
+          <figure>
+            <figcaption>
+              <b>Key</b>
+            </figcaption>
+            <img src={Key} alt='Key' />
+          </figure>
 
-                    <figure>
-                        <figcaption><b>Odlaw</b></figcaption>
-                        <img src={Odlaw} alt='Odlaw' />
-                    </figure>
-
-                    <figure>
-                        <figcaption><b>Woof</b></figcaption>
-                        <img src={Woof} alt='Woof' />
-                    </figure>
-
-                </HomeContainerRow>
-            </HomeContainer>
-
-            <HomeContainer>
-
-                <h3>Find these items!</h3>
-
-                <HomeContainerRow>
-
-                    <figure>
-                        <figcaption><b>Binoculars</b></figcaption>
-                        <img src={Binoculars} alt='Binoculars' />
-                    </figure>
-
-                    <figure>
-                        <figcaption><b>Bone</b></figcaption>
-                        <img src={Bone} alt='Bone' />
-                    </figure>
-
-                    <figure>
-                        <figcaption><b>Camera</b></figcaption>
-                        <img src={Camera} alt='Camera' />
-                    </figure>
-
-                    <figure>
-                        <figcaption><b>Key</b></figcaption>
-                        <img src={Key} alt='Key' />
-                    </figure>
-
-                    <figure>
-                        <figcaption><b>Scroll</b></figcaption>
-                        <img src={Scroll} alt='Scroll' />
-                    </figure>
-
-                </HomeContainerRow>
-            </HomeContainer>
-        </MainContainer>
-    );
-};
+          <figure>
+            <figcaption>
+              <b>Scroll</b>
+            </figcaption>
+            <img src={Scroll} alt='Scroll' />
+          </figure>
+        </HomeContainerRow>
+      </HomeContainer>
+    </MainContainer>
+  );
+}

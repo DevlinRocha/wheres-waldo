@@ -24,8 +24,8 @@ npm start
 
 ## Development
 
-* [React](https://reactjs.org/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [Styled-Components](https://styled-components.com/)
-* [React Router](https://reactrouter.com/)
-* [Firebase](https://firebase.google.com/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled-Components](https://styled-components.com/)
+- [React Router](https://reactrouter.com/)
+- [Firebase](https://firebase.google.com/)
