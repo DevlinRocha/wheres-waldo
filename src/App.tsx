@@ -36,7 +36,7 @@ export default function App() {
         <Switch>
 
           <Route exact path='/'>
-            <HomePage waldoMode={waldoMode} />
+            <HomePage waldoMode={waldoMode} setWaldoMode={setWaldoMode} />
           </Route>
 
           <Route exact path='/gobbling-gluttons'>

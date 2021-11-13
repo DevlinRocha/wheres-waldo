@@ -21,10 +21,15 @@ import Key from '../assets/items/Key.png';
 import Scroll from '../assets/items/Scroll.png';
 
 interface HomePageProps {
-    waldoMode: boolean;
+    waldoMode: boolean, setWaldoMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function HomePage(props: HomePageProps) {
+
+    function handleClick() {
+        props.setWaldoMode(!props.waldoMode);
+    };
+
     return (
         <MainContainer>
 
@@ -39,9 +44,9 @@ export default function HomePage(props: HomePageProps) {
                 <h3>Choose a level!</h3>
 
                 <SwitchContainer>
-                    <label htmlFor="checkbox">Waldo Mode</label>
+                    <label htmlFor="checkbox">{props.waldoMode ? 'Waldo' : 'Challenge'} Mode</label>
                     <label className="switch">
-                        <input type="checkbox" id="checkbox" />
+                        <input onClick={handleClick} type="checkbox" id="checkbox" />
                         <span></span>
                     </label>
                 </SwitchContainer>
