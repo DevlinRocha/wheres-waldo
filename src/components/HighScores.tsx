@@ -74,20 +74,17 @@ export default function HighScores(props: HighScoreProps) {
     const levelScores: QueryDocumentSnapshot<DocumentData>[] = [];
     querySnapshot.forEach(score => {
       const scoreData = score.data();
-      if (props.waldoMode) {
+      if (props.waldoMode && newLevel !== 'Ski Resort') {
         if ('waldoMode' in scoreData) {
-          console.log('Waldo mode!');
           levelScores.push(score);
         }
       } else {
         if (!('waldoMode' in scoreData)) {
-          console.log('Challenge mode!');
           levelScores.push(score);
         }
       }
     });
     const leaderboard = levelScores.map(score => score.data());
-    console.log(leaderboard);
     const newLevelScores = leaderboard.sort((a, b) => {
       return a.time - b.time;
     });
