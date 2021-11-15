@@ -16,38 +16,29 @@ export const MainContainer = styled.main<SwitchProps>`
   height: auto;
   text-align: center;
 
-  #homeLogo {
-    border: none;
-    img {
-      height: clamp(15vh, 35vh, 35vh);
-      width: auto;
-    }
-  }
-
-  a {
-    border: 3px solid ${props => props.theme.colors.primary};
-    border-radius: 8px;
-    padding: 8px;
-  }
-
   figure {
-    padding: px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 16px;
+    align-items: center;
     background-color: white;
-    gap: 32px;
-    width: 100%;
+    gap: 8px;
     height: auto;
     text-align: center;
+    overflow-x: none;
+  }
+
+  img {
+    object-fit: contain;
   }
 
   #homeLogo {
     border: none;
+    width: 75vw;
     img {
-      height: clamp(15vh, 35vh, 35vh);
-      width: auto;
+      width: 100%;
+      height: 35vh;
     }
   }
 
@@ -58,20 +49,7 @@ export const MainContainer = styled.main<SwitchProps>`
           ? props.theme.colors.primary
           : props.theme.colors.secondary};
     border-radius: 8px;
-    padding: 8px;
-  }
-
-  figure {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow-x: none;
-  }
-
-  img {
-    object-fit: contain;
+    padding: 16px;
   }
 
   h3 {
@@ -89,47 +67,80 @@ export const HomeContainer = styled.section`
   align-items: center;
   width: 100%;
   height: auto;
+  gap: 32px;
+
+  figure {
+    height: 100%;
+  }
 
   a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-decoration: none;
   }
 
   figcaption {
     color: ${props => props.theme.colors.secondary};
     padding: 8px;
-    width: clamp(auto, 50%, auto);
   }
 `;
 
-export const HomeContainerRow = styled(HomeContainer)`
-  flex-direction: row;
+export const LevelContainer = styled(HomeContainer)`
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   justify-content: space-around;
   background-color: white;
-  gap: 8px;
-  padding: 32px 0 0;
+  gap: 5vw;
+  padding: 0 5vw;
+  height: 100%;
 
-  figure {
+  a {
     width: 100%;
-    height: 35vh;
-
-    a {
-      text-decoration: none;
-      width: 100%;
-      height: 100%;
-    }
   }
 
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
+  }
+
+  @media only screen and (max-device-width: 1000px) {
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+    figure {
+      height: 100%;
+    }
+  }
+`;
+
+export const CharacterContainer = styled(LevelContainer)`
+  img {
+    height: 300px;
+    width: 150px;
+  }
+  @media only screen and (max-device-width: 1000px) {
+    img {
+      width: 75%;
+    }
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`;
+
+export const ItemContainer = styled(CharacterContainer)`
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  @media only screen and (max-device-width: 1000px) {
+    img {
+      width: 50%;
+    }
   }
 `;
 
 export const DifficultyGrid = styled.section`
   display: flex;
+  position: relative;
+  flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
   width: 100%;
@@ -137,12 +148,17 @@ export const DifficultyGrid = styled.section`
 `;
 
 export const SwitchContainer = styled.div<SwitchProps>`
-  position: relative;
+  position: absolute;
   align-self: flex-end;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-right: 16px;
+  margin: 0 10vw;
+  @media only screen and (max-device-width: 669px) {
+    position: relative;
+    align-self: center;
+    margin: 8px 0 0 0;
+  }
 
   label {
     width: fit-content;

@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import {
   MainContainer,
   HomeContainer,
-  HomeContainerRow,
+  LevelContainer,
+  CharacterContainer,
+  ItemContainer,
   DifficultyGrid,
   SwitchContainer,
 } from './styles/HomeContainer.styled';
@@ -57,40 +59,40 @@ export default function HomePage(props: HomePageProps) {
           </SwitchContainer>
         </DifficultyGrid>
 
-        <HomeContainerRow>
-          <Link to='/gobbling-gluttons'>
-            <figure>
+        <LevelContainer>
+          <figure>
+            <Link to='/gobbling-gluttons'>
               <figcaption>
                 <b>Gobbling Gluttons</b>
               </figcaption>
               <img src={GobblingGluttons} alt='Gobbling Gluttons' />
-            </figure>
-          </Link>
+            </Link>
+          </figure>
 
-          <Link to='/ski-resort'>
-            <figure>
+          <figure>
+            <Link to='/ski-resort'>
               <figcaption>
                 <b>Ski Resort</b>
               </figcaption>
               <img src={SkiResort} alt='Ski Resort' />
-            </figure>
-          </Link>
+            </Link>
+          </figure>
 
-          <Link to='/toys-toys-toys'>
-            <figure>
+          <figure>
+            <Link to='/toys-toys-toys'>
               <figcaption>
                 <b>Toys! Toys! Toys!</b>
               </figcaption>
               <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
-            </figure>
-          </Link>
-        </HomeContainerRow>
+            </Link>
+          </figure>
+        </LevelContainer>
       </HomeContainer>
 
       <HomeContainer>
         <h3>Look for these characters!</h3>
 
-        <HomeContainerRow>
+        <CharacterContainer>
           <figure>
             <figcaption>
               <b>Waldo</b>
@@ -125,13 +127,13 @@ export default function HomePage(props: HomePageProps) {
             </figcaption>
             <img src={Woof} alt='Woof' />
           </figure>
-        </HomeContainerRow>
+        </CharacterContainer>
       </HomeContainer>
 
       <HomeContainer>
         <h3>Find these items!</h3>
 
-        <HomeContainerRow>
+        <ItemContainer>
           <figure>
             <figcaption>
               <b>Binoculars</b>
@@ -166,7 +168,7 @@ export default function HomePage(props: HomePageProps) {
             </figcaption>
             <img src={Scroll} alt='Scroll' />
           </figure>
-        </HomeContainerRow>
+        </ItemContainer>
       </HomeContainer>
     </MainContainer>
   );
