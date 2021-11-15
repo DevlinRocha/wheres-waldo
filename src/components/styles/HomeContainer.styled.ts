@@ -117,22 +117,29 @@ export const CharacterContainer = styled(LevelContainer)`
     width: 150px;
   }
   @media only screen and (max-device-width: 1000px) {
-    img {
-      width: 75%;
-    }
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    img {
+      height: 150px;
+      width: 150px;
+    }
+  }
+  @media only screen and (max-device-width: 500px) {
+    img {
+      width: 100px;
+    }
+  }
+  @media only screen and (max-device-width: 360px) {
+    display: flex;
+    img {
+    }
   }
 `;
 
 export const ItemContainer = styled(CharacterContainer)`
-  img {
-    width: 150px;
-    height: 150px;
-  }
   @media only screen and (max-device-width: 1000px) {
     img {
-      width: 50%;
+      height: 100px;
+      width: 100px;
     }
   }
 `;

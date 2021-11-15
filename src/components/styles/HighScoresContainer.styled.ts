@@ -17,8 +17,9 @@ export const MainContainer = styled.main`
   text-align: center;
 
   figure {
-    height: clamp(15vh, 35vh, 35vh);
     width: auto;
+    height: 100%;
+    padding: 8px;
   }
 
   figcaption {
@@ -58,36 +59,39 @@ export const MainContainer = styled.main`
 `;
 
 export const HighScoresContainer = styled.section`
-  margin: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: auto;
+  gap: 32px;
 
   figure {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
   }
 
   figcaption {
     color: ${props => props.theme.colors.secondary};
-    padding: 8px;
     width: clamp(auto, 50%, auto);
   }
 `;
 
 export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
-  flex-direction: row;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   justify-content: space-around;
   background-color: white;
-  padding: 32px 0 0;
+  gap: 8px;
 
   figure {
-    width: clamp(15vw, 100%, 25vw);
-    height: clamp(10vh, 25vh, 35vh);
+    width: auto;
+    height: auto;
+    max-height: 35vh;
     border: 3px solid
       ${props =>
         props.waldoMode
@@ -99,13 +103,14 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   }
 
   img {
-    width: 100%;
-    height: 100%;
+    height: 150px;
+    object-fit: contain;
   }
 `;
 
 export const DifficultyGrid = styled.section`
   display: flex;
+  position: relative;
   justify-content: center;
   flex-direction: column;
   width: 100%;
@@ -113,12 +118,17 @@ export const DifficultyGrid = styled.section`
 `;
 
 export const SwitchContainer = styled.div<SwitchProps>`
-  position: relative;
+  position: absolute;
   align-self: flex-end;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-right: 16px;
+  margin: 0 32px;
+  @media only screen and (max-device-width: 669px) {
+    position: relative;
+    align-self: center;
+    margin: 8px 0 0 0;
+  }
 
   label {
     width: fit-content;
