@@ -111,7 +111,7 @@ export const LevelContainer = styled(HomeContainer)`
       width: 100%;
     }
   }
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 800px) {
     grid-auto-flow: row;
     grid-template-columns: 1fr 1fr;
   }
