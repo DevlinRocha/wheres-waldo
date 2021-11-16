@@ -144,7 +144,7 @@ export const SwitchContainer = styled.div<SwitchProps>`
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 32px;
+  margin: 0 3vw;
   @media only screen and (max-device-width: 669px) {
     position: relative;
     align-self: center;
