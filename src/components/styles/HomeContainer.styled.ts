@@ -82,8 +82,7 @@ export const HomeContainer = styled.section`
 
 export const LevelContainer = styled(HomeContainer)`
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-around;
   padding: 0 3vw;
   height: auto;
@@ -104,9 +103,6 @@ export const LevelContainer = styled(HomeContainer)`
   }
 
   @media only screen and (max-device-width: 1000px) {
-    grid-auto-flow: row;
-    grid-auto-columns: 1fr;
-
     figure > * {
       height: auto;
       width: 100%;
@@ -116,30 +112,36 @@ export const LevelContainer = styled(HomeContainer)`
       width: 100%;
     }
   }
+  @media only screen and (max-device-width: 669px) {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media only screen and (max-device-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const CharacterContainer = styled(LevelContainer)`
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   img {
-    height: 300px;
-    width: 150px;
+    width: 100%;
+    max-width: 200px;
+    height: 30vh;
     object-fit: contain;
   }
-  @media only screen and (max-device-width: 1000px) {
+  @media only screen and (max-device-width: 669px) {
+    grid-auto-flow: row;
     grid-template-columns: 1fr 1fr 1fr;
     img {
-      height: 150px;
-      width: 150px;
-    }
-  }
-  @media only screen and (max-device-width: 500px) {
-    img {
-      width: 100px;
+      height: 25vh;
     }
   }
   @media only screen and (max-device-width: 360px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media only screen and (max-device-width: 300px) {
     display: flex;
-    img {
-    }
   }
 `;
 
