@@ -124,6 +124,9 @@ export const CharacterContainer = styled(LevelContainer)`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   justify-items: center;
+  figure {
+    width: auto;
+  }
   img {
     max-width: 200px;
     object-fit: contain;
