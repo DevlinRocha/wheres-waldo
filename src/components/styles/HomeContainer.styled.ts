@@ -68,7 +68,7 @@ export const HomeContainer = styled.section`
   gap: 16px;
 
   figure {
-    height: 100%;
+    height: auto;
   }
 
   a {
@@ -125,9 +125,7 @@ export const CharacterContainer = styled(LevelContainer)`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   img {
-    width: 100%;
     max-width: 200px;
-    height: 30vh;
     object-fit: contain;
   }
   @media only screen and (device-width: 669px) {
