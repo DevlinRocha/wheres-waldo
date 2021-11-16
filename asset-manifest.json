@@ -1,21 +1,16 @@
 {
   "files": {
-    "main.js": "/wheres-waldo/static/js/main.371d6a3c.chunk.js",
-    "main.js.map": "/wheres-waldo/static/js/main.371d6a3c.chunk.js.map",
+    "main.js": "/wheres-waldo/static/js/main.69d2194e.chunk.js",
+    "main.js.map": "/wheres-waldo/static/js/main.69d2194e.chunk.js.map",
     "runtime-main.js": "/wheres-waldo/static/js/runtime-main.6322256e.js",
     "runtime-main.js.map": "/wheres-waldo/static/js/runtime-main.6322256e.js.map",
     "static/js/2.7c4f42a9.chunk.js": "/wheres-waldo/static/js/2.7c4f42a9.chunk.js",
     "static/js/2.7c4f42a9.chunk.js.map": "/wheres-waldo/static/js/2.7c4f42a9.chunk.js.map",
     "index.html": "/wheres-waldo/index.html",
     "static/js/2.7c4f42a9.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.7c4f42a9.chunk.js.LICENSE.txt",
-    "static/media/Binoculars.dcc41ad0.png": "/wheres-waldo/static/media/Binoculars.dcc41ad0.png",
-    "static/media/Bone.6d651ea5.png": "/wheres-waldo/static/media/Bone.6d651ea5.png",
-    "static/media/Camera.e9500640.png": "/wheres-waldo/static/media/Camera.e9500640.png",
     "static/media/CharacterBanner.25ed0c72.png": "/wheres-waldo/static/media/CharacterBanner.25ed0c72.png",
     "static/media/GobblingGluttons.3e56f8b3.jpg": "/wheres-waldo/static/media/GobblingGluttons.3e56f8b3.jpg",
-    "static/media/Key.dfbc9908.png": "/wheres-waldo/static/media/Key.dfbc9908.png",
     "static/media/Odlaw.7f2337c8.png": "/wheres-waldo/static/media/Odlaw.7f2337c8.png",
-    "static/media/Scroll.b95f5488.png": "/wheres-waldo/static/media/Scroll.b95f5488.png",
     "static/media/SkiResort.e623c363.png": "/wheres-waldo/static/media/SkiResort.e623c363.png",
     "static/media/ToysToysToys.bd8c0dd8.jpg": "/wheres-waldo/static/media/ToysToysToys.bd8c0dd8.jpg",
     "static/media/Waldo.2a7963c3.png": "/wheres-waldo/static/media/Waldo.2a7963c3.png",
@@ -28,6 +23,6 @@
   "entrypoints": [
     "static/js/runtime-main.6322256e.js",
     "static/js/2.7c4f42a9.chunk.js",
-    "static/js/main.371d6a3c.chunk.js"
+    "static/js/main.69d2194e.chunk.js"
   ]
 }
