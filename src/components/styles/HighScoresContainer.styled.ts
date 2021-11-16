@@ -27,6 +27,12 @@ export const MainContainer = styled.main`
     object-fit: contain;
   }
 
+  #scoresImg {
+    img {
+      max-height: 35vh;
+    }
+  }
+
   table,
   th,
   td {

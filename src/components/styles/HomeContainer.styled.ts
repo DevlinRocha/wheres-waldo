@@ -36,7 +36,7 @@ export const MainContainer = styled.main<SwitchProps>`
     width: 100%;
     img {
       width: 100%;
-      height: 35vh;
+      max-height: 35vh;
     }
   }
 

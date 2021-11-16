@@ -113,7 +113,7 @@ export default function HighScores(props: HighScoreProps) {
 
   return (
     <MainContainer>
-      <figure>
+      <figure id='scoresImg'>
         <img src={CharacterBanner} alt='Characters' />
       </figure>
       <h2>High Scores</h2>
