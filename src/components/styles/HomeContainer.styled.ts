@@ -102,9 +102,8 @@ export const LevelContainer = styled(HomeContainer)`
     border-radius: 5px;
   }
 
-  @media only screen and (device-width: 1000px) {
+  @media only screen and (max-width: 1000px) {
     figure > * {
-      height: auto;
       width: 100%;
     }
 
@@ -112,11 +111,11 @@ export const LevelContainer = styled(HomeContainer)`
       width: 100%;
     }
   }
-  @media only screen and (device-width: 669px) {
+  @media only screen and (max-width: 850px) {
     grid-auto-flow: row;
     grid-template-columns: 1fr 1fr;
   }
-  @media only screen and (device-width: 500px) {
+  @media only screen and (max-width: 600px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -128,23 +127,23 @@ export const CharacterContainer = styled(LevelContainer)`
     max-width: 200px;
     object-fit: contain;
   }
-  @media only screen and (device-width: 669px) {
+  @media only screen and (max-width: 800px) {
     grid-auto-flow: row;
     grid-template-columns: 1fr 1fr 1fr;
     img {
       height: 25vh;
     }
   }
-  @media only screen and (device-width: 360px) {
+  @media only screen and (max-width: 500px) {
     grid-template-columns: 1fr 1fr;
   }
-  @media only screen and (device-width: 300px) {
+  @media only screen and (max-width: 300px) {
     display: flex;
   }
 `;
 
 export const ItemContainer = styled(CharacterContainer)`
-  @media only screen and (device-width: 1000px) {
+  @media only screen and (max-width: 1000px) {
     img {
       height: 100px;
       width: 100px;
@@ -169,7 +168,7 @@ export const SwitchContainer = styled.div<SwitchProps>`
   align-items: center;
   gap: 8px;
   margin: 0 7vw 0 0;
-  @media only screen and (device-width: 669px) {
+  @media only screen and (max-width: 669px) {
     position: relative;
     align-self: center;
     margin: 8px 0 0 0;

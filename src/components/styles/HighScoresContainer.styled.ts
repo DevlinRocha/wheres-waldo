@@ -118,13 +118,13 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
     border-radius: 5px;
   }
 
-  @media only screen and (device-width: 1000px) {
+  @media only screen and (max-width: 1000px) {
     img {
       height: 20vh;
     }
   }
 
-  @media only screen and (device-width: 669px) {
+  @media only screen and (max-width: 669px) {
     padding: 0;
     figure {
       padding: 8px;
@@ -151,7 +151,7 @@ export const SwitchContainer = styled.div<SwitchProps>`
   align-items: center;
   gap: 8px;
   margin: 0 3vw 0 0;
-  @media only screen and (device-width: 669px) {
+  @media only screen and (max-width: 669px) {
     position: relative;
     align-self: center;
     margin: 8px 0 0 0;
