@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
+  position: sticky;
+  top: 0;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr auto 1fr;
@@ -8,6 +10,7 @@ export const Nav = styled.nav`
   padding: 16px;
   background-color: white;
   gap: 8px;
+  z-index: 1;
 
   #first {
     color: ${props => props.theme.colors.primary};
