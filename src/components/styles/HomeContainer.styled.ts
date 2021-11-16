@@ -123,6 +123,7 @@ export const LevelContainer = styled(HomeContainer)`
 export const CharacterContainer = styled(LevelContainer)`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
+  justify-items: center;
   img {
     max-width: 200px;
     object-fit: contain;
@@ -132,6 +133,7 @@ export const CharacterContainer = styled(LevelContainer)`
     grid-template-columns: 1fr 1fr 1fr;
     img {
       height: 25vh;
+      max-width: 100px;
     }
   }
   @media only screen and (max-width: 500px) {
