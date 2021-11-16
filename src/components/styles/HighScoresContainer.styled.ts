@@ -21,10 +21,6 @@ export const MainContainer = styled.main`
     padding: 8px;
   }
 
-  figcaption {
-    padding: 16px 0 0 0;
-  }
-
   img {
     width: 100%;
     height: 100%;
@@ -86,7 +82,6 @@ export const HighScoresContainer = styled.section`
 
   figcaption {
     color: ${props => props.theme.colors.secondary};
-    padding: 8px;
   }
 `;
 
@@ -97,7 +92,7 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   justify-content: space-around;
   gap: 5vw;
   padding: 0 5vw;
-  height: 100%;
+  height: auto;
 
   figure {
     border: 3px solid
@@ -106,7 +101,7 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
           ? props.theme.colors.primary
           : props.theme.colors.secondary};
     border-radius: 8px;
-    padding: 8px;
+    padding: 16px;
     cursor: pointer;
   }
 
@@ -115,6 +110,19 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
     height: 30vh;
     object-fit: cover;
     object-position: right bottom;
+    border-radius: 5px;
+  }
+
+  @media only screen and (max-device-width: 1000px) {
+    img {
+      height: 20vh;
+    }
+  }
+
+  @media only screen and (max-device-width: 669px) {
+    img {
+      height: 15vh;
+    }
   }
 `;
 
