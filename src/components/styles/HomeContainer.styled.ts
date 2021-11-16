@@ -10,7 +10,6 @@ export const MainContainer = styled.main<SwitchProps>`
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background-color: white;
   gap: 32px;
   width: 100%;
   height: auto;
@@ -22,7 +21,6 @@ export const MainContainer = styled.main<SwitchProps>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
     gap: 8px;
     height: auto;
     text-align: center;
@@ -88,7 +86,6 @@ export const LevelContainer = styled(HomeContainer)`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   justify-content: space-around;
-  background-color: white;
   gap: 5vw;
   padding: 0 5vw;
   height: 100%;
@@ -99,14 +96,23 @@ export const LevelContainer = styled(HomeContainer)`
 
   img {
     width: 100%;
-    height: auto;
+    height: 30vh;
+    object-fit: cover;
+    object-position: right bottom;
   }
 
   @media only screen and (max-device-width: 1000px) {
     grid-auto-flow: row;
     grid-auto-columns: 1fr;
-    figure {
-      height: 100%;
+
+    figure > * {
+      height: auto;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 50vh;
     }
   }
 `;
@@ -115,6 +121,7 @@ export const CharacterContainer = styled(LevelContainer)`
   img {
     height: 300px;
     width: 150px;
+    object-fit: contain;
   }
   @media only screen and (max-device-width: 1000px) {
     grid-template-columns: 1fr 1fr 1fr;

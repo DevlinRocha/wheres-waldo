@@ -11,7 +11,6 @@ export const MainContainer = styled.main`
   justify-content: center;
   padding: 16px;
   gap: 32px;
-  background-color: white;
   width: 100%;
   height: auto;
   text-align: center;
@@ -68,15 +67,26 @@ export const HighScoresContainer = styled.section`
   gap: 32px;
 
   figure {
+    height: 100%;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 8px;
+    height: auto;
+    text-align: center;
+    overflow-x: none;
+  }
+
+  img {
+    width: auto;
+    height: auto;
   }
 
   figcaption {
     color: ${props => props.theme.colors.secondary};
-    width: clamp(auto, 50%, auto);
+    padding: 8px;
   }
 `;
 
@@ -85,13 +95,11 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   justify-content: space-around;
-  background-color: white;
-  gap: 8px;
+  gap: 5vw;
+  padding: 0 5vw;
+  height: 100%;
 
   figure {
-    width: auto;
-    height: auto;
-    max-height: 35vh;
     border: 3px solid
       ${props =>
         props.waldoMode
@@ -103,8 +111,10 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   }
 
   img {
-    height: 150px;
-    object-fit: contain;
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    object-position: right bottom;
   }
 `;
 
