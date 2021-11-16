@@ -5,7 +5,7 @@ import {
   HomeContainer,
   LevelContainer,
   CharacterContainer,
-  ItemContainer,
+  // ItemContainer,
   DifficultyGrid,
   SwitchContainer,
 } from './styles/HomeContainer.styled';
@@ -22,11 +22,11 @@ import Wenda from '../assets/characters/Wenda.png';
 import Wizard from '../assets/characters/WizardWhitebeard.png';
 import Woof from '../assets/characters/Woof.png';
 
-import Binoculars from '../assets/items/Binoculars.png';
-import Bone from '../assets/items/Bone.png';
-import Camera from '../assets/items/Camera.png';
-import Key from '../assets/items/Key.png';
-import Scroll from '../assets/items/Scroll.png';
+// import Binoculars from '../assets/items/Binoculars.png';
+// import Bone from '../assets/items/Bone.png';
+// import Camera from '../assets/items/Camera.png';
+// import Key from '../assets/items/Key.png';
+// import Scroll from '../assets/items/Scroll.png';
 
 interface HomePageProps {
   waldoMode: boolean;
@@ -130,7 +130,7 @@ export default function HomePage(props: HomePageProps) {
         </CharacterContainer>
       </HomeContainer>
 
-      <HomeContainer>
+      {/* <HomeContainer>
         <h3>Find these items!</h3>
 
         <ItemContainer>
@@ -169,7 +169,7 @@ export default function HomePage(props: HomePageProps) {
             <img src={Scroll} alt='Scroll' />
           </figure>
         </ItemContainer>
-      </HomeContainer>
+      </HomeContainer> */}
     </MainContainer>
   );
 }
