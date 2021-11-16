@@ -90,7 +90,10 @@ export const LevelContainer = styled(HomeContainer)`
   height: 100%;
 
   a {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    gap: 8px;
   }
 
   img {
@@ -98,6 +101,7 @@ export const LevelContainer = styled(HomeContainer)`
     height: 30vh;
     object-fit: cover;
     object-position: right bottom;
+    border-radius: 5px;
   }
 
   @media only screen and (max-device-width: 1000px) {
