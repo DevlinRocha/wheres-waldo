@@ -77,7 +77,6 @@ export const HomeContainer = styled.section`
 
   figcaption {
     color: ${props => props.theme.colors.secondary};
-    padding: 8px;
   }
 `;
 
@@ -112,7 +111,6 @@ export const LevelContainer = styled(HomeContainer)`
 
     img {
       width: 100%;
-      height: 50vh;
     }
   }
 `;
