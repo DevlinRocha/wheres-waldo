@@ -10,7 +10,7 @@ export const MainContainer = styled.main`
   align-items: center;
   justify-content: center;
   padding: 16px;
-  gap: 32px;
+  gap: 16px;
   width: 100%;
   height: auto;
   text-align: center;
@@ -60,7 +60,7 @@ export const HighScoresContainer = styled.section`
   align-items: center;
   width: 100%;
   height: auto;
-  gap: 32px;
+  gap: 16px;
 
   figure {
     height: 100%;
@@ -90,8 +90,7 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   justify-content: space-around;
-  gap: 5vw;
-  padding: 0 5vw;
+  padding: 0 3vw;
   height: auto;
 
   figure {
@@ -120,6 +119,10 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   }
 
   @media only screen and (max-device-width: 669px) {
+    padding: 0;
+    figure {
+      padding: 8px;
+    }
     img {
       height: 15vh;
     }

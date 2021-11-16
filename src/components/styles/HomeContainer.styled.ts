@@ -10,7 +10,7 @@ export const MainContainer = styled.main<SwitchProps>`
   align-items: center;
   justify-content: center;
   padding: 16px;
-  gap: 32px;
+  gap: 16px;
   width: 100%;
   height: auto;
   text-align: center;
@@ -33,7 +33,7 @@ export const MainContainer = styled.main<SwitchProps>`
 
   #homeLogo {
     border: none;
-    width: 75vw;
+    width: 100%;
     img {
       width: 100%;
       height: 35vh;
@@ -65,7 +65,7 @@ export const HomeContainer = styled.section`
   align-items: center;
   width: 100%;
   height: auto;
-  gap: 32px;
+  gap: 16px;
 
   figure {
     height: 100%;
@@ -85,9 +85,8 @@ export const LevelContainer = styled(HomeContainer)`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   justify-content: space-around;
-  gap: 5vw;
-  padding: 0 5vw;
-  height: 100%;
+  padding: 0 3vw;
+  height: auto;
 
   a {
     display: flex;
