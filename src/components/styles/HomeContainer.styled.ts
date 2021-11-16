@@ -106,10 +106,6 @@ export const LevelContainer = styled(HomeContainer)`
     figure > * {
       width: 100%;
     }
-
-    img {
-      width: 100%;
-    }
   }
   @media only screen and (max-width: 800px) {
     grid-auto-flow: row;
@@ -124,10 +120,8 @@ export const CharacterContainer = styled(LevelContainer)`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   justify-items: center;
-  figure {
-    width: auto;
-  }
   img {
+    width: auto;
     max-width: 200px;
     object-fit: contain;
   }
