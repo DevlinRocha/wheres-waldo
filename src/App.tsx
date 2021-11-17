@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
@@ -12,9 +12,14 @@ import PageNotFound from './components/PageNotFound';
 import { GlobalStyles } from './components/styles/Global';
 import { Theme } from './components/styles/Theme';
 
-import GobblingGluttons from './assets/levels/GobblingGluttons.jpg';
-import SkiResort from './assets/levels/SkiResort.png';
-import ToysToysToys from './assets/levels/ToysToysToys.jpg';
+import { collection, query, getDocs } from 'firebase/firestore';
+import { db } from './index';
+
+export interface Level {
+  img: string;
+  name: string;
+  path: string;
+}
 
 export default function App() {
   const [isGameOn, setIsGameOn] = useState(false);
@@ -23,6 +28,22 @@ export default function App() {
   const [isTimerOn, setIsTimerOn] = useState(false);
   const [level, setLevel] = useState<string | undefined>(undefined);
   const [waldoMode, setWaldoMode] = useState(true);
+  const [levelList, setLevelList] = useState<Level[]>([]);
+
+  useEffect(() => {
+    getLevels();
+  }, []);
+
+  async function getLevels() {
+    const levelList: any[] = [];
+    const q = query(collection(db, 'Levels'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach(doc => {
+      const level = doc.data();
+      levelList.push(level);
+    });
+    setLevelList(levelList);
+  }
 
   return (
     <HashRouter>
@@ -39,92 +60,52 @@ export default function App() {
           setIsTimerOn={setIsTimerOn}
           isGameOver={isGameOver}
           setLevel={setLevel}
+          levelList={levelList}
         />
 
         <Switch>
           <Route exact path='/'>
-            <HomePage waldoMode={waldoMode} setWaldoMode={setWaldoMode} />
+            <HomePage
+              waldoMode={waldoMode}
+              setWaldoMode={setWaldoMode}
+              levelList={levelList}
+            />
           </Route>
 
-          <Route exact path='/gobbling-gluttons'>
-            {isGameOver ? (
-              <GameOver
-                isGameOver={isGameOver}
-                setIsGameOver={setIsGameOver}
-                time={time}
-                level='Gobbling Gluttons'
-                waldoMode={waldoMode}
-              />
-            ) : (
-              <WaldoGame
-                isGameOver={isGameOver}
-                setIsGameOver={setIsGameOver}
-                isGameOn={isGameOn}
-                setIsGameOn={setIsGameOn}
-                setTime={setTime}
-                isTimerOn={isTimerOn}
-                setIsTimerOn={setIsTimerOn}
-                img={GobblingGluttons}
-                level='Gobbling Gluttons'
-                waldoMode={waldoMode}
-              />
-            )}
-          </Route>
-
-          <Route exact path='/ski-resort'>
-            {isGameOver ? (
-              <GameOver
-                isGameOver={isGameOver}
-                setIsGameOver={setIsGameOver}
-                time={time}
-                level='Ski Resort'
-                waldoMode={waldoMode}
-              />
-            ) : (
-              <WaldoGame
-                isGameOver={isGameOver}
-                setIsGameOver={setIsGameOver}
-                isGameOn={isGameOn}
-                setIsGameOn={setIsGameOn}
-                setTime={setTime}
-                isTimerOn={isTimerOn}
-                setIsTimerOn={setIsTimerOn}
-                img={SkiResort}
-                level='Ski Resort'
-                waldoMode={waldoMode}
-              />
-            )}
-          </Route>
-
-          <Route exact path='/toys-toys-toys'>
-            {isGameOver ? (
-              <GameOver
-                isGameOver={isGameOver}
-                setIsGameOver={setIsGameOver}
-                time={time}
-                level='Toys! Toys! Toys!'
-                waldoMode={waldoMode}
-              />
-            ) : (
-              <WaldoGame
-                isGameOver={isGameOver}
-                setIsGameOver={setIsGameOver}
-                isGameOn={isGameOn}
-                setIsGameOn={setIsGameOn}
-                setTime={setTime}
-                isTimerOn={isTimerOn}
-                setIsTimerOn={setIsTimerOn}
-                img={ToysToysToys}
-                level='Toys! Toys! Toys!'
-                waldoMode={waldoMode}
-              />
-            )}
-          </Route>
+          {levelList.map((level, index) => {
+            return (
+              <Route exact path={level.path} key={index}>
+                {isGameOver ? (
+                  <GameOver
+                    isGameOver={isGameOver}
+                    setIsGameOver={setIsGameOver}
+                    time={time}
+                    level={level.name}
+                    waldoMode={waldoMode}
+                  />
+                ) : (
+                  <WaldoGame
+                    isGameOver={isGameOver}
+                    setIsGameOver={setIsGameOver}
+                    isGameOn={isGameOn}
+                    setIsGameOn={setIsGameOn}
+                    setTime={setTime}
+                    isTimerOn={isTimerOn}
+                    setIsTimerOn={setIsTimerOn}
+                    img={level.img}
+                    level={level.name}
+                    waldoMode={waldoMode}
+                  />
+                )}
+              </Route>
+            );
+          })}
 
           <Route exact path='/high-scores'>
             <HighScores
               level={level}
               setLevel={setLevel}
+              levelList={levelList}
               waldoMode={waldoMode}
               setWaldoMode={setWaldoMode}
             />
