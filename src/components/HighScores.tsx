@@ -74,7 +74,9 @@ export default function HighScores(props: HighScoreProps) {
     const levelScores: QueryDocumentSnapshot<DocumentData>[] = [];
     querySnapshot.forEach(score => {
       const scoreData = score.data();
-      if (props.waldoMode && newLevel !== 'Ski Resort') {
+      if (newLevel === 'Ski Resort') {
+        levelScores.push(score);
+      } else if (props.waldoMode) {
         if ('waldoMode' in scoreData) {
           levelScores.push(score);
         }
@@ -89,21 +91,6 @@ export default function HighScores(props: HighScoreProps) {
       return a.time - b.time;
     });
 
-    setLevelScores(newLevelScores);
-  }
-
-  async function getWaldoModeScores(newLevel: string) {
-    const querySnapshot = await getDocs(
-      collection(db, 'Levels', newLevel, 'High Scores')
-    );
-    const levelScores: QueryDocumentSnapshot<DocumentData>[] = [];
-    querySnapshot.forEach(score => {
-      levelScores.push(score);
-    });
-    const leaderboard = levelScores.map(score => score.data());
-    const newLevelScores = leaderboard.sort((a, b) => {
-      return a.time - b.time;
-    });
     setLevelScores(newLevelScores);
   }
 
