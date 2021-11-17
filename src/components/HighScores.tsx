@@ -108,7 +108,7 @@ export default function HighScores(props: HighScoreProps) {
         <h3>Choose a level!</h3>
 
         <HighScoresContainerRow waldoMode={props.waldoMode}>
-          {props.levelList.map((level: any, index) => {
+          {props.levelList.map((level, index) => {
             return (
               <figure onClick={() => handleClick(level.name)} key={index}>
                 <figcaption>
