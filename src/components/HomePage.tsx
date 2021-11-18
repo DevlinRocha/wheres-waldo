@@ -1,6 +1,10 @@
+import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
 import { Level } from '../App';
+
+import WaldoModeTooltip from './WaldoModeTooltip';
 
 import {
   MainContainer,
@@ -33,8 +37,15 @@ interface HomePageProps {
 }
 
 export default function HomePage(props: HomePageProps) {
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
+
   function handleClick() {
     props.setWaldoMode(!props.waldoMode);
+  }
+
+  function toggleTooltip() {
+    setIsTooltipOpen(!isTooltipOpen);
+    console.log('OPEN/CLOSE');
   }
 
   return (
@@ -47,7 +58,15 @@ export default function HomePage(props: HomePageProps) {
         <DifficultyGrid>
           <h3>Choose a level!</h3>
 
-          <SwitchContainer waldoMode={props.waldoMode}>
+          <SwitchContainer
+            onMouseEnter={toggleTooltip}
+            onMouseLeave={toggleTooltip}
+            waldoMode={props.waldoMode}
+          >
+            <WaldoModeTooltip
+              isTooltipOpen={isTooltipOpen}
+              waldoMode={props.waldoMode}
+            />
             <label htmlFor='checkbox'>
               {props.waldoMode ? 'Waldo' : 'Challenge'} Mode
             </label>
