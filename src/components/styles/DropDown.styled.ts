@@ -21,7 +21,7 @@ export const DropDown = styled.aside<DropDownProps>`
     height: ${props => (props.isDropDownOpen ? 'auto' : '0px')};
     margin: 3px 16px 0 0;
     padding: ${props => props.theme.sizing.ul.padding};
-    border: 1px solid ${props => props.theme.colors.secondary};
+    border: 2px solid ${props => props.theme.colors.secondary};
     border-radius: ${props => props.theme.sizing.ul.borderRadius};
     transition: all 0.75s;
     z-index: 1;
