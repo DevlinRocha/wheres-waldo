@@ -83,7 +83,7 @@ export default function HighScores(props: HighScoreProps) {
     const levelScores: QueryDocumentSnapshot<DocumentData>[] = [];
     querySnapshot.forEach(score => {
       const scoreData = score.data();
-      if (newLevel === 'Ski Resort') {
+      if (newLevel === 'Ski Resort' || newLevel === 'Jurassic') {
         levelScores.push(score);
       } else if (props.waldoMode) {
         if ('waldoMode' in scoreData) {
