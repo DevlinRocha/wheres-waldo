@@ -74,7 +74,7 @@ export default function GameOver(props: GameOverProps) {
           <legend>Enter your name to save your score!</legend>
 
           <label htmlFor='username'>Username</label>
-          <input ref={usernameRef} type='text' id='username'></input>
+          <input required ref={usernameRef} type='text' id='username'></input>
         </fieldset>
 
         <input id='submitButton' type='submit' value='Submit'></input>
