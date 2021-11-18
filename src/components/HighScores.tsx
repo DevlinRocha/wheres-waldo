@@ -45,7 +45,17 @@ export default function HighScores(props: HighScoreProps) {
       firstRender.current = false;
       return;
     } else {
-      leaderboard.current ? leaderboard.current.scrollIntoView() : void 0;
+      const nav = document.getElementById('nav');
+      let yOffset = 60; // Default value
+      if (nav) {
+        const navHeight = nav.getBoundingClientRect().height;
+        yOffset = navHeight;
+      }
+      const y =
+        leaderboard.current.getBoundingClientRect().top +
+        window.pageYOffset -
+        yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   }, [levelScores]);
 

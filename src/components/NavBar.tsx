@@ -28,7 +28,7 @@ export default function NavBar(props: NavProps) {
   }
 
   return (
-    <Nav>
+    <Nav id='nav'>
       <h1 onClick={handleClick}>
         <Link to='/'>
           <span id='first'>Where's</span> <span id='second'>Waldo?</span>
