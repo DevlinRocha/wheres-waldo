@@ -93,8 +93,7 @@ export const HighScoresContainer = styled.section`
 
 export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-around;
   padding: 0 3vw;
   height: auto;
@@ -132,6 +131,9 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
     img {
       height: 15vh;
     }
+  }
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
   }
 `;
 

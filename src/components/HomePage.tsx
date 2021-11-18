@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import { Level } from '../App';
+
 import {
   MainContainer,
   HomeContainer,
@@ -11,10 +13,6 @@ import {
 } from './styles/HomeContainer.styled';
 
 import WheresWaldo from "../assets/Where'sWaldo.png";
-
-import GobblingGluttons from '../assets/levels/GobblingGluttons.jpg';
-import SkiResort from '../assets/levels/SkiResort.png';
-import ToysToysToys from '../assets/levels/ToysToysToys.jpg';
 
 import Odlaw from '../assets/characters/Odlaw.png';
 import Waldo from '../assets/characters/Waldo.png';
@@ -29,6 +27,7 @@ import Woof from '../assets/characters/Woof.png';
 // import Scroll from '../assets/items/Scroll.png';
 
 interface HomePageProps {
+  levelList: Level[];
   waldoMode: boolean;
   setWaldoMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -60,32 +59,18 @@ export default function HomePage(props: HomePageProps) {
         </DifficultyGrid>
 
         <LevelContainer>
-          <figure>
-            <Link to='/gobbling-gluttons'>
-              <figcaption>
-                <b>Gobbling Gluttons</b>
-              </figcaption>
-              <img src={GobblingGluttons} alt='Gobbling Gluttons' />
-            </Link>
-          </figure>
-
-          <figure>
-            <Link to='/ski-resort'>
-              <figcaption>
-                <b>Ski Resort</b>
-              </figcaption>
-              <img src={SkiResort} alt='Ski Resort' />
-            </Link>
-          </figure>
-
-          <figure>
-            <Link to='/toys-toys-toys'>
-              <figcaption>
-                <b>Toys! Toys! Toys!</b>
-              </figcaption>
-              <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
-            </Link>
-          </figure>
+          {props.levelList.map((level: any, index) => {
+            return (
+              <figure key={index}>
+                <Link to={level.path}>
+                  <figcaption>
+                    <b>{level.name}</b>
+                  </figcaption>
+                  <img src={level.img} alt={level.name} />
+                </Link>
+              </figure>
+            );
+          })}
         </LevelContainer>
       </HomeContainer>
 

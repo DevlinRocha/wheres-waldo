@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Timer from './Timer';
 import LevelSelect from './LevelSelect';
 
+import { Level } from '../App';
+
 import { Nav } from './styles/Nav.styled';
 
 interface NavProps {
@@ -15,6 +17,7 @@ interface NavProps {
   setIsTimerOn: React.Dispatch<React.SetStateAction<boolean>>;
   isGameOver: boolean;
   setLevel: React.Dispatch<React.SetStateAction<string | undefined>>;
+  levelList: Level[];
 }
 
 export default function NavBar(props: NavProps) {
@@ -25,7 +28,7 @@ export default function NavBar(props: NavProps) {
   }
 
   return (
-    <Nav>
+    <Nav id='nav'>
       <h1 onClick={handleClick}>
         <Link to='/'>
           <span id='first'>Where's</span> <span id='second'>Waldo?</span>
@@ -43,7 +46,10 @@ export default function NavBar(props: NavProps) {
       ) : null}
 
       <section>
-        <LevelSelect setIsGameOver={props.setIsGameOver} />
+        <LevelSelect
+          setIsGameOver={props.setIsGameOver}
+          levelList={props.levelList}
+        />
         <Link onClick={handleClick} to='/high-scores'>
           <button>High Scores</button>
         </Link>

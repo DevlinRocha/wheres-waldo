@@ -3,6 +3,8 @@ import { getDocs, collection, QueryDocumentSnapshot } from 'firebase/firestore';
 import { db } from '../index';
 import { DocumentData } from '@firebase/firestore-types';
 
+import { Level } from '../App';
+
 import {
   MainContainer,
   HighScoresContainer,
@@ -12,10 +14,6 @@ import {
 } from './styles/HighScoresContainer.styled';
 
 import CharacterBanner from '../assets/CharacterBanner.png';
-
-import GobblingGluttons from '../assets/levels/GobblingGluttons.jpg';
-import SkiResort from '../assets//levels/SkiResort.png';
-import ToysToysToys from '../assets/levels/ToysToysToys.jpg';
 
 import { useLocation } from 'react-router';
 
@@ -28,6 +26,7 @@ interface LocationState {
 interface HighScoreProps {
   level: string | undefined;
   setLevel: React.Dispatch<React.SetStateAction<string | undefined>>;
+  levelList: Level[];
   waldoMode: boolean;
   setWaldoMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -46,7 +45,17 @@ export default function HighScores(props: HighScoreProps) {
       firstRender.current = false;
       return;
     } else {
-      leaderboard.current ? leaderboard.current.scrollIntoView() : void 0;
+      const nav = document.getElementById('nav');
+      let yOffset = 60; // Default value
+      if (nav) {
+        const navHeight = nav.getBoundingClientRect().height;
+        yOffset = navHeight;
+      }
+      const y =
+        leaderboard.current.getBoundingClientRect().top +
+        window.pageYOffset -
+        yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   }, [levelScores]);
 
@@ -74,7 +83,7 @@ export default function HighScores(props: HighScoreProps) {
     const levelScores: QueryDocumentSnapshot<DocumentData>[] = [];
     querySnapshot.forEach(score => {
       const scoreData = score.data();
-      if (newLevel === 'Ski Resort') {
+      if (newLevel === 'Ski Resort' || newLevel === 'Jurassic') {
         levelScores.push(score);
       } else if (props.waldoMode) {
         if ('waldoMode' in scoreData) {
@@ -109,26 +118,16 @@ export default function HighScores(props: HighScoreProps) {
         <h3>Choose a level!</h3>
 
         <HighScoresContainerRow waldoMode={props.waldoMode}>
-          <figure onClick={() => handleClick('Gobbling Gluttons')}>
-            <figcaption>
-              <b>Gobbling Gluttons</b>
-            </figcaption>
-            <img src={GobblingGluttons} alt='Gobbling Gluttons' />
-          </figure>
-
-          <figure onClick={() => handleClick('Ski Resort')}>
-            <figcaption>
-              <b>Ski Resort</b>
-            </figcaption>
-            <img src={SkiResort} alt='Ski Resort' />
-          </figure>
-
-          <figure onClick={() => handleClick('Toys! Toys! Toys!')}>
-            <figcaption>
-              <b>Toys! Toys! Toys!</b>
-            </figcaption>
-            <img src={ToysToysToys} alt='Toys! Toys! Toys!' />
-          </figure>
+          {props.levelList.map((level, index) => {
+            return (
+              <figure onClick={() => handleClick(level.name)} key={index}>
+                <figcaption>
+                  <b>{level.name}</b>
+                </figcaption>
+                <img src={level.img} alt={level.name} />
+              </figure>
+            );
+          })}
         </HighScoresContainerRow>
       </HighScoresContainer>
 

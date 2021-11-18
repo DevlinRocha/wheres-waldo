@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { Level } from '../App';
+
 import { DropDown } from './styles/DropDown.styled';
 
 interface LevelSelectProps {
   setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  levelList: Level[];
 }
 
 export default function LevelSelect(props: LevelSelectProps) {
@@ -23,15 +26,13 @@ export default function LevelSelect(props: LevelSelectProps) {
     <DropDown isDropDownOpen={isDropDownOpen}>
       <button onClick={handleClick}>Level Select</button>
       <ul id='levelList'>
-        <NavLink onClick={switchLevel} exact to='/gobbling-gluttons'>
-          <li>Gobbling Gluttons</li>
-        </NavLink>
-        <NavLink onClick={switchLevel} exact to='/ski-resort'>
-          <li>Ski Resort</li>
-        </NavLink>
-        <NavLink onClick={switchLevel} exact to='/toys-toys-toys'>
-          <li>Toys! Toys! Toys!</li>
-        </NavLink>
+        {props.levelList.map((level: any, index) => {
+          return (
+            <NavLink onClick={switchLevel} exact to={level.path}>
+              <li>{level.name}</li>
+            </NavLink>
+          );
+        })}
       </ul>
     </DropDown>
   );
