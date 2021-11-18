@@ -107,6 +107,19 @@ export default function HighScores(props: HighScoreProps) {
     props.setWaldoMode(!props.waldoMode);
   }
 
+  function giveMedals(index: number) {
+    switch (index) {
+      case 0:
+        return <span>&#129351;</span>;
+      case 1:
+        return <span>&#129352;</span>;
+      case 2:
+        return <span>&#129353;</span>;
+      default:
+        return `${index + 1}.`;
+    }
+  }
+
   return (
     <MainContainer>
       <figure id='scoresImg'>
@@ -183,7 +196,7 @@ export default function HighScores(props: HighScoreProps) {
           {levelScores.map((score, index) => {
             return (
               <tr key={index}>
-                <td>{index + 1}.</td>
+                <td>{giveMedals(index)}</td>
                 <td>{score.username}</td>
                 <td>
                   <span>

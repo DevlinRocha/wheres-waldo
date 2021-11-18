@@ -40,6 +40,18 @@ export const MainContainer = styled.main`
     border-collapse: collapse;
   }
 
+  table tbody tr:nth-child(1) {
+    background-color: #ffdf4f;
+  }
+
+  table tbody tr:nth-child(2) {
+    background-color: #bbbcbd;
+  }
+
+  table tbody tr:nth-child(3) {
+    background-color: #cd7f32;
+  }
+
   table {
     width: 100%;
 
