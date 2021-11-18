@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import Timer from './Timer';
 import LevelSelect from './LevelSelect';
@@ -21,6 +22,16 @@ interface NavProps {
 }
 
 export default function NavBar(props: NavProps) {
+  const history = useHistory();
+
+  useEffect(() => {
+    return history.listen(() => {
+      if (history.action === 'POP') {
+        handleClick();
+      }
+    });
+  });
+
   function handleClick() {
     props.setIsGameOver(false);
     props.setIsGameOn(false);
