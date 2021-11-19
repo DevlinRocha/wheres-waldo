@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -39,6 +39,18 @@ interface HomePageProps {
 export default function HomePage(props: HomePageProps) {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
+  const checkRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (checkRef.current) {
+      if (props.waldoMode) {
+        checkRef.current.checked = false;
+      } else {
+        checkRef.current.checked = true;
+      }
+    }
+  }, []);
+
   function handleClick() {
     props.setWaldoMode(!props.waldoMode);
   }
@@ -70,7 +82,12 @@ export default function HomePage(props: HomePageProps) {
               {props.waldoMode ? 'Waldo' : 'Challenge'} Mode
             </label>
             <label className='switch'>
-              <input onClick={handleClick} type='checkbox' id='checkbox' />
+              <input
+                ref={checkRef}
+                onClick={handleClick}
+                type='checkbox'
+                id='checkbox'
+              />
               <span></span>
             </label>
           </SwitchContainer>

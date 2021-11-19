@@ -34,13 +34,12 @@ interface HighScoreProps {
 
 export default function HighScores(props: HighScoreProps) {
   const [levelScores, setLevelScores] = useState<DocumentData[]>([]);
+  const [levelPath, setLevelPath] = useState('/high-scores');
 
   const location: LocationState = useLocation();
 
-  const leaderboard: any = useRef(null);
-
-  const [levelPath, setLevelPath] = useState('/high-scores');
-
+  const leaderboard = useRef<HTMLTableElement>(null);
+  const checkRef = useRef<HTMLInputElement>(null);
   const firstRender = useRef(true);
 
   useEffect(() => {
@@ -54,15 +53,18 @@ export default function HighScores(props: HighScoreProps) {
         const navHeight = nav.getBoundingClientRect().height;
         yOffset = navHeight;
       }
-      const y =
-        leaderboard.current.getBoundingClientRect().top +
-        window.pageYOffset -
-        yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      if (leaderboard.current) {
+        const y =
+          leaderboard.current.getBoundingClientRect().top +
+          window.pageYOffset -
+          yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     }
   }, [levelScores]);
 
   useEffect(() => {
+    setCheckbox();
     try {
       const newLevel = location.state.level;
       props.setLevel(newLevel);
@@ -112,6 +114,16 @@ export default function HighScores(props: HighScoreProps) {
 
   function difficultyToggle() {
     props.setWaldoMode(!props.waldoMode);
+  }
+
+  function setCheckbox() {
+    if (checkRef.current) {
+      if (props.waldoMode) {
+        checkRef.current.checked = false;
+      } else {
+        checkRef.current.checked = true;
+      }
+    }
   }
 
   function giveMedals(index: number) {
@@ -174,6 +186,7 @@ export default function HighScores(props: HighScoreProps) {
                 </label>
                 <label className='switch'>
                   <input
+                    ref={checkRef}
                     onClick={difficultyToggle}
                     type='checkbox'
                     id='checkbox'
@@ -192,6 +205,7 @@ export default function HighScores(props: HighScoreProps) {
                 </label>
                 <label className='switch'>
                   <input
+                    ref={checkRef}
                     onClick={difficultyToggle}
                     type='checkbox'
                     id='checkbox'
