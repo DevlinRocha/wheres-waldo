@@ -45,7 +45,6 @@ export default function HomePage(props: HomePageProps) {
 
   function toggleTooltip() {
     setIsTooltipOpen(!isTooltipOpen);
-    console.log('OPEN/CLOSE');
   }
 
   return (
