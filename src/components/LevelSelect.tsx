@@ -28,7 +28,7 @@ export default function LevelSelect(props: LevelSelectProps) {
       <ul id='levelList'>
         {props.levelList.map((level: any, index) => {
           return (
-            <NavLink onClick={switchLevel} exact to={level.path}>
+            <NavLink onClick={switchLevel} exact to={level.path} key={index}>
               <li>{level.name}</li>
             </NavLink>
           );
