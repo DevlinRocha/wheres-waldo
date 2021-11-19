@@ -112,6 +112,7 @@ export default function WaldoGame(props: GameProps) {
     setIsWaldoFound(false);
     setIsWendaFound(false);
     setIsWizardFound(false);
+    setIsWoofFound(false);
   }
 
   async function getCharacters() {
