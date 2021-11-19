@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { getDocs, collection, QueryDocumentSnapshot } from 'firebase/firestore';
 import { db } from '../index';
 import { DocumentData } from '@firebase/firestore-types';
@@ -38,6 +39,8 @@ export default function HighScores(props: HighScoreProps) {
 
   const leaderboard: any = useRef(null);
 
+  const [levelPath, setLevelPath] = useState('/high-scores');
+
   const firstRender = useRef(true);
 
   useEffect(() => {
@@ -67,6 +70,10 @@ export default function HighScores(props: HighScoreProps) {
       void 0;
     }
   }, []);
+
+  useEffect(() => {
+    getPath();
+  }, [props.level]);
 
   useEffect(() => {
     props.level ? getLevelScores(props.level) : void 0;
@@ -120,6 +127,14 @@ export default function HighScores(props: HighScoreProps) {
     }
   }
 
+  function getPath() {
+    props.levelList.map(level => {
+      if (props.level === level.name) {
+        setLevelPath(level.path);
+      }
+    });
+  }
+
   return (
     <MainContainer>
       <figure id='scoresImg'>
@@ -147,7 +162,10 @@ export default function HighScores(props: HighScoreProps) {
       <table ref={leaderboard} id='leaderboard'>
         <caption>
           {props.level ? (
-            <DifficultyGrid>
+            <DifficultyGrid waldoMode={props.waldoMode}>
+              <Link to={levelPath}>
+                <button>Play Level</button>
+              </Link>
               <h3>{props.level}</h3>
 
               <SwitchContainer waldoMode={props.waldoMode}>
@@ -165,7 +183,7 @@ export default function HighScores(props: HighScoreProps) {
               </SwitchContainer>
             </DifficultyGrid>
           ) : (
-            <DifficultyGrid>
+            <DifficultyGrid waldoMode={props.waldoMode}>
               <h3>Choose a level first!</h3>
 
               <SwitchContainer waldoMode={props.waldoMode}>

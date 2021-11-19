@@ -149,13 +149,39 @@ export const HighScoresContainerRow = styled(HighScoresContainer)<SwitchProps>`
   }
 `;
 
-export const DifficultyGrid = styled.section`
+export const DifficultyGrid = styled.section<SwitchProps>`
   display: flex;
   position: relative;
   justify-content: center;
   flex-direction: column;
   width: 100%;
   height: auto;
+
+  a {
+    color: white;
+    position: absolute;
+    margin: 0 0 0 3vw;
+
+    button {
+      cursor: pointer;
+      color: white;
+      background-color: ${props =>
+        props.waldoMode
+          ? props.theme.colors.primary
+          : props.theme.colors.secondary};
+      padding: 5px;
+      border-radius: 7px;
+      border: inherit;
+      font: inherit;
+    }
+
+    @media only screen and (max-width: 669px) {
+      position: relative;
+      align-self: center;
+      order: 2;
+      margin: 8px 0 0 0;
+    }
+  }
 `;
 
 export const SwitchContainer = styled.div<SwitchProps>`
