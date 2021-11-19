@@ -16,8 +16,8 @@ export default function WaldoModeTooltip(props: WaldoModeTooltipProps) {
       ) : (
         <p>
           When "Challenge Mode" is enabled you{' '}
-          <b>need to find every hidden character</b> to complete the selected
-          level!
+          <b>need to find every hidden character</b> (besides Woof) to complete
+          the selected level!
         </p>
       )}
     </Tooltip>
