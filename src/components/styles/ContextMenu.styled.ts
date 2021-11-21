@@ -3,6 +3,7 @@ import { Coords } from '../WaldoGame';
 
 interface MenuProps {
   menuCoords: Coords;
+  mouseCoords: Coords;
 }
 
 export const ContextMenu = styled.div<MenuProps>`
@@ -10,8 +11,12 @@ export const ContextMenu = styled.div<MenuProps>`
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: ${props => props.menuCoords.x + 100 / 2 + 3}px;
     top: ${props => props.menuCoords.y - 150 / 4}px;
+    left: ${props =>
+      props.mouseCoords.x > 750
+        ? props.menuCoords.x - 240 / 2 + 3
+        : props.menuCoords.x + 100 / 2 + 3}px;
+
     color: ${props => props.theme.colors.primary};
     background-color: white;
     padding: ${props => props.theme.sizing.ul.padding};
@@ -22,37 +27,58 @@ export const ContextMenu = styled.div<MenuProps>`
     z-index: 1;
 
     @media only screen and (max-width: 1200px) {
-      left: ${props => props.menuCoords.x + 75 / 2 + 3}px;
+      left: ${props =>
+        props.mouseCoords.x > 750
+          ? props.menuCoords.x - 215 / 2 + 3
+          : props.menuCoords.x + 75 / 2 + 3}px;
       top: ${props => props.menuCoords.y - 125 / 4}px;
     }
 
     @media only screen and (max-width: 1000px) {
-      left: ${props => props.menuCoords.x + 60 / 2 + 3}px;
+      left: ${props =>
+        props.mouseCoords.x > 750
+          ? props.menuCoords.x - 200 / 2 + 3
+          : props.menuCoords.x + 60 / 2 + 3}px;
       top: ${props => props.menuCoords.y - 100 / 4}px;
     }
 
     @media only screen and (max-width: 800px) {
-      left: ${props => props.menuCoords.x + 45 / 2 + 3}px;
+      left: ${props =>
+        props.mouseCoords.x > 750
+          ? props.menuCoords.x - 185 / 2 + 3
+          : props.menuCoords.x + 45 / 2 + 3}px;
       top: ${props => props.menuCoords.y - 75 / 4}px;
     }
 
     @media only screen and (max-width: 600px) {
-      left: ${props => props.menuCoords.x + 35 / 2 + 3}px;
+      left: ${props =>
+        props.mouseCoords.x > 750
+          ? props.menuCoords.x - 175 / 2 + 3
+          : props.menuCoords.x + 35 / 2 + 3}px;
       top: ${props => props.menuCoords.y - 60 / 4}px;
     }
 
     @media only screen and (max-width: 500px) {
-      left: ${props => props.menuCoords.x + 27 / 2 + 3}px;
+      left: ${props =>
+        props.mouseCoords.x > 750
+          ? props.menuCoords.x - 167 / 2 + 3
+          : props.menuCoords.x + 27 / 2 + 3}px;
       top: ${props => props.menuCoords.y - 50 / 4}px;
     }
 
     @media only screen and (max-width: 420px) {
-      left: ${props => props.menuCoords.x + 22 / 2 + 3}px;
+      left: ${props =>
+        props.mouseCoords.x > 650
+          ? props.menuCoords.x - 162 / 2 + 3
+          : props.menuCoords.x + 22 / 2 + 3}px;
       top: ${props => props.menuCoords.y - 45 / 4}px;
     }
 
     @media only screen and (max-width: 300px) {
-      left: ${props => props.menuCoords.x + 12 / 2 + 3}px;
+      left: ${props =>
+        props.mouseCoords.x > 600
+          ? props.menuCoords.x - 152 / 2 + 3
+          : props.menuCoords.x + 12 / 2 + 3}px;
       top: ${props => props.menuCoords.y - 30 / 4}px;
     }
   }

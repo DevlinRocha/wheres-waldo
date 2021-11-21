@@ -172,8 +172,12 @@ export default function WaldoGame(props: GameProps) {
         </PauseScreen>
       )}
       {isContextOpen ? (
-        <ContextMenu menuCoords={menuCoords}>
-          <TargetingBox onClick={handleClick} menuCoords={menuCoords} />
+        <ContextMenu menuCoords={menuCoords} mouseCoords={mouseCoords}>
+          <TargetingBox
+            onClick={handleClick}
+            menuCoords={menuCoords}
+            mouseCoords={mouseCoords}
+          />
           <SelectionMenu
             isContextMenuOpen={isContextOpen}
             setIsContextMenuOpen={setIsContextOpen}
