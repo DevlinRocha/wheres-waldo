@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/wheres-waldo/static/js/main.a1ce0c0f.chunk.js",
-    "main.js.map": "/wheres-waldo/static/js/main.a1ce0c0f.chunk.js.map",
+    "main.js": "/wheres-waldo/static/js/main.e48c0b90.chunk.js",
+    "main.js.map": "/wheres-waldo/static/js/main.e48c0b90.chunk.js.map",
     "runtime-main.js": "/wheres-waldo/static/js/runtime-main.6322256e.js",
     "runtime-main.js.map": "/wheres-waldo/static/js/runtime-main.6322256e.js.map",
     "static/js/2.e241cc0c.chunk.js": "/wheres-waldo/static/js/2.e241cc0c.chunk.js",
@@ -20,6 +20,6 @@
   "entrypoints": [
     "static/js/runtime-main.6322256e.js",
     "static/js/2.e241cc0c.chunk.js",
-    "static/js/main.a1ce0c0f.chunk.js"
+    "static/js/main.e48c0b90.chunk.js"
   ]
 }
