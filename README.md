@@ -1,6 +1,6 @@
 # Where's Waldo?
 
-A full-stack photo tagging web application built with React, TypeScript, React Router and styled-components. Uses Firebase to communicate with the back-end.
+A full-stack photo tagging web application built with React, TypeScript, React Router, styled-components, and uses Firebase to communicate with the back-end.
 
 [Try a live demo here!](https://devlinrocha.github.io/wheres-waldo/) 👈
 
