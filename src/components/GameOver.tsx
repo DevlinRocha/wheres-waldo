@@ -35,25 +35,21 @@ export default function GameOver(props: GameOverProps) {
     });
     const username = usernameRef.current!.value;
 
-    if (props.waldoMode) {
-      try {
+    try {
+      if (props.waldoMode) {
         await addDoc(collection(db, 'Levels', props.level, 'High Scores'), {
           username: username,
           time: props.time,
           waldoMode: true,
         });
-      } catch (e) {
-        console.error('Error adding document: ', e);
-      }
-    } else {
-      try {
+      } else {
         await addDoc(collection(db, 'Levels', props.level, 'High Scores'), {
           username: username,
           time: props.time,
         });
-      } catch (e) {
-        console.error('Error adding document: ', e);
       }
+    } catch (e) {
+      console.error('Error adding document: ', e);
     }
   }
 
