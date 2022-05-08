@@ -4,7 +4,15 @@ A full-stack photo tagging web application built with React, TypeScript, React R
 
 [Try a live demo here!](https://devlinrocha.github.io/wheres-waldo/) 👈
 
-This is an assignment from [The Odin Project](https://www.theodinproject.com/).
+## Instructions
+
+1. Choose between "Waldo Mode" or "Challenge Mode" difficulties.
+   - When "Waldo Mode" is selected only Waldo must be found to complete a level.
+   - When "Challenge Mode" is selected every character hidden on the level must be found to complete it.
+2. Select a level from either the home page or drop down in the navigation bar at the top.
+3. Find all of the hidden characters on the selected level.
+4. Click on the timer to pause the game and click anywhere in the game area to unpause.
+5. If you find everyone, submit a username to save your score.
 
 ## Getting Started
 
@@ -45,20 +53,6 @@ yarn dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser.
-
-## Instructions
-
-1. Choose between "Waldo Mode" or "Challenge Mode" difficulties
-   - When "Waldo Mode" is selected only Waldo must be found to complete a level
-   - When "Challenge Mode" is selected every character hidden on the level must be found to complete it
-
-2. Select a level from either the home page or drop down in the navigation bar at the top
-
-3. Find all of the hidden characters on the selected level
-
-4. Click on the timer to pause the game and click anywhere in the game area to unpause
-
-5. If you find everyone, submit a username to save your score
 
 ## Development
 
