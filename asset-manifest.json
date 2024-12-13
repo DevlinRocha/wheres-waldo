@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.js": "/wheres-waldo/static/js/main.e48c0b90.chunk.js",
-    "main.js.map": "/wheres-waldo/static/js/main.e48c0b90.chunk.js.map",
-    "runtime-main.js": "/wheres-waldo/static/js/runtime-main.6322256e.js",
-    "runtime-main.js.map": "/wheres-waldo/static/js/runtime-main.6322256e.js.map",
-    "static/js/2.e241cc0c.chunk.js": "/wheres-waldo/static/js/2.e241cc0c.chunk.js",
-    "static/js/2.e241cc0c.chunk.js.map": "/wheres-waldo/static/js/2.e241cc0c.chunk.js.map",
-    "index.html": "/wheres-waldo/index.html",
-    "static/js/2.e241cc0c.chunk.js.LICENSE.txt": "/wheres-waldo/static/js/2.e241cc0c.chunk.js.LICENSE.txt",
-    "static/media/CharacterBanner.25ed0c72.png": "/wheres-waldo/static/media/CharacterBanner.25ed0c72.png",
-    "static/media/Odlaw.7f2337c8.png": "/wheres-waldo/static/media/Odlaw.7f2337c8.png",
-    "static/media/Waldo.2a7963c3.png": "/wheres-waldo/static/media/Waldo.2a7963c3.png",
-    "static/media/WaldoFound.80f74ad0.png": "/wheres-waldo/static/media/WaldoFound.80f74ad0.png",
-    "static/media/Wenda.c2c5c953.png": "/wheres-waldo/static/media/Wenda.c2c5c953.png",
-    "static/media/Where'sWaldo.13ab699b.png": "/wheres-waldo/static/media/Where'sWaldo.13ab699b.png",
-    "static/media/WizardWhitebeard.77d677dc.png": "/wheres-waldo/static/media/WizardWhitebeard.77d677dc.png",
-    "static/media/Woof.b5718edf.png": "/wheres-waldo/static/media/Woof.b5718edf.png"
+    "main.js": "/static/js/main.fc29a320.chunk.js",
+    "main.js.map": "/static/js/main.fc29a320.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.91f48c55.js",
+    "runtime-main.js.map": "/static/js/runtime-main.91f48c55.js.map",
+    "static/js/2.fb692819.chunk.js": "/static/js/2.fb692819.chunk.js",
+    "static/js/2.fb692819.chunk.js.map": "/static/js/2.fb692819.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.fb692819.chunk.js.LICENSE.txt": "/static/js/2.fb692819.chunk.js.LICENSE.txt",
+    "static/media/CharacterBanner.25ed0c72.png": "/static/media/CharacterBanner.25ed0c72.png",
+    "static/media/Odlaw.7f2337c8.png": "/static/media/Odlaw.7f2337c8.png",
+    "static/media/Waldo.2a7963c3.png": "/static/media/Waldo.2a7963c3.png",
+    "static/media/WaldoFound.80f74ad0.png": "/static/media/WaldoFound.80f74ad0.png",
+    "static/media/Wenda.c2c5c953.png": "/static/media/Wenda.c2c5c953.png",
+    "static/media/Where'sWaldo.13ab699b.png": "/static/media/Where'sWaldo.13ab699b.png",
+    "static/media/WizardWhitebeard.77d677dc.png": "/static/media/WizardWhitebeard.77d677dc.png",
+    "static/media/Woof.b5718edf.png": "/static/media/Woof.b5718edf.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6322256e.js",
-    "static/js/2.e241cc0c.chunk.js",
-    "static/js/main.e48c0b90.chunk.js"
+    "static/js/runtime-main.91f48c55.js",
+    "static/js/2.fb692819.chunk.js",
+    "static/js/main.fc29a320.chunk.js"
   ]
 }
